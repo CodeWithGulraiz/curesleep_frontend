@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import { Watch, Headphones } from "lucide-react";
 import watchpatImg from "../../assets/images/product.png";
 import sleepbudsImg from "../../assets/images/product2.png";
+import dreamS from "../../assets/images/dreamS.jpeg";
 
+const accentColors = {
+  green: "bg-green-600 hover:bg-green-700",
+  purple: "bg-purple-600 hover:bg-purple-700",
+  pink: "bg-pink-600 hover:bg-pink-700",
+  indigo: "bg-indigo-600 hover:bg-indigo-700",
+};
 const products = [
   {
     id: "watchpad",
@@ -16,8 +23,18 @@ const products = [
     accent: "green",
   },
   {
+    id: "philipsdreamstation",
+    name: "Philips DreamStation",
+    description:
+      "A premium sleep therapy system designed to enhance your sleep quality with gentle airflow control, smart pressure adjustment, and silent operation for all-night comfort.",
+    image: dreamS, // replace with your DreamStation image import
+    gradient: "from-purple-50 via-violet-50 to-pink-50",
+    icon: Headphones,
+    accent: "purple",
+  },
+  {
     id: "sleepbuds",
-    name: "Philips dream station",
+    name: "Sleep Buds",
     description:
       "Engineered for comfort, these smart earbuds track your sleep quality and help you drift into deep rest with soothing sounds.",
     image: sleepbudsImg,
@@ -35,7 +52,8 @@ const Products = () => {
           Explore Our Products
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Smart devices designed to help you sleep better, live healthier, and stay connected effortlessly.
+          Smart devices designed to help you sleep better, live healthier, and
+          stay connected effortlessly.
         </p>
       </div>
 
@@ -50,7 +68,9 @@ const Products = () => {
               <div className="grid md:grid-cols-2 gap-8 items-center p-10">
                 <div>
                   <div className="flex items-center mb-4">
-                    <Icon className={`w-8 h-8 text-${product.accent}-600 mr-3`} />
+                    <Icon
+                      className={`w-8 h-8 text-${product.accent}-600 mr-3`}
+                    />
                     <h3 className="text-2xl font-bold text-gray-800">
                       {product.name}
                     </h3>
@@ -61,9 +81,12 @@ const Products = () => {
 
                   <Link
                     to={`/products/${product.id}/details`}
-                    className={`inline-block bg-${product.accent}-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-${product.accent}-700 transition`}
+                    className={`inline-block text-white px-6 py-3 rounded-xl font-medium transition ${
+                      accentColors[product.accent] ||
+                      "bg-gray-600 hover:bg-gray-700"
+                    }`}
                   >
-                    See Details
+                    Buy Now
                   </Link>
                 </div>
 
