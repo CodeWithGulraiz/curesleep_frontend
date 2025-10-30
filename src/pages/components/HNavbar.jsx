@@ -103,6 +103,12 @@ const HNavbar = () => {
             Services
           </Link>
           <Link
+            className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
+            to="/products"
+          >
+            Products
+          </Link>
+          <Link
             className={`${isScrolled ? "sleep-quiz-button" : "nav-link-h"}`}
             to="/take-quiz"
           >

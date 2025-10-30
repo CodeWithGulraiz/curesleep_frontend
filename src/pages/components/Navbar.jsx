@@ -75,6 +75,9 @@ const Navbar = () => {
           <Link className="nav-link " to="/services">
             services
           </Link>
+          <Link className="nav-link " to="/products">
+            Products
+          </Link>
           <Link className="sleep-quiz-button" to="/take-quiz">
             <span className="sleep-icon">😴</span>
             Take Sleep Quiz

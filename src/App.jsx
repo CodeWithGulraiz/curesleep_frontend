@@ -21,6 +21,8 @@ import ThankYouPage from "./pages/components/ThankYouPage";
 import Diagnoses from "./pages/user/Diagnosis";
 import Treatment from "./pages/user/Treatment";
 import CareTeam from "./pages/user/CareTeam";
+import Products from "./pages/home/Products";
+import ProductDetails from "./pages/components/ProductDetails";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -87,6 +89,34 @@ const App = () => {
               transition={{ duration: 0.4 }}
             >
               <Services />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/products/"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+            >
+              <Products />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/products/:id/details"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+            >
+              <ProductDetails />
             </motion.div>
           }
         />
