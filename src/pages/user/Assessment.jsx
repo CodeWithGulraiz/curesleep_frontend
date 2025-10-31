@@ -896,15 +896,23 @@ const Assessment = () => {
                       <div className="relative flex gap-5">
                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
                           <h3 className="text-white text-xl">Option 1</h3>
-                          <img src={Product} alt="" className="rounded-xl" />
+                          <Link to={`/products/watchpad/details`}>
+                            <img
+                              src={Product}
+                              alt="Product"
+                              className="rounded-xl cursor-pointer"
+                            />
+                          </Link>
                         </div>
                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
                           <h4 className="text-white text-xl">Option 2</h4>
-                          <img
-                            src={Product2}
-                            alt=""
-                            className="rounded-xl rotate-180"
-                          />
+                          <Link to={`/products/sleepImageRing/details`}>
+                            <img
+                              src={Product2}
+                              alt="Product 2"
+                              className="rounded-xl rotate-180 cursor-pointer"
+                            />
+                          </Link>
                         </div>
                       </div>
                     </div>

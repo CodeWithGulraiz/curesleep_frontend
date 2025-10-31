@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCart } from "../../context/CartContext"; // adjust path if needed
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const DRecom = () => {
   const [loading, setLoading] = useState(false);
@@ -90,10 +91,17 @@ const DRecom = () => {
                     <ShoppingCart className="w-5 h-5" />
                     Add to Cart
                   </button>
-                  <button className="w-full bg-slate-700 hover:bg-slate-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                  <Link
+                    to={`/products/${
+                      chip.title.toLowerCase().includes("gem")
+                        ? "sleepImageRing"
+                        : "watchpad"
+                    }/details`}
+                    className="w-full bg-slate-700 hover:bg-slate-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                  >
                     <Info className="w-5 h-5" />
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))

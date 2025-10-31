@@ -1,5 +1,6 @@
 import { CheckCircle, Clock, Shield, PackageCheck } from "lucide-react";
 import Product2 from "../../assets/images/product2.png";
+import { Link } from "react-router-dom";
 
 const DeviceT = () => {
   return (
@@ -24,11 +25,13 @@ const DeviceT = () => {
           {/* Image Right Side */}
           <div className="relative order-1 lg:order-2 rounded-lg">
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl h-64 sm:h-80 lg:h-96 flex items-center justify-center border-none animate-float">
+              <Link to={`/products/product-id/details`}>
               <img
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full cursor-pointer object-cover rounded-xl"
                 src={Product2}
                 alt="Follow Up Support"
               />
+              </Link>
             </div>
           </div>
         </div>

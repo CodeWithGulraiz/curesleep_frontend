@@ -12,11 +12,12 @@ import {
   Headphones,
   Moon,
   Waves,
-  Music2,
   Battery,
+  Heart,
+  Activity,
 } from "lucide-react";
 import watchpatImg from "../../assets/images/product.png";
-import sleepbudsImg from "../../assets/images/product2.png";
+import sleepImageRingImg from "../../assets/images/product2.png";
 import watchPat1 from "../../assets/images/watchPat1.jpg";
 import watchPat2 from "../../assets/images/watchPat2.jpg";
 import watchPat3 from "../../assets/images/watchPat3.jpg";
@@ -30,21 +31,20 @@ import dreamS4 from "../../assets/images/dreamS4.jpeg";
 import dreamS5 from "../../assets/images/dreamS5.jpeg";
 import dreamS6 from "../../assets/images/dreamS6.jpeg";
 import dreamS7 from "../../assets/images/dreamS7.jpeg";
-// import sleepbudsImg from "../../assets/images/product2.png";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const products = {
   watchpad: {
-    name: "WatchPat",
+    name: "WatchPAT®",
     image: watchpatImg,
     extraImages: [watchPat1, watchPat2, watchPat3, watchPat4, watchPat5], // replace with your tracker image
-    price: 120,
+    price: 179,
     heroColor: "from-green-50 via-blue-50 to-purple-50",
     heroIcon: Watch,
     description: `
-      The <strong>WatchPat</strong> is a next-generation wearable designed
+      The <strong>WatchPAT®</strong> is a next-generation wearable designed
       to measure your blood oxygen (SpO₂) and heart rate with medical-grade precision.
       Whether you're training, sleeping, or just living your day — it helps you
       understand your body better and live healthier.
@@ -128,11 +128,11 @@ const products = {
       ["Water Resistance", "IP67 Rated"],
       ["Warranty", "1 Year"],
     ],
-    other: ["sleepbuds", "philipsdreamstation"],
+    other: ["sleepImageRing", "philipsdreamstation"],
   },
   philipsdreamstation: {
     name: "Philips DreamStation",
-    image: dreamS, // main image
+    image: dreamS,
     extraImages: [
       dreamS1,
       dreamS2,
@@ -141,7 +141,7 @@ const products = {
       dreamS5,
       dreamS6,
       dreamS7,
-    ], // replace with your extra images
+    ],
     price: 350,
     heroColor: "from-blue-50 via-indigo-50 to-purple-50",
     heroIcon: Headphones,
@@ -230,102 +230,102 @@ const products = {
       ["Power", "100–240V AC Compatible"],
       ["Warranty", "2 Years"],
     ],
-    other: ["watchpad", "sleepbuds"],
+    other: ["watchpad", "sleepImageRing"],
   },
 
-  sleepbuds: {
-    name: "Philips dream station",
-    image: sleepbudsImg,
-    extraImages: [sleepbudsImg], // replace with your Philips dream station image
-    price: 200,
-    heroColor: "from-blue-50 via-indigo-50 to-purple-50",
-    heroIcon: Headphones,
-    description: `
-      The <strong>Philips dream station</strong> are designed to help you fall asleep faster and
-      wake up refreshed. Ultra-soft and lightweight, these earbuds play calming sounds
-      or connect to your favorite sleep app for an immersive relaxation experience.
-    `,
-    metrics: [
-      {
-        icon: Moon,
-        title: "Sleep Tracking",
-        desc: "Analyzes sleep duration and patterns.",
-      },
-      {
-        icon: Music2,
-        title: "Soothing Sounds",
-        desc: "Built-in white noise and ambient tracks.",
-      },
-      {
-        icon: Waves,
-        title: "Noise Masking",
-        desc: "Blocks out snoring and background noise.",
-      },
-      {
-        icon: Battery,
-        title: "12-Hour Battery",
-        desc: "All-night use with fast USB-C charging.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Safe Fit",
-        desc: "Ergonomic silicone tips for side sleepers.",
-      },
-      {
-        icon: Star,
-        title: "App Connectivity",
-        desc: "Connects to sleep monitoring apps easily.",
-      },
-    ],
-    features: [
-      {
-        icon: Brain,
-        title: "Smart Sleep Analysis",
-        desc: "Tracks light, deep, and REM sleep.",
-      },
-      {
-        icon: Smartphone,
-        title: "Bluetooth 5.3",
-        desc: "Stable connection for uninterrupted audio.",
-      },
-      {
-        icon: Watch,
-        title: "Comfort Design",
-        desc: "Tiny, soft, and pressure-free for side sleepers.",
-      },
-      {
-        icon: Cloud,
-        title: "Auto Sync",
-        desc: "Save and view sleep reports on your phone.",
-      },
-      {
-        icon: Star,
-        title: "Peaceful Rest",
-        desc: "Engineered for relaxation and stress relief.",
-      },
-    ],
-    cautions: [
-      "⚠️ Not recommended for use while swimming.",
-      "⚠️ Avoid listening at high volumes for long periods.",
-      "⚠️ Keep earbuds clean for best comfort and hygiene.",
-    ],
-    benefits: [
-      "Light sleepers needing quiet nights",
-      "People living in noisy environments",
-      "Travelers and shift workers",
-      "Anyone seeking better sleep quality",
-    ],
-    summary: [
-      ["Manufacturer", "DreamSense Labs"],
-      ["Type", "Wireless Sleep Earbuds"],
-      ["Primary Purpose", "Noise Masking & Sleep Tracking"],
-      ["Connectivity", "Bluetooth 5.3 + App"],
-      ["Battery", "12 hours playtime"],
-      ["Charging", "Fast USB-C charging"],
-      ["Material", "Soft medical-grade silicone"],
-    ],
-    other: ["watchpad", "philipsdreamstation"],
-  },
+ sleepImageRing: {
+  name: "SleepImage® Ring",
+  image: sleepImageRingImg,
+  extraImages: [sleepImageRingImg],
+  price: 199,
+  heroColor: "from-blue-50 via-indigo-50 to-purple-50",
+  heroIcon: Moon,
+  description: `
+    The <strong>SleepImage® Ring</strong> is an advanced medical-grade sleep monitoring device
+    that tracks your sleep stages, heart rate, oxygen saturation, and breathing patterns
+    throughout the night — all in a lightweight, comfortable wearable ring.
+  `,
+  metrics: [
+    {
+      icon: Moon,
+      title: "Sleep Quality Index",
+      desc: "Generates a Sleep Quality Score (SQI) using advanced sleep algorithms.",
+    },
+    {
+      icon: Heart,
+      title: "Heart Rate Tracking",
+      desc: "Monitors continuous heart rate during sleep.",
+    },
+    {
+      icon: Activity,
+      title: "Oxygen Saturation",
+      desc: "Tracks blood oxygen (SpO₂) levels for sleep apnea detection.",
+    },
+    {
+      icon: Waves,
+      title: "Breathing Analysis",
+      desc: "Identifies irregular breathing and sleep-disordered patterns.",
+    },
+    {
+      icon: Cloud,
+      title: "Data Sync",
+      desc: "Auto-syncs with the SleepImage® app for detailed sleep reports.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Clinically Validated",
+      desc: "FDA-cleared and validated for sleep study accuracy.",
+    },
+  ],
+  features: [
+    {
+      icon: Brain,
+      title: "AI Sleep Scoring",
+      desc: "Uses advanced AI to classify sleep stages and apnea events.",
+    },
+    {
+      icon: Smartphone,
+      title: "App Dashboard",
+      desc: "Access full analytics, trends, and reports via mobile app.",
+    },
+    {
+      icon: Watch,
+      title: "Comfortable Design",
+      desc: "Lightweight and soft for uninterrupted overnight wear.",
+    },
+    {
+      icon: Battery,
+      title: "Long Battery Life",
+      desc: "Lasts up to 3 nights on a single charge.",
+    },
+    {
+      icon: Star,
+      title: "Research-Grade Data",
+      desc: "Trusted by sleep labs and clinicians worldwide.",
+    },
+  ],
+  cautions: [
+    "⚠️ Not intended for continuous daytime use.",
+    "⚠️ Keep the sensor clean and dry for accurate readings.",
+    "⚠️ Consult a doctor if abnormal sleep data persists.",
+  ],
+  benefits: [
+    "Detects potential sleep apnea risk",
+    "Monitors sleep quality without bulky headgear",
+    "Helps users improve sleep habits through data insights",
+    "Provides clinical-level sleep tracking at home",
+  ],
+  summary: [
+    ["Manufacturer", "SleepImage® (MyCardio LLC)"],
+    ["Type", "Wearable Sleep Monitoring Ring"],
+    ["Primary Purpose", "Sleep Quality & Apnea Detection"],
+    ["Connectivity", "Bluetooth + Mobile App"],
+    ["Battery Life", "Up to 3 nights per charge"],
+    ["Charging", "Magnetic USB charger"],
+    ["Material", "Soft hypoallergenic medical-grade silicone"],
+  ],
+  other: ["watchpad", "philipsdreamstation"],
+},
 };
 
 const ProductDetails = () => {
@@ -338,7 +338,6 @@ const ProductDetails = () => {
     return <h2 className="text-center mt-20 text-2xl">Product not found</h2>;
   }
 
-  // Merge main image + extra ones (if any)
   const allImages = [product.image, ...(product.extraImages || [])];
   const HeroIcon = product.heroIcon;
 
@@ -347,7 +346,6 @@ const ProductDetails = () => {
       <div className="mt-top border"></div>
       <Navbar />
       <div className="bg-white min-h-screen border">
-        {/* HERO */}
         <section
           className={`relative py-20 px-4 bg-gradient-to-br ${product.heroColor}`}
         >
@@ -365,7 +363,7 @@ const ProductDetails = () => {
               />
               <div className="flex items-center gap-4">
                 <p className="text-3xl font-bold text-green-700">
-                  ${product.price} /- only
+                  ${product.price}
                 </p>
                 <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition">
                   Buy Now
@@ -374,14 +372,12 @@ const ProductDetails = () => {
             </div>
 
             <div className="relative">
-              {/* Main Image */}
               <img
                 src={mainImage}
                 alt={product.name}
                 className="w-full rounded-2xl shadow-2xl mb-6 transition-transform duration-300 hover:scale-105"
               />
 
-              {/* Thumbnails (only if extraImages exist) */}
               {product.extraImages && product.extraImages.length > 0 && (
                 <div className="flex gap-4 flex-wrap">
                   {allImages.map((img, index) => (
@@ -403,7 +399,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* METRICS */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -433,7 +428,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* FEATURES */}
         <section className="py-20 px-4 bg-gradient-to-br from-green-50 to-blue-50">
           <div className="max-w-6xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -461,7 +455,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* CAUTIONS */}
         <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
@@ -480,7 +473,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* BENEFITS */}
         <section className="py-20 px-4 bg-gradient-to-br from-green-50 to-blue-50">
           <div className="max-w-5xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -505,7 +497,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* SUMMARY TABLE */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Summary</h2>
@@ -530,7 +521,6 @@ const ProductDetails = () => {
           </div>
         </section>
 
-        {/* WE ALSO SELL */}
         {product.other && product.other.length > 0 && (
           <section className="py-20 px-4 bg-gray-50">
             <div className="max-w-6xl mx-auto text-center">
@@ -544,7 +534,7 @@ const ProductDetails = () => {
                   return (
                     <Link
                       key={otherId}
-                      to={`/products/${otherId}`}
+                      to={`/products/${otherId}/details`}
                       className="inline-block bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6 border border-gray-100"
                     >
                       <img

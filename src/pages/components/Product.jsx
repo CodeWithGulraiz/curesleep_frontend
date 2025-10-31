@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Watch, Headphones } from "lucide-react";
+import { Watch, Headphones, Moon } from "lucide-react";
 import watchpatImg from "../../assets/images/product.png";
-import sleepbudsImg from "../../assets/images/product2.png";
+import sleepImageRingImg from "../../assets/images/product2.png";
 import dreamS from "../../assets/images/dreamS.jpeg";
 
 const accentColors = {
@@ -14,7 +14,7 @@ const accentColors = {
 const products = [
   {
     id: "watchpad",
-    name: "WatchPat",
+    name: "WatchPAT®",
     description:
       "A next-gen smart health tracker that monitors your oxygen levels, sleep patterns, and heart rate — all while you rest.",
     image: watchpatImg,
@@ -33,11 +33,11 @@ const products = [
     accent: "purple",
   },
   {
-    id: "sleepbuds",
-    name: "Sleep Buds",
+    id: "sleepImageRing",
+    name: "SleepImage® Ring",
     description:
-      "Engineered for comfort, these smart earbuds track your sleep quality and help you drift into deep rest with soothing sounds.",
-    image: sleepbudsImg,
+      "A clinically validated smart ring that tracks your sleep quality, oxygen levels, and breathing patterns — giving you accurate insights for better rest.",
+    image: sleepImageRingImg,
     gradient: "from-blue-50 via-indigo-50 to-purple-50",
     icon: Headphones,
     accent: "blue",
