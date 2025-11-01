@@ -41,6 +41,7 @@ const products = {
     image: watchpatImg,
     extraImages: [watchPat1, watchPat2, watchPat3, watchPat4, watchPat5], // replace with your tracker image
     price: 179,
+    priceId: "price_1SOgzcFJmPJDzAR9zGm2ecHj",
     heroColor: "from-green-50 via-blue-50 to-purple-50",
     heroIcon: Watch,
     description: `
@@ -233,106 +234,106 @@ const products = {
     other: ["watchpad", "sleepImageRing"],
   },
 
- sleepImageRing: {
-  name: "SleepImage® Ring",
-  image: sleepImageRingImg,
-  extraImages: [sleepImageRingImg],
-  price: 199,
-  heroColor: "from-blue-50 via-indigo-50 to-purple-50",
-  heroIcon: Moon,
-  description: `
+  sleepImageRing: {
+    name: "SleepImage® Ring",
+    image: sleepImageRingImg,
+    extraImages: [sleepImageRingImg],
+    price: 199,
+    heroColor: "from-blue-50 via-indigo-50 to-purple-50",
+    heroIcon: Moon,
+    description: `
     The <strong>SleepImage® Ring</strong> is an advanced medical-grade sleep monitoring device
     that tracks your sleep stages, heart rate, oxygen saturation, and breathing patterns
     throughout the night — all in a lightweight, comfortable wearable ring.
   `,
-  metrics: [
-    {
-      icon: Moon,
-      title: "Sleep Quality Index",
-      desc: "Generates a Sleep Quality Score (SQI) using advanced sleep algorithms.",
-    },
-    {
-      icon: Heart,
-      title: "Heart Rate Tracking",
-      desc: "Monitors continuous heart rate during sleep.",
-    },
-    {
-      icon: Activity,
-      title: "Oxygen Saturation",
-      desc: "Tracks blood oxygen (SpO₂) levels for sleep apnea detection.",
-    },
-    {
-      icon: Waves,
-      title: "Breathing Analysis",
-      desc: "Identifies irregular breathing and sleep-disordered patterns.",
-    },
-    {
-      icon: Cloud,
-      title: "Data Sync",
-      desc: "Auto-syncs with the SleepImage® app for detailed sleep reports.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Clinically Validated",
-      desc: "FDA-cleared and validated for sleep study accuracy.",
-    },
-  ],
-  features: [
-    {
-      icon: Brain,
-      title: "AI Sleep Scoring",
-      desc: "Uses advanced AI to classify sleep stages and apnea events.",
-    },
-    {
-      icon: Smartphone,
-      title: "App Dashboard",
-      desc: "Access full analytics, trends, and reports via mobile app.",
-    },
-    {
-      icon: Watch,
-      title: "Comfortable Design",
-      desc: "Lightweight and soft for uninterrupted overnight wear.",
-    },
-    {
-      icon: Battery,
-      title: "Long Battery Life",
-      desc: "Lasts up to 3 nights on a single charge.",
-    },
-    {
-      icon: Star,
-      title: "Research-Grade Data",
-      desc: "Trusted by sleep labs and clinicians worldwide.",
-    },
-  ],
-  cautions: [
-    "⚠️ Not intended for continuous daytime use.",
-    "⚠️ Keep the sensor clean and dry for accurate readings.",
-    "⚠️ Consult a doctor if abnormal sleep data persists.",
-  ],
-  benefits: [
-    "Detects potential sleep apnea risk",
-    "Monitors sleep quality without bulky headgear",
-    "Helps users improve sleep habits through data insights",
-    "Provides clinical-level sleep tracking at home",
-  ],
-  summary: [
-    ["Manufacturer", "SleepImage® (MyCardio LLC)"],
-    ["Type", "Wearable Sleep Monitoring Ring"],
-    ["Primary Purpose", "Sleep Quality & Apnea Detection"],
-    ["Connectivity", "Bluetooth + Mobile App"],
-    ["Battery Life", "Up to 3 nights per charge"],
-    ["Charging", "Magnetic USB charger"],
-    ["Material", "Soft hypoallergenic medical-grade silicone"],
-  ],
-  other: ["watchpad", "philipsdreamstation"],
-},
+    metrics: [
+      {
+        icon: Moon,
+        title: "Sleep Quality Index",
+        desc: "Generates a Sleep Quality Score (SQI) using advanced sleep algorithms.",
+      },
+      {
+        icon: Heart,
+        title: "Heart Rate Tracking",
+        desc: "Monitors continuous heart rate during sleep.",
+      },
+      {
+        icon: Activity,
+        title: "Oxygen Saturation",
+        desc: "Tracks blood oxygen (SpO₂) levels for sleep apnea detection.",
+      },
+      {
+        icon: Waves,
+        title: "Breathing Analysis",
+        desc: "Identifies irregular breathing and sleep-disordered patterns.",
+      },
+      {
+        icon: Cloud,
+        title: "Data Sync",
+        desc: "Auto-syncs with the SleepImage® app for detailed sleep reports.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Clinically Validated",
+        desc: "FDA-cleared and validated for sleep study accuracy.",
+      },
+    ],
+    features: [
+      {
+        icon: Brain,
+        title: "AI Sleep Scoring",
+        desc: "Uses advanced AI to classify sleep stages and apnea events.",
+      },
+      {
+        icon: Smartphone,
+        title: "App Dashboard",
+        desc: "Access full analytics, trends, and reports via mobile app.",
+      },
+      {
+        icon: Watch,
+        title: "Comfortable Design",
+        desc: "Lightweight and soft for uninterrupted overnight wear.",
+      },
+      {
+        icon: Battery,
+        title: "Long Battery Life",
+        desc: "Lasts up to 3 nights on a single charge.",
+      },
+      {
+        icon: Star,
+        title: "Research-Grade Data",
+        desc: "Trusted by sleep labs and clinicians worldwide.",
+      },
+    ],
+    cautions: [
+      "⚠️ Not intended for continuous daytime use.",
+      "⚠️ Keep the sensor clean and dry for accurate readings.",
+      "⚠️ Consult a doctor if abnormal sleep data persists.",
+    ],
+    benefits: [
+      "Detects potential sleep apnea risk",
+      "Monitors sleep quality without bulky headgear",
+      "Helps users improve sleep habits through data insights",
+      "Provides clinical-level sleep tracking at home",
+    ],
+    summary: [
+      ["Manufacturer", "SleepImage® (MyCardio LLC)"],
+      ["Type", "Wearable Sleep Monitoring Ring"],
+      ["Primary Purpose", "Sleep Quality & Apnea Detection"],
+      ["Connectivity", "Bluetooth + Mobile App"],
+      ["Battery Life", "Up to 3 nights per charge"],
+      ["Charging", "Magnetic USB charger"],
+      ["Material", "Soft hypoallergenic medical-grade silicone"],
+    ],
+    other: ["watchpad", "philipsdreamstation"],
+  },
 };
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = products[id];
   console.log(products);
-  
+
   const [mainImage, setMainImage] = useState(product ? product.image : "");
   if (!product) {
     return <h2 className="text-center mt-20 text-2xl">Product not found</h2>;
@@ -340,6 +341,25 @@ const ProductDetails = () => {
 
   const allImages = [product.image, ...(product.extraImages || [])];
   const HeroIcon = product.heroIcon;
+
+  const handleCheckout = async (priceId) => {
+    console.log("priceid", priceId);
+    
+    const res = await fetch(
+      "http://localhost:8080/api/v1/stripe/create-checkout-session",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId }),
+      }
+    );
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url; // redirect to Stripe checkout page
+    } else {
+      alert("Error starting checkout");
+    }
+  };
 
   return (
     <>
@@ -365,7 +385,10 @@ const ProductDetails = () => {
                 <p className="text-3xl font-bold text-green-700">
                   ${product.price}
                 </p>
-                <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition">
+                <button
+                  onClick={() => handleCheckout(product.priceId)}
+                  className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition"
+                >
                   Buy Now
                 </button>
               </div>

@@ -23,6 +23,7 @@ import Treatment from "./pages/user/Treatment";
 import CareTeam from "./pages/user/CareTeam";
 import Products from "./pages/home/Products";
 import ProductDetails from "./pages/components/ProductDetails";
+import SuccessPage from "./pages/auth/SuccessPage";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -159,6 +160,20 @@ const App = () => {
               transition={{ duration: 0.4 }}
             >
               <Assessment />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+            >
+              <SuccessPage />
             </motion.div>
           }
         />

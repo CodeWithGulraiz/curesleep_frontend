@@ -864,7 +864,7 @@ const Assessment = () => {
                 </div>
 
                 <div className="text-center space-y-4">
-                  <h2 className="text-white text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight">
+                  <h2 className="text-white text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text leading-tight">
                     Quiz Results Ready
                   </h2>
                   <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
