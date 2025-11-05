@@ -102,12 +102,47 @@ const HNavbar = () => {
           >
             Services
           </Link>
+          <div
+          className="relative"
+          onClick={(prev) => setIsProductsOpen(!prev)}
+        >
           <Link
             className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
             to="/products"
           >
-            Products
+            Products   <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition" />
           </Link>
+
+          {/* Dropdown menu */}
+          {isProductsOpen && (
+            <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-60 py-2 border border-gray-100 z-50">
+              <Link
+                to="/category/testing-machines"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Testing Machines
+              </Link>
+              <Link
+                to="/category/cpap-machines"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                CPAP Machines
+              </Link>
+              <Link
+                to="/category/masks"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Masks
+              </Link>
+              <Link
+                to="/category/accessories"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Accessories
+              </Link>
+            </div>
+          )}
+        </div>
           <Link
             className={`${isScrolled ? "sleep-quiz-button" : "nav-link-h"}`}
             to="/take-quiz"

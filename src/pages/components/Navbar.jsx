@@ -6,11 +6,13 @@ import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
 import { useCart } from "../../context/CartContext";
+import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
@@ -75,9 +77,49 @@ const Navbar = () => {
           <Link className="nav-link " to="/services">
             services
           </Link>
-          <Link className="nav-link " to="/products">
-            Products
+         <div
+          className="relative"
+          
+          onMouseEnter={() => setIsProductsOpen((prev) => !prev)}
+          onMouseLeave={() => setIsProductsOpen((prev) => !prev)}
+        >
+          <Link
+            className="nav-link flex justify-between gap-1 items-center text-gray-700 hover:text-blue-600 transition cursor-pointer"
+            to="/categories"
+          >
+            Products   <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition" />
           </Link>
+
+          {/* Dropdown menu */}
+          {isProductsOpen && (
+            <div className="absolute left-0 mt-0 bg-white shadow-lg rounded-lg w-60 py-2 border border-gray-100 z-50">
+              <Link
+                to="/category/testing-machines"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Testing Machines
+              </Link>
+              <Link
+                to="/category/cpap-machines"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                CPAP Machines
+              </Link>
+              <Link
+                to="/category/masks"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Masks
+              </Link>
+              <Link
+                to="/category/accessories"
+                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+              >
+                Accessories
+              </Link>
+            </div>
+          )}
+        </div>
           <Link className="sleep-quiz-button" to="/take-quiz">
             <span className="sleep-icon">😴</span>
             Take Sleep Quiz
@@ -139,6 +181,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <div className="mt-bottom"></div>
     </>
   );
 };

@@ -24,6 +24,7 @@ import CareTeam from "./pages/user/CareTeam";
 import Products from "./pages/home/Products";
 import ProductDetails from "./pages/components/ProductDetails";
 import SuccessPage from "./pages/auth/SuccessPage";
+import Categories from "./pages/components/Categories";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -94,7 +95,21 @@ const App = () => {
           }
         />
         <Route
-          path="/products/"
+          path="/categories/"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+            >
+              <Categories />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/category/:id/"
           element={
             <motion.div
               variants={pageVariants}
