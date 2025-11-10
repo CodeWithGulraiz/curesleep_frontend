@@ -94,13 +94,13 @@ const Navbar = () => {
           {isProductsOpen && (
             <div className="absolute left-0 mt-0 bg-white shadow-lg rounded-lg w-60 py-2 border border-gray-100 z-50">
               <Link
-                to="/category/testing-machines"
+                to="/category/testing"
                 className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
                 Testing Machines
               </Link>
               <Link
-                to="/category/cpap-machines"
+                to="/category/cpap"
                 className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
                 CPAP Machines

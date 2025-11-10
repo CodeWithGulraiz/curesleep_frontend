@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import Login from "./pages/auth/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword";
@@ -31,7 +31,17 @@ const pageVariants = {
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 },
 };
-
+const AnimatedPage = ({ children }) => (
+  <motion
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={{ duration: 0.4 }}
+  >
+    {children}
+    </motion>
+);
 const App = () => {
   const location = useLocation();
 
@@ -41,314 +51,209 @@ const App = () => {
         <Route
           path="/"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+
               <Home />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/about"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+
               <AboutUs />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/contact"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <ContactUs />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/services"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <Services />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/categories/"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <Categories />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/category/:id/"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <Products />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
-          path="/products/:id/details"
+          path="/category/:id/details"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <ProductDetails />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/cart"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <Cart />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/take-quiz"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <SleepQuiz />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/assessment"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <Assessment />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/success"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <SuccessPage />
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/login"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PublicRoute>
                 <Login />
               </PublicRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/verify/:token"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PublicRoute>
                 <VerifyEmail />
               </PublicRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
 
         {/* <Route
           path="/register"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
+            </AnimatedPage>
               <PublicRoute>
                 <Register />
               </PublicRoute>
-            </motion.div>
           }
         /> */}
         <Route
           path="/forgot-password"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PublicRoute>
                 <ForgotPassword />
               </PublicRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/reset-password-user/:token"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PublicRoute>
                 <ResetPassword />
               </PublicRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/dashboard/user"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/dashboard/user/diagnosis"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PrivateRoute>
                 <Diagnoses />
               </PrivateRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/dashboard/user/treatment"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PrivateRoute>
                 <Treatment />
               </PrivateRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="/dashboard/user/care-team"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <PrivateRoute>
                 <CareTeam />
               </PrivateRoute>
-            </motion.div>
+            </AnimatedPage>
           }
         />
         <Route
           path="*"
           element={
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-            >
+            <AnimatedPage>
+              
               <NotFound />
-            </motion.div>
+            </AnimatedPage>
           }
         />
       </Routes>

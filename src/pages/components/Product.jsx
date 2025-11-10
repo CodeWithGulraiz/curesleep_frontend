@@ -221,7 +221,7 @@ const Products = () => {
           return (
             <Link
               key={product.id}
-              to={`/categories/${id}/details`}
+              to={`/category/${id}/details`}
               className={`relative bg-gradient-to-br ${product.gradient} rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)] transition-all overflow-hidden border border-gray-100 group`}
             >
               <div className="grid md:grid-cols-2 gap-8 items-center p-10">

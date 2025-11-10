@@ -621,6 +621,7 @@ import dreamS6 from "../../assets/images/dreamS6.jpeg";
 import dreamS7 from "../../assets/images/dreamS7.jpeg";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const products = {
   watchpad: {
@@ -759,6 +760,7 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
 };
 
 const ProductDetails = () => {
+    const navigate = useNavigate();
   const id = "watchpad";
   const product = products[id];
   
@@ -793,7 +795,7 @@ const ProductDetails = () => {
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <span className="hover:text-green-600 cursor-pointer">Home</span>
             <span>/</span>
-            <span className="hover:text-green-600 cursor-pointer">Products</span>
+            <span onClick={() => navigate("/categories")} className="hover:text-green-600 cursor-pointer">Category</span>
             <span>/</span>
             <span className="text-gray-900 font-medium">{product.name}</span>
           </div>

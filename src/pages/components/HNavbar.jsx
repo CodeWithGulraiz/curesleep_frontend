@@ -7,12 +7,14 @@ import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
 import { useCart } from "../../context/CartContext";
+import { ChevronDown } from "lucide-react";
 
 const HNavbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const openMenu = () => setIsMenuOpen(true);
@@ -104,11 +106,12 @@ const HNavbar = () => {
           </Link>
           <div
           className="relative"
-          onClick={(prev) => setIsProductsOpen(!prev)}
+          onMouseEnter={() => setIsProductsOpen((prev) => !prev)}
+          onMouseLeave={() => setIsProductsOpen((prev) => !prev)}
         >
           <Link
-            className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
-            to="/products"
+            className={`flex items-center gap-2 ${isScrolled ? "nav-link" : "nav-link-h"}`}
+            to="/categories"
           >
             Products   <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition" />
           </Link>
@@ -117,13 +120,13 @@ const HNavbar = () => {
           {isProductsOpen && (
             <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-60 py-2 border border-gray-100 z-50">
               <Link
-                to="/category/testing-machines"
+                to="/category/testing"
                 className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
                 Testing Machines
               </Link>
               <Link
-                to="/category/cpap-machines"
+                to="/category/cpap"
                 className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
                 CPAP Machines
