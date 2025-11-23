@@ -100,10 +100,10 @@ const Navbar = () => {
                 Testing Machines
               </Link>
               <Link
-                to="/category/cpap"
+                to="/category/CPAP"
                 className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
-                CPAP Machines
+                Auto CPAP Machines
               </Link>
               <Link
                 to="/category/masks"

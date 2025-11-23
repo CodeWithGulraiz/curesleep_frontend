@@ -94,7 +94,7 @@ const App = () => {
           }
         />
         <Route
-          path="/category/:id/"
+          path="/category/:categoryName/"
           element={
             <AnimatedPage>
               
@@ -103,7 +103,7 @@ const App = () => {
           }
         />
         <Route
-          path="/category/:id/details"
+          path="/category/:categoryName/:productId/details/"
           element={
             <AnimatedPage>
               

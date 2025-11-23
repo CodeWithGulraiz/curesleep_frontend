@@ -25,13 +25,13 @@ const categories = [
     link: "/category/testing",
   },
   {
-    name: "CPAP Machines",
+    name: "Auto CPAP Machines",
     description:
       "Reliable Continuous Positive Airway Pressure systems designed to improve breathing and ensure uninterrupted sleep.",
     image: cpapImg,
     gradient: "from-green-50 via-teal-50 to-blue-50",
     accent: "green",
-    link: "/category/cpap",
+    link: "/category/CPAP",
   },
   {
     name: "Masks",
@@ -57,7 +57,7 @@ const Categories = () => {
   return (<>
   <Navbar/>
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-24 px-6">
-      <div className="max-w-7xl mx-auto text-center mb-16">
+      {/* <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           Explore Our Categories
         </h2>
@@ -66,7 +66,7 @@ const Categories = () => {
           effective therapy, and improved breathing for sleep apnea and related
           disorders.
         </p>
-      </div>
+      </div> */}
 
       <div className="grid md:grid-cols-2 gap-12 max-w-[90rem] mx-auto">
         {categories.map((category, index) => (
@@ -90,7 +90,7 @@ const Categories = () => {
                     "bg-gray-600 hover:bg-gray-700"
                   }`}
                 >
-                  Explore
+                  View Collections
                 </Link>
               </div>
 
