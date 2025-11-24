@@ -40,6 +40,9 @@ import {
   Box,
   Feather,
   Shirt,
+  Wrench,
+  Settings,
+  Brush,
 } from "lucide-react";
 import watchpatImg from "../../assets/images/product.png";
 import sleepImageRingImg from "../../assets/images/product2.png";
@@ -106,6 +109,16 @@ import snp3 from "../../assets/images/snp3.webp";
 import nm1 from "../../assets/images/nm1.webp";
 import nm2 from "../../assets/images/nm2.webp";
 import nm3 from "../../assets/images/nm3.webp";
+import dps1 from "../../assets/images/dps1.webp";
+import dps2 from "../../assets/images/dps2.webp";
+import dps3 from "../../assets/images/dps3.webp";
+import e1 from "../../assets/images/e1.webp";
+import e2 from "../../assets/images/e2.webp";
+import e3 from "../../assets/images/e3.webp";
+import n30a1 from "../../assets/images/n30a1.webp";
+import n30a2 from "../../assets/images/n30a2.webp";
+import p10n1 from "../../assets/images/p10n1.jpg";
+import p10n2 from "../../assets/images/p10n2.jpg";
 import p10h1 from "../../assets/images/p10h1.webp";
 import p10h2 from "../../assets/images/p10h2.webp";
 import p10h3 from "../../assets/images/p10h3.webp";
@@ -2898,7 +2911,7 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     name: "AirFit N30i Nasal Cradle CPAP Mask",
     category: "Mask",
     image: n30i1,
-    extraImages: [n30i2, n30i3,],
+    extraImages: [n30i2, n30i3],
     price: 154,
     priceId: "price_airfit_n30i",
     rating: 5,
@@ -2963,10 +2976,7 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     name: "Solo Nasal Pillow CPAP Mask",
     category: "Mask",
     image: snp1,
-    extraImages: [
-      snp2,
-      snp3,
-    ],
+    extraImages: [snp2, snp3],
     price: 170,
     priceId: "price_solo_nasal_pillow",
     rating: 5,
@@ -3096,8 +3106,7 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     name: "DreamWear Nasal CPAP Mask",
     category: "Mask",
     image: dun1,
-    extraImages: [
-    ],
+    extraImages: [],
     price: 120,
     priceId: "price_dreamwear_nasal",
     rating: 5,
@@ -3226,13 +3235,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "airfit-p10-airmini",
     name: "AirFit P10 for AirMini Nasal Pillow Mask",
     category: "Mask",
-    image: airfitP10AirminiImg,
-    extraImages: [
-      airfitP10Airmini1,
-      airfitP10Airmini2,
-      airfitP10Airmini3,
-      airfitP10Airmini4,
-    ],
+    image: p10n1,
+    extraImages: [p10n2],
     price: 220,
     priceId: "price_airfit_p10_airmini",
     rating: 5,
@@ -3296,13 +3300,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "dreamwear-silicone-pillows",
     name: "DreamWear Silicone Pillows FitPack",
     category: "Mask",
-    image: dreamwearSiliconePillowsImg,
-    extraImages: [
-      dreamwearSiliconePillows1,
-      dreamwearSiliconePillows2,
-      dreamwearSiliconePillows3,
-      dreamwearSiliconePillows4,
-    ],
+    image: dps1,
+    extraImages: [dps2, dps3],
     price: 120,
     priceId: "price_dreamwear_silicone_pillows",
     rating: 5,
@@ -3366,13 +3365,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "airfit-n30-airmini",
     name: "AirFit N30 for AirMini Mask Pack",
     category: "Mask",
-    image: airfitN30AirminiImg,
-    extraImages: [
-      airfitN30Airmini1,
-      airfitN30Airmini2,
-      airfitN30Airmini3,
-      airfitN30Airmini4,
-    ],
+    image: n30a1,
+    extraImages: [n30a2],
     price: 220,
     priceId: "price_airfit_n30_airmini",
     rating: 5,
@@ -3437,8 +3431,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "evora-nasal-mask",
     name: "Evora Nasal CPAP Mask",
     category: "Mask",
-    image: evoraImg,
-    extraImages: [evora1, evora2, evora3, evora4],
+    image: e1,
+    extraImages: [e2, e3],
     price: 170,
     priceId: "price_evora",
     rating: 5,
@@ -3498,6 +3492,71 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     ],
     reviews: [],
     other: ["airfit-n30", "dreamwear-nasal", "airfit-p10"],
+  },
+  novaMicromask: {
+    id: "nova-micro-nasal-pillow-mask",
+    name: "Nova Micro Nasal Pillow CPAP Mask",
+    category: "Mask",
+    image: nm1,
+    extraImages: [nm2, nm3],
+    price: 150,
+    priceId: "price_nova_micro",
+    rating: 0,
+    reviewCount: 0,
+    inStock: true,
+    description:
+      "Ultra-lightweight nasal pillow mask with soft MicroPillows™ cushion and minimal facial contact for a stable, low-profile fit.",
+    longDescription:
+      "The Nova Micro Nasal Pillow Mask by Fisher & Paykel is designed to provide a barely-there feel with its ultra-compact design. Weighing less than 40 grams (1.4 oz), the mask offers minimal contact with your face but doesn’t sacrifice performance. The soft MicroPillows™ cushion gently nestles into the nostrils and adapts to your shape when inflated, creating a secure and comfortable seal. Its frame sits close to the face for stability and allows freedom of movement, making it suitable for various sleep positions. Dual-sided adjustment tabs on the headgear make fitting easy, and the minimal parts design means quick assembly and simple daily cleaning. This mask gives you an open field of vision, ideal for reading, watching TV, or using glasses before sleep.",
+    metrics: [
+      {
+        icon: Feather, // (just a conceptual icon name)
+        title: "Ultra-Lightweight",
+        desc: "Weighs under 40 g (1.4 oz) for a barely-there feel.", // :contentReference[oaicite:3]{index=3}
+      },
+      {
+        icon: Feather,
+        title: "MicroPillows Cushion",
+        desc: "Soft, adaptive pillows inflate to gently seal the nostrils.", // :contentReference[oaicite:4]{index=4}
+      },
+      {
+        icon: Wrench,
+        title: "Easy Fit Adjustment",
+        desc: "Dual-sided velcro tabs allow quick, personalized headgear fitting.", // :contentReference[oaicite:5]{index=5}
+      },
+      {
+        icon: Settings,
+        title: "Stable Seal",
+        desc: "Flexible pillows maintain a secure seal even when you move.", // :contentReference[oaicite:6]{index=6}
+      },
+      {
+        icon: Eye,
+        title: "Low Profile Design",
+        desc: "Compact mask frame gives you clear field of view.", // :contentReference[oaicite:7]{index=7}
+      },
+      {
+        icon: Brush,
+        title: "Simple Maintenance",
+        desc: "Minimal parts for faster cleaning and easy daily upkeep.", // :contentReference[oaicite:8]{index=8}
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "Fisher & Paykel"],
+      ["Model", "Nova Micro"],
+      ["Type", "Nasal Pillow Mask"],
+      ["Weight", "Less than 40 g (1.4 oz)"],
+      ["Cushion Type", "MicroPillows™ (silicone)"],
+      ["Cushion Sizes", "Small, Medium, Large"],
+      ["Headgear", "One-size, dual-side adjustment"],
+      ["Frame Parts", "Minimal 3-part design (headgear, frame, short tube)"],
+      ["Noise Level", "21.4 dBA"],
+      ["Compatibility", "Most CPAP machines (standard tubing)"],
+      ["Cleaning", "Daily with mild soap and water"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      ["Best For", "Minimalists, side sleepers, low-contact users"],
+    ],
+    reviews: [],
+    other: ["airfit-p10", "brevida", "nova-nasal"],
   },
 };
 
