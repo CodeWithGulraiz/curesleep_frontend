@@ -21,6 +21,20 @@ import filtersImg from "../../assets/images/Filters1.jpg";
 import dcPowerImg from "../../assets/images/DS_shielded_DC_cord_RGBLo_Web.png";
 import connectorCableImg from "../../assets/images/DreamStation-2-DC-OUT-CABLE-600px.jpg";
 import dreamWispImg from "../../assets/images/DWArms.jpg";
+import air11cpapP1 from "../../assets/images/air11cpapP1.webp";
+import a11ih1 from "../../assets/images/11ih1.webp";
+import F401 from "../../assets/images/F401.webp";
+import airfitf30her from "../../assets/images/resmed_airfit_f20_for_her.jpg";
+import airfitf30i from "../../assets/images/Airfit_F30i.jpg";
+import airfitf30 from "../../assets/images/Airfit_F30.jpg";
+import dw1 from "../../assets/images/dw1.webp";
+import airtouchf20 from "../../assets/images/airtouch-F20.jpg";
+import airfitf20 from "../../assets/images/resmed_airfit_f20_cushion.jpg";
+import a10cp1 from "../../assets/images/10cp1.webp";
+import a11a1 from "../../assets/images/11a1.webp";
+import s101 from "../../assets/images/s101.avif";
+import her1 from "../../assets/images/her2.avif";
+
 
 const accentColors = {
   green: "bg-green-600 hover:bg-green-700",
@@ -107,6 +121,17 @@ const allProducts = [
     icon: Activity,
     accent: "blue",
   },
+  {
+  id: "airfitf20",
+  category: "masks",
+  name: "AirFit F20 Full Face Mask",
+  description:
+    "ResMed's most popular full face mask with InfinitySeal cushion, magnetic clips, and QuietAir technology for peaceful sleep.",
+  image: airfitf20,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
   {
     id: "dreamStationBiPAPAutoPackage",
     category: "CPAP",
@@ -238,7 +263,161 @@ const allProducts = [
     gradient: "from-pink-50 via-rose-50 to-purple-50",
     icon: Activity,
     accent: "pink",
-  }
+  },
+  {
+  id: "airsense11autoset",
+  category: "CPAP",
+  name: "AirSense 11 AutoSet CPAP Package",
+  description:
+    "ResMed's latest auto-adjusting CPAP with advanced therapy algorithms, touchscreen display, and integrated humidifier for optimal comfort.",
+  image: air11cpapP1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense11autosetpackage",
+  category: "CPAP",
+  name: "AirSense 11 AutoSet CPAP Package",
+  description:
+    "Complete package with AirSense 11 AutoSet, mask, heated tubing, filters, and supplies for immediate therapy.",
+  image: a11ih1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense10autosether",
+  category: "CPAP",
+  name: "AirSense 10 AutoSet for Her",
+  description:
+    "Specially designed CPAP for women with AutoSet for Her algorithm, providing gentler pressure adjustments tailored to female physiology.",
+  image: her1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "resmedplatinumair",
+  category: "CPAP",
+  name: "ResMed Platinum Air CPAP Package",
+  description:
+    "Premium all-inclusive CPAP package with advanced machine, premium mask, heated tubing, and comprehensive accessories.",
+  image: s101,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense11airminiplatinum",
+  category: "CPAP",
+  name: "AirSense 11 & AirMini Platinum Package",
+  description:
+    "Ultimate dual-machine package: full-size AirSense 11 for home and ultra-portable AirMini for travel.",
+  image: a11a1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense10autoset",
+  category: "CPAP",
+  name: "AirSense 10 AutoSet CPAP",
+  description:
+    "Proven auto-adjusting CPAP with integrated humidifier and clinically-validated AutoSet algorithm for effective therapy.",
+  image: a10cp1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense11autosetstandalone",
+  category: "CPAP",
+  name: "AirSense 11 AutoSet with Humidifier",
+  description:
+    "Latest generation CPAP with intuitive touchscreen, integrated humidifier, and advanced AutoSet technology.",
+  image: a11ih1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airsense10package",
+  category: "CPAP",
+  name: "AirSense 10 Auto CPAP Package",
+  description:
+    "Complete therapy package with AirSense 10 machine, mask, heated tubing, filters, and cleaning supplies.",
+  image: a10cp1,
+  gradient: "from-purple-50 via-violet-50 to-pink-50",
+  icon: Moon,
+  accent: "purple",
+},
+{
+  id: "airtouchf20",
+  category: "masks",
+  name: "AirTouch F20 Memory Foam Mask",
+  description:
+    "Revolutionary UltraSoft memory foam cushion that breathes and adapts to facial contours for exceptional comfort.",
+  image: airtouchf20,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
+{
+  id: "dreamwearfullface",
+  category: "masks",
+  name: "DreamWear Full Face CPAP Mask",
+  description:
+    "Innovative mask with top-of-head hose connection for ultimate freedom of movement and minimal facial contact.",
+  image: dw1,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
+{
+  id: "airfitf30",
+  category: "masks",
+  name: "AirFit F30 Full Face Mask",
+  description:
+    "Compact full face mask with under-nose cushion design that eliminates nasal bridge pressure and red marks.",
+  image: airfitf30,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
+{
+  id: "airfitf30i",
+  category: "masks",
+  name: "AirFit F30i Full Face Mask",
+  description:
+    "Full face mask with top-of-head tube connection and under-nose cushion for maximum comfort and sleeping freedom.",
+  image: airfitf30i,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
+{
+  id: "airfitf20her",
+  category: "masks",
+  name: "AirFit F20 for Her",
+  description:
+    "Women-specific full face mask with elegant lavender design, smaller sizes, and InfinitySeal cushion technology.",
+  image: airfitf30her,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
+{
+  id: "airfitf30small",
+  category: "masks",
+  name: "AirFit F30 Small",
+  description:
+    "Compact full face mask in small size with under-nose design, perfect for petite facial features and maximum comfort.",
+  image: F401,
+  gradient: "from-indigo-50 via-blue-50 to-purple-50",
+  icon: Activity,
+  accent: "blue",
+},
 ];
 
 const Products = () => {
