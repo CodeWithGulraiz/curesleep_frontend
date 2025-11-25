@@ -43,6 +43,8 @@ import {
   Wrench,
   Settings,
   Brush,
+  Magnet,
+  CircleDot,
 } from "lucide-react";
 import watchpatImg from "../../assets/images/product.png";
 import sleepImageRingImg from "../../assets/images/product2.png";
@@ -50,7 +52,6 @@ import watchPat1 from "../../assets/images/watchPat1.jpg";
 import watchPat2 from "../../assets/images/watchPat2.jpg";
 import watchPat3 from "../../assets/images/watchPat3.jpg";
 import watchPat4 from "../../assets/images/watchPat4.jpg";
-// import watchPat5 from "../../assets/images/watchPat5.jpg";
 import dreamS from "../../assets/images/dreamS.jpeg";
 import dreamS1 from "../../assets/images/dreamS1.jpg";
 import dreamS2 from "../../assets/images/dreamS2.jpg";
@@ -78,6 +79,20 @@ import dreamWearMaskImg from "../../assets/images/DWArms.jpg";
 
 import air11cpapP1 from "../../assets/images/air11cpapP1.webp";
 import air11cpapP2 from "../../assets/images/air11cpapP2.webp";
+import tn30i1 from "../../assets/images/tn30i1.webp";
+import tn30i2 from "../../assets/images/tn30i2.avif";
+import tn30i3 from "../../assets/images/tn30i3.webp";
+import tn201 from "../../assets/images/tn201.webp";
+import tn202 from "../../assets/images/tn202.webp";
+import tn203 from "../../assets/images/tn203.webp";
+import n20h1 from "../../assets/images/n20h1.webp";
+import n20h2 from "../../assets/images/n20h2.webp";
+import n201 from "../../assets/images/n201.jpg";
+import n202 from "../../assets/images/n202.webp";
+import n203 from "../../assets/images/n203.webp";
+import w1 from "../../assets/images/w1.avif";
+import w2 from "../../assets/images/w2.jpg";
+import w3 from "../../assets/images/w3.jpg";
 import a10cp1 from "../../assets/images/10cp1.webp";
 import a10cp2 from "../../assets/images/10cp2.avif";
 import a10cp3 from "../../assets/images/10cp3.avif";
@@ -3558,13 +3573,14 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     reviews: [],
     other: ["airfit-p10", "brevida", "nova-nasal"],
   },
+
   wisp: {
     id: "wisp-nasal-mask",
     name: "Wisp Nasal CPAP Mask",
     category: "Mask",
-    image: wisp1,
-    extraImages: [wisp2, wisp3],
-    price: 170,
+    image: w1,
+    extraImages: [w2, w3],
+    price: 115,
     priceId: "price_wisp",
     rating: 0,
     reviewCount: 1,
@@ -3628,8 +3644,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     name: "AirFit N20 Nasal Mask for Her",
     category: "Mask",
     image: n20h1,
-    extraImages: [n20h2, n20h3],
-    price: 190,
+    extraImages: [n20h2],
+    price: 140,
     priceId: "price_airfit_n20_her",
     rating: 0,
     reviewCount: 1,
@@ -3691,9 +3707,9 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "airtouch-n30i",
     name: "AirTouch N30i Nasal CPAP Mask",
     category: "Mask",
-    image: n30i1,
-    extraImages: [n30i2, n30i3],
-    price: 200,
+    image: tn30i1,
+    extraImages: [tn30i2, tn30i3],
+    price: 186,
     priceId: "price_airtouch_n30i",
     rating: 0,
     reviewCount: 3,
@@ -3759,8 +3775,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "airtouch-n20",
     name: "AirTouch N20 Nasal CPAP Mask",
     category: "Mask",
-    image: atn20_1,
-    extraImages: [atn20_2, atn20_3],
+    image: tn201,
+    extraImages: [tn202, tn203],
     price: 195,
     priceId: "price_airtouch_n20",
     rating: 0,
@@ -3823,8 +3839,8 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     id: "airfit-n20",
     name: "AirFit N20 Nasal CPAP Mask",
     category: "Mask",
-    image: n20_1,
-    extraImages: [n20_2, n20_3],
+    image: n201,
+    extraImages: [n202, n203],
     price: 185,
     priceId: "price_airfit_n20",
     rating: 0,
@@ -3883,6 +3899,413 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     reviews: [],
     other: ["airtouch-n20", "airfit-n20-for-her", "dreamwisp"],
   },
+transcendMicroBattery: {
+  id: "transcend-micro-poweraway-battery",
+  name: "Transcend Micro PowerAway™ Battery",
+  category: "accessories",
+  image: tmpb1,
+  extraImages: [tmpb2, tmpb3],
+  price: 490,
+  priceId: "price_transcend_battery",
+  rating: 0,
+  reviewCount: 0,
+  inStock: false,
+  description:
+    "One of the smallest and lightest CPAP batteries available, designed exclusively for the Transcend Micro with over 2 nights of use on a single charge.",
+  longDescription:
+    "Experience the ultimate in travel convenience with the Transcend Micro PowerAway Battery, one of the smallest and lightest CPAP batteries available. Designed exclusively for the Transcend Micro CPAP machine—the smallest, lightest and quietest travel CPAP on the market—this battery ensures that your sleep therapy continues seamlessly, no matter where life takes you. At just 1.0 lb and 23 cubic inches, it delivers over 2 nights of use (17.5 hours) on a single charge despite its compact size. The battery recharges in less than 4 hours and offers an extended lifespan of over 1000 cycles, double that of other CPAP batteries. It can be used as a backup power source during power outages or as a portable solution for camping, flights, and remote locations. The 4-stage charge level indicator keeps you informed of remaining power.",
+  metrics: [
+    {
+      icon: Feather,
+      title: "Ultra-Lightweight",
+      desc: "Weighs just 1.0 lb (16.7 oz), one of the lightest CPAP batteries available.",
+    },
+    {
+      icon: Battery,
+      title: "Multiple Nights",
+      desc: "Delivers over 2 nights of use (17.5 hours) on a single charge.",
+    },
+    {
+      icon: Zap,
+      title: "Quick Charge",
+      desc: "Fully recharges in less than 4 hours for rapid turnaround.",
+    },
+    {
+      icon: Shield,
+      title: "Extended Lifespan",
+      desc: "Over 1000 charge cycles—double the lifespan of other CPAP batteries.",
+    },
+    {
+      icon: Settings,
+      title: "Perfect Fit",
+      desc: "Specifically designed for use with the Transcend Micro™ CPAP machine.",
+    },
+    {
+      icon: Gauge,
+      title: "Power Gauge",
+      desc: "4-stage charge level indicator lights keep you informed.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "Somnetics (Transcend)"],
+    ["Model", "PowerAway™ Battery"],
+    ["Type", "Portable CPAP Battery"],
+    ["Weight", "1.0 lbs (16.7 oz)"],
+    ["Dimensions", "4.8 x 5.2 x 1.3 inches"],
+    ["Size", "23 cubic inches"],
+    ["Charge Capacity", "71Wh"],
+    ["Power Cell Type", "LG rechargeable lithium-ion cells"],
+    ["Runtime", "17.5+ hours (2+ nights)"],
+    ["Rated Output", "DC 14.8V, 2.7A"],
+    ["Recharge Time", "Less than 4 hours"],
+    ["Life Span", "Over 1,000 full charge/discharge cycles"],
+    ["Compatibility", "Transcend Micro CPAP only"],
+    ["Warranty", "1 year"],
+    ["Note", "Power supply not included (use Transcend Micro supply)"],
+  ],
+  reviews: [],
+  other: ["transcend-micro", "transcend-power-bundle", "pilot-24-lite"],
+},
+platinumPackage: {
+  id: "airsense-11-airmini-platinum-package",
+  name: "AirSense 11 + AirMini Platinum Package",
+  category: "accessories",
+  image: plat1,
+  extraImages: [plat2, plat3],
+  price: 2999,
+  priceId: "price_platinum_package",
+  rating: 0,
+  reviewCount: 1,
+  inStock: false,
+  description:
+    "Complete CPAP solution combining ResMed's AirSense 11 Auto for home use and ultra-portable AirMini for travel, with masks and accessories included.",
+  longDescription:
+    "The ResMed Platinum Package combines the best of both worlds—state-of-the-art therapy at home AND on the road. This comprehensive bundle includes the AirSense 11 Auto with ClimateLineAir heated tubing for advanced home therapy, plus the AirMini Travel CPAP—one of the smallest portable CPAPs on the market. The AirSense 11 features auto-adjusting pressure, sleep onset detection, expiratory pressure relief (EPR), and myAir app connectivity for personalized coaching and sleep reports. The AirMini weighs less than a pound, features HumidX™ waterless humidification, and connects via Bluetooth to the AirMini app for convenient control. Choose from compatible ResMed masks (AirFit P10, N20, F20, F30) with appropriate setup packs. The package includes premium travel bag, replacement filters for both machines, and everything you need for seamless therapy at home or away.",
+  metrics: [
+    {
+      icon: Package,
+      title: "Complete Solution",
+      desc: "Home and travel machines, masks, heated tubing, and all accessories included.",
+    },
+    {
+      icon: Feather,
+      title: "Ultra-Portable AirMini",
+      desc: "Weighs less than 1 lb, fits in palm of hand (5.4 x 3.3 x 2.0 inches).",
+    },
+    {
+      icon: Settings,
+      title: "Advanced AirSense 11",
+      desc: "Auto-adjusting with sleep onset detection, EPR, and climate control.",
+    },
+    {
+      icon: Smartphone,
+      title: "Dual App Control",
+      desc: "myAir for AirSense 11, AirMini app for travel machine via Bluetooth.",
+    },
+    {
+      icon: Droplets,
+      title: "Waterless Travel Humidification",
+      desc: "HumidX™ system for AirMini eliminates need for distilled water.",
+    },
+    {
+      icon: Shield,
+      title: "Proven ResMed Technology",
+      desc: "25+ years of trusted therapy modes and reliability in both machines.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "ResMed"],
+    ["Package Includes", "AirSense 11 Auto + AirMini + accessories"],
+    ["AirSense 11 Type", "Auto-adjusting APAP"],
+    ["AirMini Type", "Auto CPAP (travel)"],
+    ["AirMini Dimensions", '5.4" x 3.3" x 2.0"'],
+    ["AirMini Weight", "Less than 1 lb (300g)"],
+    ["AirMini Noise Level", "30 dBA"],
+    ["Humidification (Home)", "Built-in heated (AirSense 11)"],
+    ["Humidification (Travel)", "HumidX™ waterless (AirMini)"],
+    ["Mask Options", "AirFit P10, N20, F20, F30 (choose at checkout)"],
+    ["Connectivity", "myAir app (AirSense 11), AirMini app (Bluetooth)"],
+    ["Includes", "Premium travel bag, filters, heated tubing, setup packs"],
+    ["AirMini Warranty", "3 years"],
+    ["Best For", "Users needing both home and travel solutions"],
+  ],
+  reviews: [],
+  other: ["airmini", "airsense-11", "transcend-power-bundle"],
+},
+pilot24Lite: {
+  id: "pilot-24-lite",
+  name: "PILOT-24 LITE CPAP Travel Battery",
+  category: "accessories",
+  image: p24l1,
+  extraImages: [p24l2, p24l3],
+  price: 449,
+  priceId: "price_pilot_24_lite",
+  rating: 0,
+  reviewCount: 5,
+  inStock: false,
+  description:
+    "Revolutionary small backup power supply and portable travel battery for ResMed and other 24V CPAP devices with 1-2 nights runtime and USB charging port.",
+  longDescription:
+    "The Medistrom Pilot-24 Lite is a revolutionary backup power supply and portable travel battery designed for ResMed and other 24V CPAP, APAP, and some BiPAP devices. Compatible with ResMed AirSense 11, AirSense 10, AirMini, S9, 3B Medical Luna, Apex Medical iCH, and Philips Respironics DreamStation Go (cable kits sold separately for some models). Use it as a permanent backup power device that seamlessly continues powering your PAP without interruption during power outages, or as a portable travel battery for camping, road trips, and air travel. The Pilot-24 Lite provides 1-2 nights of continuous runtime on average pressure with humidifier and heated tubing disabled. Features a built-in LED flashlight and USB port (5V, 2.5A) for charging phones, tablets, cameras, and other handheld devices. With 95Wh capacity, aluminum case, and 4-stage charge indicator, it recharges in just 2-3 hours. FAA compliant for air travel.",
+  metrics: [
+    {
+      icon: Battery,
+      title: "Dual-Purpose Design",
+      desc: "Works as backup power supply at home or portable travel battery.",
+    },
+    {
+      icon: Zap,
+      title: "1-2 Nights Runtime",
+      desc: "Provides continuous use on average pressure (no humidifier/heating).",
+    },
+    {
+      icon: Shield,
+      title: "Uninterruptible Power",
+      desc: "Seamlessly continues therapy during power outages without interruption.",
+    },
+    {
+      icon: Smartphone,
+      title: "USB Charging Port",
+      desc: "Built-in 5V, 2.5A USB port charges phones, tablets, and cameras.",
+    },
+    {
+      icon: Plane,
+      title: "FAA Compliant",
+      desc: "Approved for air travel with 95Wh capacity in aluminum case.",
+    },
+    {
+      icon: Clock,
+      title: "Fast Recharge",
+      desc: "Recharges in 2-3 hours with 4-stage charge level indicator.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "Medistrom"],
+    ["Model", "Pilot-24 Lite"],
+    ["Type", "Backup Battery / Travel Battery"],
+    ["Capacity", "95Wh (19,000 mAh)"],
+    ["Cell Type", "Industrial grade LG lithium-ion cells"],
+    ["Weight", "560g (1.3 lbs)"],
+    ["Dimensions", "17cm x 9cm x 2cm (6.7 x 3.5 x 0.8 inches)"],
+    ["Case", "Aluminum"],
+    ["Rated Output", "DC 24V, 3.75A"],
+    ["USB Output", "5V, 2.5A"],
+    ["Runtime", "1-2 nights (varies by pressure/humidifier use)"],
+    ["Recharge Time", "2-3 hours (7-9 hours via AirMini adapter)"],
+    ["Life Span", "Over 500 full charge/discharge cycles"],
+    ["FAA Compliant", "Yes"],
+    ["Compatibility", "ResMed AirSense 11/10, AirMini, S9, Luna, iCH, DreamStation Go"],
+    ["Includes", "Battery, output cables, charging adapter, carry case, manual"],
+  ],
+  reviews: [],
+  other: ["transcend-micro-battery", "airmini", "airsense-11"],
+},
+airmini: {
+  id: "airmini-cpap-system",
+  name: "ResMed AirMini Travel CPAP",
+  category: "accessories",
+  image: am1,
+  extraImages: [am2, am3],
+  price: 1299,
+  priceId: "price_airmini",
+  rating: 0,
+  reviewCount: 5,
+  inStock: false,
+  description:
+    "One of the smallest portable CPAPs available with HumidX™ waterless humidification, Bluetooth app control, and proven ResMed therapy technology.",
+  longDescription:
+    "The AirMini Auto CPAP System is one of the smallest portable CPAPs on the market today, weighing less than a pound and fitting in the palm of your hand (5.4 x 3.3 x 2.0 inches). Packed with proven ResMed technologies, AirMini ensures you never have to choose between quality and convenience. Whether traveling for business or fun, AirMini delivers the same proven therapy modes used in the AirSense™ 10 to help you get the rest you need. Features include HumidX™ and HumidX™ Plus waterless humidification that allows you to leave distilled water at home while still enjoying humidification benefits. Control the AirMini from your smartphone via Bluetooth with the AirMini app to access comfort settings. The system works as a fully integrated solution—choose from compatible ResMed masks (AirFit P10, N20, N30, F20/F30) with appropriate setup packs. Operates at 30 dBA with optional accessories including hard or soft travel cases.",
+  metrics: [
+    {
+      icon: Feather,
+      title: "Ultra-Compact Size",
+      desc: 'Weighs less than 1 lb, fits in palm (5.4" x 3.3" x 2.0").',
+    },
+    {
+      icon: Droplets,
+      title: "Waterless Humidification",
+      desc: "HumidX™ system provides comfort without distilled water hassle.",
+    },
+    {
+      icon: Shield,
+      title: "Proven Therapy",
+      desc: "Same trusted therapy modes from ResMed's 25+ years of innovation.",
+    },
+    {
+      icon: Smartphone,
+      title: "App Control",
+      desc: "Bluetooth connection to AirMini app for convenient settings adjustment.",
+    },
+    {
+      icon: Volume2,
+      title: "Quiet Operation",
+      desc: "Operates at 30 dBA for peaceful sleep and travel.",
+    },
+    {
+      icon: Settings,
+      title: "Integrated System",
+      desc: "Works seamlessly with compatible ResMed masks and setup packs.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "ResMed"],
+    ["Model", "AirMini"],
+    ["Type", "Auto CPAP (travel)"],
+    ["Weight", "0.66 lbs (300 grams)"],
+    ["Dimensions", '5.4" x 3.3" x 2.1" (136 x 84 x 52 mm)'],
+    ["Noise Level", "30 dBA (±2 dBA)"],
+    ["Humidification", "HumidX™ / HumidX™ Plus (waterless)"],
+    ["Ramp", "Off / 5-45 mins / Auto"],
+    ["Connectivity", "Bluetooth (AirMini app)"],
+    ["Compatible Masks", "AirFit P10, N20, N30, F20, F30 (setup packs required)"],
+    ["Warranty", "3 years"],
+    ["FAA Compliant", "Yes"],
+    ["Includes", "Machine, power supply, drawstring carry case"],
+    ["Optional Accessories", "Hard or soft premium travel cases"],
+    ["Best For", "Frequent travelers, business trips, camping"],
+  ],
+  reviews: [],
+  other: ["transcend-micro", "pilot-24-lite", "platinum-package"],
+},
+transcendPowerBundle: {
+  id: "transcend-micro-power-bundle",
+  name: "Transcend Micro™ Power Bundle",
+  category: "accessories",
+  image: tmpb1,
+  extraImages: [tmpb2, tmpb3],
+  price: 1499,
+  priceId: "price_transcend_bundle",
+  rating: 0,
+  reviewCount: 0,
+  inStock: false,
+  description:
+    "Ultimate travel solution combining the world's smallest CPAP machine with PowerAway Battery, essential accessories, and waterless humidification.",
+  longDescription:
+    "The Transcend Micro™ Power Bundle is the ultimate travel solution for CPAP users, combining cutting-edge innovation with unparalleled comfort. This comprehensive kit features the world's smallest and lightest travel CPAP—the Transcend Micro, weighing less than 0.5 pounds and measuring less than 4 inches wide—plus the new Transcend Micro PowerAway Battery for 2+ nights of off-grid use. The ultra-portable design adapts to any environment with AC power adapter for home use and battery power for camping, flights, or remote locations. Includes AirMist™ HME for waterless humidification, WhisperSoft muffler for quiet 27 dBA operation, GentleRise ramp, and AirRelief pressure adjustments. Control therapy via MySleepDash™ app on Apple and Android. The Essential Accessories Pack includes WhisperSoft muffler kit, hose holders, four AirMist HME cartridges with adapter, international plug adapters (EU, AU, Britain), two PureFresh filters, and travel pouch. Universal 22mm mask compatibility.",
+  metrics: [
+    {
+      icon: Feather,
+      title: "World's Smallest CPAP",
+      desc: "Weighs less than 0.5 lbs, measures under 4 inches wide (3.6 x 3.6 x 2.4 in).",
+    },
+    {
+      icon: Battery,
+      title: "2+ Nights Battery Power",
+      desc: "PowerAway Battery with 1000+ cycle lifespan, recharges in 4 hours.",
+    },
+    {
+      icon: Droplets,
+      title: "Waterless Humidification",
+      desc: "AirMist™ HME captures and recycles breath humidity without distilled water.",
+    },
+    {
+      icon: Volume2,
+      title: "Whisper Quiet",
+      desc: "27 dBA operation with included WhisperSoft muffler for peaceful sleep.",
+    },
+    {
+      icon: Smartphone,
+      title: "MySleepDash™ App",
+      desc: "Monitor therapy data, track compliance, share with healthcare provider.",
+    },
+    {
+      icon: Package,
+      title: "Complete Travel Kit",
+      desc: "Includes battery, accessories pack, international adapters, and travel pouch.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "Somnetics (Transcend)"],
+    ["Model", "Transcend Micro Power Bundle"],
+    ["Machine Type", "Auto CPAP (travel)"],
+    ["Machine Weight", "0.48 lbs"],
+    ["Machine Dimensions", "3.6 x 3.6 x 2.4 inches"],
+    ["Battery Weight", "1.0 lbs"],
+    ["Battery Runtime", "2+ nights (17.5+ hours)"],
+    ["Battery Lifespan", "1000+ cycles"],
+    ["Sound Level", "27 dBA"],
+    ["Humidification", "AirMist™ HME (waterless)"],
+    ["Pressure Relief", "AirRelief (exhalation)"],
+    ["Ramp", "GentleRise (gradual pressure increase)"],
+    ["App", "MySleepDash™ (Apple/Android)"],
+    ["Mask Compatibility", "Universal 22mm connection"],
+    ["Warranty", "2 years (machine)"],
+    ["FAA Compliant", "Yes"],
+    ["Includes", "Machine, battery, accessories pack, international adapters, carry bag"],
+  ],
+  reviews: [],
+  other: ["transcend-micro", "transcend-micro-battery", "airmini"],
+},
+transcendMicro: {
+  id: "transcend-micro-auto-cpap",
+  name: "Transcend Micro Auto CPAP",
+  category: "accessories",
+  image: tm1,
+  extraImages: [tm2, tm3],
+  price: 999,
+  priceId: "price_transcend_micro",
+  rating: 0,
+  reviewCount: 0,
+  inStock: false,
+  description:
+    "The smallest and lightest travel CPAP on the market at under 0.5 lbs with AirMist™ waterless humidification and whisper-quiet 27 dBA operation.",
+  longDescription:
+    "The Transcend Micro is the smallest and lightest travel CPAP on the market, weighing less than 0.5 pounds and measuring less than 4 inches wide. Its ultra-portable design makes it a breeze to pack and carry, offering a discreet and unobtrusive solution for on-the-go therapy. Whether you're at home, traveling abroad, or venturing off the grid, the Transcend Micro adapts to your environment with an included AC power adapter and optional Transcend Micro PowerAway™ Battery for camping, flights, and remote locations. Enjoy universal mask compatibility with any CPAP mask featuring a standard 22mm connection. The whisper-quiet operation ensures peaceful sleep for you and your companions, especially when used with the included WhisperSoft muffler (27 dBA). Features AirMist™ HME for effective waterless humidification, GentleRise ramp for gradual pressure increase, and AirRelief pressure adjustments for comfortable exhalation. Monitor therapy via MySleepDash™ app with compliance tracking and data sharing. Includes machine, AirFlex 6-foot hose, WhisperSoft muffler, PureFresh air filter, AC adapter, and quick guide.",
+  metrics: [
+    {
+      icon: Feather,
+      title: "Ultra-Lightweight Design",
+      desc: "Weighs less than 0.5 lbs, measures under 4 inches wide for easy travel.",
+    },
+    {
+      icon: Droplets,
+      title: "AirMist™ HME",
+      desc: "Waterless humidification captures breath humidity without distilled water.",
+    },
+    {
+      icon: Volume2,
+      title: "Whisper Quiet",
+      desc: "27 dBA operation with included WhisperSoft muffler for peaceful sleep.",
+    },
+    {
+      icon: Wind,
+      title: "Advanced Comfort",
+      desc: "GentleRise ramp and AirRelief pressure adjustment for personalized comfort.",
+    },
+    {
+      icon: Smartphone,
+      title: "MySleepDash™ App",
+      desc: "Track therapy data, compliance hours, and share with healthcare provider.",
+    },
+    {
+      icon: Settings,
+      title: "Universal Compatibility",
+      desc: "Works with any CPAP mask with standard 22mm connection.",
+    },
+  ],
+  specifications: [
+    ["Manufacturer", "Somnetics (Transcend)"],
+    ["Model", "Transcend Micro"],
+    ["Type", "Auto CPAP (travel)"],
+    ["Weight", "0.48 lbs"],
+    ["Dimensions", "3.6 x 3.6 x 2.4 inches"],
+    ["Sound Level", "27 dBA"],
+    ["Humidification", "AirMist™ HME (waterless)"],
+    ["Pressure Relief", "AirRelief (exhalation)"],
+    ["Ramp Mode", "GentleRise (gradual)"],
+    ["Auto Altitude", "Yes"],
+    ["Auto Start/Stop", "Yes"],
+    ["Default Pressure", "4-20 cm H2O"],
+    ["Mask Compatibility", "Universal 22mm connection"],
+    ["Battery Option", "Yes (PowerAway Battery sold separately)"],
+    ["App", "MySleepDash™ (Apple/Android)"],
+    ["Warranty", "2 years"],
+    ["FAA Compliant", "Yes"],
+    ["Includes", "Machine, hose, muffler, filter, AC adapter, quick guide"],
+  ],
+  reviews: [],
+  other: ["transcend-power-bundle", "airmini", "pilot-24-lite"],
+},
 };
 
 const ProductDetails = () => {

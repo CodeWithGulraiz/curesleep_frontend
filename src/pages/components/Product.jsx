@@ -8,6 +8,10 @@ import {
   Package,
   Plane,
   Feather,
+  Droplets,
+  Sparkles,
+  Cloud,
+  Shield,
 } from "lucide-react";
 
 import watchpatImg from "../../assets/images/product.png";
@@ -53,6 +57,11 @@ import nm1 from "../../assets/images/nm1.webp";
 import e1 from "../../assets/images/e1.webp";
 import n30a1 from "../../assets/images/n30a1.jpg";
 import dps1 from "../../assets/images/dps1.webp";
+import n201 from "../../assets/images/n201.jpg";
+import tn201 from "../../assets/images/tn201.webp";
+import tn30i1 from "../../assets/images/tn30i1.webp";
+import n20h1 from "../../assets/images/n20h1.webp";
+import w1 from "../../assets/images/w1.avif";
 
 const accentColors = {
   green: "bg-green-600 hover:bg-green-700",
@@ -557,6 +566,65 @@ const allProducts = [
     icon: Feather,
     accent: "violet",
   },
+  {
+  id: "wisp",
+  category: "masks",
+  name: "Wisp Nasal CPAP Mask",
+  description:
+    "Lightweight nasal mask with choice of Clear Silicone or Fabric frame, minimal contact cushion design, and clear field of view.",
+  image: w1,
+  gradient: "from-slate-50 via-gray-50 to-zinc-50",
+  icon: Droplets,
+  accent: "gray",
+},
+
+{
+  id: "airfitN20ForHer",
+  category: "masks",
+  name: "AirFit N20 Nasal Mask for Her",
+  description:
+    "Complete nasal interface with InfinitySeal™ cushion technology, soft flexible frame with integrated padding, and stylish lavender accents designed for women.",
+  image: n20h1,
+  gradient: "from-purple-50 via-pink-50 to-fuchsia-50",
+  icon: Sparkles,
+  accent: "purple",
+},
+
+{
+  id: "airtouchN30i",
+  category: "masks",
+  name: "AirTouch N30i Nasal CPAP Mask",
+  description:
+    "Tube-up nasal mask with fabric-wrapped frame and innovative ComfiSoft™ cushion made of breathable, moisture-wicking silicone-coated fabric.",
+  image: tn30i1,
+  gradient: "from-emerald-50 via-teal-50 to-cyan-50",
+  icon: Cloud,
+  accent: "teal",
+},
+
+{
+  id: "airtouchN20",
+  category: "masks",
+  name: "AirTouch N20 Nasal CPAP Mask",
+  description:
+    "Soft nasal mask featuring memory foam cushion designed for comfort and to limit red marks, with interchangeable AirFit N20 silicone cushion compatibility.",
+  image: tn201,
+  gradient: "from-amber-50 via-orange-50 to-yellow-50",
+  icon: Cloud,
+  accent: "orange",
+},
+
+{
+  id: "airfitN20",
+  category: "masks",
+  name: "AirFit N20 Nasal CPAP Mask",
+  description:
+    "Complete nasal interface system with InfinitySeal™ cushion technology and soft flexible frame with integrated padding for reliable all-night comfort.",
+  image: n201,
+  gradient: "from-blue-50 via-indigo-50 to-violet-50",
+  icon: Shield,
+  accent: "blue",
+},
 ];
 
 const Products = () => {
