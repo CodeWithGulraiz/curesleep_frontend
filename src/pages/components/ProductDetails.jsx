@@ -115,8 +115,8 @@ import dps3 from "../../assets/images/dps3.webp";
 import e1 from "../../assets/images/e1.webp";
 import e2 from "../../assets/images/e2.webp";
 import e3 from "../../assets/images/e3.webp";
-import n30a1 from "../../assets/images/n30a1.webp";
-import n30a2 from "../../assets/images/n30a2.webp";
+import n30a1 from "../../assets/images/n30a1.jpg";
+import n30a2 from "../../assets/images/n30a2.jpg";
 import p10n1 from "../../assets/images/p10n1.jpg";
 import p10n2 from "../../assets/images/p10n2.jpg";
 import p10h1 from "../../assets/images/p10h1.webp";
@@ -3558,6 +3558,331 @@ With continuous SpO₂ monitoring, heart rate tracking, and intelligent cloud sy
     reviews: [],
     other: ["airfit-p10", "brevida", "nova-nasal"],
   },
+  wisp: {
+    id: "wisp-nasal-mask",
+    name: "Wisp Nasal CPAP Mask",
+    category: "Mask",
+    image: wisp1,
+    extraImages: [wisp2, wisp3],
+    price: 170,
+    priceId: "price_wisp",
+    rating: 0,
+    reviewCount: 1,
+    inStock: false,
+    description:
+      "Lightweight nasal mask with choice of Clear Silicone or Fabric frame, minimal contact cushion design, and clear field of view.",
+    longDescription:
+      "The Wisp Nasal CPAP Mask by Philips Respironics was developed to offer comfort and ease of use while fitting a wide range of users. The first to offer options in headgear materials, the Wisp steps up to a new level of individual choice. The unique frame is offered in two formats—Clear Silicone or Fabric—with the fabric frame featuring different materials on each side for varied feels. The cushion is small and lightweight with minimal silicone touching the face. All three sizes of cushions (S/M, Large, XLarge) are included so you can find the best fit. The headgear and frame design provides support without a forehead support, giving you a clear field of view for reading or watching TV before sleep.",
+    metrics: [
+      {
+        icon: Settings,
+        title: "Frame Choice",
+        desc: "Select Clear Silicone for traditional feel or Fabric for softer touch.",
+      },
+      {
+        icon: Package,
+        title: "Multiple Cushions",
+        desc: "Includes all three cushion sizes (S/M, Large, XLarge) for perfect fit.",
+      },
+      {
+        icon: Droplets,
+        title: "Minimal Contact",
+        desc: "Small, lightweight cushion with minimal silicone touching your face.",
+      },
+      {
+        icon: Eye,
+        title: "Clear Field of View",
+        desc: "No forehead support means unobstructed vision for bedtime activities.",
+      },
+      {
+        icon: Wind,
+        title: "Flexible Short Tube",
+        desc: "Lightweight tube allows movement without losing seal, with hose position options.",
+      },
+      {
+        icon: Brush,
+        title: "Easy Fit & Seal",
+        desc: "Simple to put on and adjust with modular, interchangeable design.",
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "Philips Respironics"],
+      ["Model", "Wisp"],
+      ["Type", "Nasal Mask"],
+      ["Frame Options", "Clear Silicone or Fabric (reversible)"],
+      ["Cushion Type", "Minimal contact silicone"],
+      ["Cushion Sizes", "S/M, Large, XLarge (all included)"],
+      ["Headgear", "Standard with clips"],
+      ["Short Tube", "Flexible, disconnectable for cleaning"],
+      ["Tube Position", "Front connection with crown loop option"],
+      ["Compatibility", "All CPAP machines (except ResMed AirMini)"],
+      ["Cleaning", "Daily with mild soap and water"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      ["Best For", "Users wanting frame options, readers, TV watchers"],
+    ],
+    reviews: [],
+    other: ["dreamwisp", "airfit-n20", "airtouch-n30i"],
+  },
+  airfitN20ForHer: {
+    id: "airfit-n20-for-her",
+    name: "AirFit N20 Nasal Mask for Her",
+    category: "Mask",
+    image: n20h1,
+    extraImages: [n20h2, n20h3],
+    price: 190,
+    priceId: "price_airfit_n20_her",
+    rating: 0,
+    reviewCount: 1,
+    inStock: false,
+    description:
+      "Complete nasal interface with InfinitySeal™ cushion technology, soft flexible frame with integrated padding, and stylish lavender accents designed for women.",
+    longDescription:
+      "The AirFit N20 for Her features the InfinitySeal™ cushion—the most adaptive cushion ResMed has ever designed—along with a soft and flexible frame that includes integrated padding. The result is an interface that comfortably moves with you and provides a reliable seal throughout the night, regardless of sleep position. Designed with a 'no rules fit' philosophy, it's so easy to put on and use that you don't need specific fitting instructions. The secret is in the simple, modular design and magnetic clips, which guide the headgear to its frame quickly and easily. This version features stylish lavender accents and a smaller size range specifically tailored for women's facial profiles.",
+    metrics: [
+      {
+        icon: Shield,
+        title: "InfinitySeal™ Cushion",
+        desc: "Most adaptive cushion technology for reliable seal in any sleep position.",
+      },
+      {
+        icon: Cloud,
+        title: "Integrated Padding",
+        desc: "Soft, flexible frame with built-in padding for enhanced comfort.",
+      },
+      {
+        icon: Magnet,
+        title: "Magnetic Clips",
+        desc: "Quick and easy headgear attachment with magnetic guidance system.",
+      },
+      {
+        icon: Sparkles,
+        title: "No Rules Fit",
+        desc: "Simple to put on and fit without sacrificing performance.",
+      },
+      {
+        icon: Moon,
+        title: "Sleep Position Freedom",
+        desc: "Maintains seal and comfort regardless of how you move during sleep.",
+      },
+      {
+        icon: Droplets,
+        title: "Tailored for Her",
+        desc: "Smaller size range with lavender accents designed for women's profiles.",
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "ResMed"],
+      ["Model", "AirFit N20 for Her"],
+      ["Type", "Nasal Mask"],
+      ["Cushion Type", "InfinitySeal™ (silicone)"],
+      ["Cushion Sizes", "Small, Medium (for Her size range)"],
+      ["Frame", "Flexible with integrated padding"],
+      ["Headgear", "Quick-fit with magnetic clips"],
+      ["Design Accent", "Lavender"],
+      ["Compatibility", "All CPAP machines"],
+      ["Cleaning", "Daily with mild soap and water"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      ["Best For", "Women, all sleep positions, nose breathers"],
+    ],
+    reviews: [],
+    other: ["airfit-n20", "airtouch-n20", "airtouch-n30i"],
+  },
+  airtouchN30i: {
+    id: "airtouch-n30i",
+    name: "AirTouch N30i Nasal CPAP Mask",
+    category: "Mask",
+    image: n30i1,
+    extraImages: [n30i2, n30i3],
+    price: 200,
+    priceId: "price_airtouch_n30i",
+    rating: 0,
+    reviewCount: 3,
+    inStock: false,
+    description:
+      "Tube-up nasal mask with fabric-wrapped frame and innovative ComfiSoft™ cushion made of breathable, moisture-wicking silicone-coated fabric.",
+    longDescription:
+      "The ResMed AirTouch N30i is a tube-up nasal mask with a frame that's fully wrapped in fabric—a design so soft, sleep will feel like a luxurious escape. It's the first-ever nasal mask with a ComfiSoft™ cushion made of silicone-coated fabric that's breathable and moisture-wicking to keep skin feeling cool. The SpringFit™ frame is wrapped in fabric and designed to adjust to your face and head shape for an easy fit. The tube-up design keeps tubing out of your way so you can sleep in any position, while the QuietAir™ diffused venting creates a more peaceful bedroom environment. Soft headgear with adjustable side bands contours comfortably to the back of your head for a secure fit.",
+    metrics: [
+      {
+        icon: Cloud,
+        title: "ComfiSoft™ Cushion",
+        desc: "Revolutionary fabric-fused silicone cushion feels exceptionally soft and natural.",
+      },
+      {
+        icon: Droplets,
+        title: "Moisture-Wicking",
+        desc: "Breathable cushion material keeps skin cool and dry throughout the night.",
+      },
+      {
+        icon: Settings,
+        title: "SpringFit™ Frame",
+        desc: "Fabric-wrapped frame adjusts to your face and head shape automatically.",
+      },
+      {
+        icon: Wind,
+        title: "Tube-Up Design",
+        desc: "Keeps tubing out of your way for freedom to sleep in any position.",
+      },
+      {
+        icon: CircleDot,
+        title: "Quick-Release Elbow",
+        desc: "Easy mask disconnection if you need to get up during the night.",
+      },
+      {
+        icon: Moon,
+        title: "QuietAir™ Venting",
+        desc: "Diffused venting system creates a peaceful, quiet bedroom environment.",
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "ResMed"],
+      ["Model", "AirTouch N30i"],
+      ["Type", "Nasal Mask"],
+      ["Cushion Type", "ComfiSoft™ (silicone-coated fabric)"],
+      ["Cushion Sizes", "Small, Standard"],
+      ["Frame", "SpringFit™ fabric-wrapped"],
+      ["Headgear", "Soft with adjustable side bands"],
+      ["Tube Position", "Top-of-head (tube-up)"],
+      ["Venting", "QuietAir™ diffused"],
+      ["Compatibility", "All CPAP machines (except ResMed AirMini)"],
+      ["Cleaning", "Daily with mild soap and water"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      [
+        "Best For",
+        "Luxury comfort seekers, all sleep positions, quiet therapy",
+      ],
+    ],
+    reviews: [],
+    other: ["airtouch-n20", "dreamwisp", "airfit-n20"],
+  },
+  airtouchN20: {
+    id: "airtouch-n20",
+    name: "AirTouch N20 Nasal CPAP Mask",
+    category: "Mask",
+    image: atn20_1,
+    extraImages: [atn20_2, atn20_3],
+    price: 195,
+    priceId: "price_airtouch_n20",
+    rating: 0,
+    reviewCount: 5,
+    inStock: false,
+    description:
+      "Soft nasal mask featuring memory foam cushion designed for comfort and to limit red marks, with interchangeable AirFit N20 silicone cushion compatibility.",
+    longDescription:
+      "The AirTouch N20 nasal mask features a soft memory foam cushion that is designed to be comfortable and limit red marks around the nose. Compatible with the AirFit N20 mask, you can use both cushions in the same mask frame—the memory foam AirTouch cushion and the silicone AirFit cushion are interchangeable, allowing you to swap between the two as you like. Each size of cushion easily clicks into the same mask frame. The AirTouch N20 was designed with a 'no rules fit' that is simple to put on and use without sacrificing performance. The secret is in the simple, modular design and magnetic clips, which guide the headgear to its frame quickly and easily. This mask comfortably moves with you throughout the night, regardless of sleep position.",
+    metrics: [
+      {
+        icon: Cloud,
+        title: "Memory Foam Cushion",
+        desc: "Soft foam designed for maximum comfort and to minimize red marks.",
+      },
+      {
+        icon: Settings,
+        title: "Interchangeable Cushions",
+        desc: "Swap between memory foam and silicone cushions in the same frame.",
+      },
+      {
+        icon: Magnet,
+        title: "Magnetic Clips",
+        desc: "Quick and easy headgear attachment with guided magnetic system.",
+      },
+      {
+        icon: Sparkles,
+        title: "No Rules Fit",
+        desc: "Simple modular design makes fitting easy without instructions.",
+      },
+      {
+        icon: Moon,
+        title: "Sleep Position Freedom",
+        desc: "Moves comfortably with you regardless of sleeping position.",
+      },
+      {
+        icon: Shield,
+        title: "Universal Fit",
+        desc: "Designed to fit all patients, regardless of facial profile.",
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "ResMed"],
+      ["Model", "AirTouch N20"],
+      ["Type", "Nasal Mask"],
+      ["Cushion Type", "Memory Foam"],
+      ["Cushion Compatibility", "AirFit N20 silicone cushions"],
+      ["Cushion Sizes", "Small, Medium, Large"],
+      ["Frame", "Modular with integrated padding"],
+      ["Headgear", "Quick-fit with magnetic clips"],
+      ["Compatibility", "All CPAP machines"],
+      ["Cleaning", "Mild wipes or CPAP sanitizer (avoid soap/water on foam)"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      ["Best For", "Red mark concerns, nose breathers, all sleep positions"],
+    ],
+    reviews: [],
+    other: ["airfit-n20", "airtouch-n30i", "airfit-n20-for-her"],
+  },
+  airfitN20: {
+    id: "airfit-n20",
+    name: "AirFit N20 Nasal CPAP Mask",
+    category: "Mask",
+    image: n20_1,
+    extraImages: [n20_2, n20_3],
+    price: 185,
+    priceId: "price_airfit_n20",
+    rating: 0,
+    reviewCount: 9,
+    inStock: false,
+    description:
+      "Complete nasal interface system with InfinitySeal™ cushion technology and soft flexible frame with integrated padding for reliable all-night comfort.",
+    longDescription:
+      "What makes a great CPAP interface? Comfort and performance are perhaps the two key factors. The AirFit N20 features the InfinitySeal™ cushion—the most adaptive ResMed has ever designed—along with a soft and flexible frame that includes integrated padding. The result is an interface that comfortably moves with you and provides a reliable seal throughout the night, regardless of sleep position. The AirFit N20 was designed to be so easy to put on and use that you don't necessarily need specific fitting instructions or 'rules.' The secret is in the simple, modular design and magnetic clips, which guide the headgear to its frame quickly and easily. This mask is specially designed to fit all patients, regardless of facial profile, making it an ideal choice for nose breathers.",
+    metrics: [
+      {
+        icon: Shield,
+        title: "InfinitySeal™ Cushion",
+        desc: "Most adaptive cushion technology provides reliable seal all night long.",
+      },
+      {
+        icon: Cloud,
+        title: "Integrated Padding",
+        desc: "Soft, flexible frame with built-in padding for superior comfort.",
+      },
+      {
+        icon: Magnet,
+        title: "Magnetic Clips",
+        desc: "Headgear attaches quickly and easily with magnetic guidance.",
+      },
+      {
+        icon: Sparkles,
+        title: "No Rules Fit",
+        desc: "Simple to fit without instructions while maintaining performance.",
+      },
+      {
+        icon: Moon,
+        title: "All Sleep Positions",
+        desc: "Moves comfortably with you regardless of how you sleep.",
+      },
+      {
+        icon: Settings,
+        title: "Universal Design",
+        desc: "Specially designed to fit all facial profiles and shapes.",
+      },
+    ],
+    specifications: [
+      ["Manufacturer", "ResMed"],
+      ["Model", "AirFit N20"],
+      ["Type", "Nasal Mask"],
+      ["Cushion Type", "InfinitySeal™ (silicone)"],
+      ["Cushion Sizes", "Small, Medium, Large"],
+      ["Frame", "Flexible with integrated padding"],
+      ["Headgear", "Quick-fit with magnetic clips"],
+      ["Cushion Compatibility", "AirTouch N20 memory foam cushions"],
+      ["Compatibility", "All CPAP machines"],
+      ["Cleaning", "Daily with mild soap and water"],
+      ["Mask Replacement", "Every 6 months (recommended)"],
+      ["Best For", "All users, nose breathers, all sleep positions"],
+    ],
+    reviews: [],
+    other: ["airtouch-n20", "airfit-n20-for-her", "dreamwisp"],
+  },
 };
 
 const ProductDetails = () => {
@@ -3599,7 +3924,6 @@ const ProductDetails = () => {
     <>
       <Navbar />
       <div className="bg-gray-50 min-h-screen">
-        {/* Breadcrumb */}
         <div className="bg-white border-b">
           <div className="max-w-7xl mx-auto px-4 py-3">
             <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -3616,13 +3940,9 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-
-        {/* Main Product Section */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="grid lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-sm p-8">
-            {/* Left Column - Images */}
             <div>
-              {/* Main Image */}
               <div className="mb-4 bg-gray-50 rounded-xl overflow-hidden border border-gray-200">
                 <img
                   src={mainImage}
@@ -3630,8 +3950,6 @@ const ProductDetails = () => {
                   className="w-full h-[500px] object-contain"
                 />
               </div>
-
-              {/* Thumbnail Images */}
               {allImages.length > 1 && (
                 <div className="grid grid-cols-4 gap-3">
                   {allImages.map((img, index) => (
@@ -3654,33 +3972,10 @@ const ProductDetails = () => {
                 </div>
               )}
             </div>
-
-            {/* Right Column - Product Info */}
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h1>
-
-              {/* Rating & Reviews */}
-              {/* <div className="flex items-center gap-3 mb-4">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${
-                        i < Math.floor(product.rating)
-                          ? "fill-yellow-400 text-yellow-400"
-                          : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">
-                  {product.rating} ({product.reviewCount} reviews)
-                </span>
-              </div> */}
-
-              {/* Price */}
               <div className="mb-6">
                 <div className="flex items-baseline gap-3">
                   <span className="text-4xl font-bold text-gray-900">
@@ -3689,8 +3984,6 @@ const ProductDetails = () => {
                   <span className="text-sm text-gray-500">CAD</span>
                 </div>
               </div>
-
-              {/* Stock Status */}
               <div className="mb-6">
                 {product.inStock ? (
                   <div className="flex items-center gap-2 text-green-600">
@@ -3704,13 +3997,9 @@ const ProductDetails = () => {
                   </div>
                 )}
               </div>
-
-              {/* Short Description */}
               <div className="mb-6 text-gray-700 leading-relaxed">
                 <p>{product.description}</p>
               </div>
-
-              {/* Quantity Selector */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Quantity
@@ -3736,16 +4025,12 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Buy Now Button */}
               <button
                 onClick={() => handleCheckout(product.priceId)}
                 className="w-full bg-green-600 text-white py-4 rounded-xl font-semibold text-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-xl mb-4"
               >
                 Buy Now - ${product.price * quantity}
               </button>
-
-              {/* Trust Badges */}
               <div className="grid grid-cols-3 gap-4 pt-6 border-t">
                 <div className="text-center">
                   <Truck className="w-8 h-8 mx-auto mb-2 text-green-600" />
@@ -3771,10 +4056,7 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-
-          {/* Accordion Section */}
           <div className="mt-8 bg-white rounded-2xl shadow-sm overflow-hidden">
-            {/* Description Accordion */}
             <div className="border-b">
               <button
                 onClick={() => toggleAccordion("description")}
@@ -3797,8 +4079,6 @@ const ProductDetails = () => {
                 </div>
               )}
             </div>
-
-            {/* Specifications Accordion */}
             <div className="border-b">
               <button
                 onClick={() => toggleAccordion("specifications")}
@@ -3833,8 +4113,6 @@ const ProductDetails = () => {
                 </div>
               )}
             </div>
-
-            {/* Features Accordion */}
             {product.metrics.length > 0 && (
               <div className="border-b">
                 <button
@@ -3875,60 +4153,7 @@ const ProductDetails = () => {
                 )}
               </div>
             )}
-
-            {/* {product.reviews.length > 0 && (
-            <div>
-              <button
-                onClick={() => toggleAccordion("reviews")}
-                className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition"
-              >
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Customer Reviews ({product.reviewCount})
-                </h3>
-                {activeAccordion === "reviews" ? (
-                  <ChevronUp className="w-6 h-6 text-gray-600" />
-                ) : (
-                  <ChevronDown className="w-6 h-6 text-gray-600" />
-                )}
-              </button>
-              {activeAccordion === "reviews" && (
-                <div className="px-6 pb-6">
-                  <div className="space-y-6">
-                    {product.reviews.map((review, i) => (
-                      <div key={i} className="border-b last:border-0 pb-6 last:pb-0">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-3">
-                            <span className="font-semibold text-gray-900">
-                              {review.author}
-                            </span>
-                            <div className="flex">
-                              {[...Array(5)].map((_, j) => (
-                                <Star
-                                  key={j}
-                                  className={`w-4 h-4 ${
-                                    j < review.rating
-                                      ? "fill-yellow-400 text-yellow-400"
-                                      : "text-gray-300"
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                          </div>
-                          <span className="text-sm text-gray-500">
-                            {review.date}
-                          </span>
-                        </div>
-                        <p className="text-gray-700">{review.comment}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )} */}
           </div>
-
-          {/* Related Products */}
           {product.other && product.other.length > 0 && (
             <div className="mt-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">

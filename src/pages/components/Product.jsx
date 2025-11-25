@@ -51,7 +51,7 @@ import n30i1 from "../../assets/images/n30i1.webp";
 import p101 from "../../assets/images/p101.webp";
 import nm1 from "../../assets/images/nm1.webp";
 import e1 from "../../assets/images/e1.webp";
-import n30a1 from "../../assets/images/n30a1.webp";
+import n30a1 from "../../assets/images/n30a1.jpg";
 import dps1 from "../../assets/images/dps1.webp";
 
 const accentColors = {
@@ -437,7 +437,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "airfit-p10",
+    id: "airfitp10",
     category: "masks",
     name: "AirFit P10 Nasal Pillow CPAP Mask",
     description:
@@ -448,7 +448,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "airfit-n30i",
+    id: "airfitn30i",
     category: "masks",
     name: "AirFit N30i Nasal Cradle CPAP Mask",
     description:
@@ -459,7 +459,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "solo-nasal-pillow",
+    id: "solonasalpillow",
     category: "masks",
     name: "Solo Nasal Pillow CPAP Mask",
     description:
@@ -470,7 +470,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "airfit-p10-her",
+    id: "airfitp10her",
     category: "masks",
     name: "AirFit P10 for Her Nasal Pillow Mask",
     description:
@@ -481,7 +481,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "dreamwear-nasal",
+    id: "dreamwearnasal",
     category: "masks",
     name: "DreamWear Nasal CPAP Mask",
     description:
@@ -492,7 +492,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "airfit-n30",
+    id: "airfitn30",
     category: "masks",
     name: "AirFit N30 Nasal Cradle CPAP Mask",
     description:
@@ -503,7 +503,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "airfit-p10-airmini",
+    id: "airfitp10airmini",
     category: "masks",
     name: "AirFit P10 for AirMini Nasal Pillow Mask",
     description:
@@ -514,7 +514,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "dreamwear-silicone-pillows",
+    id: "dreamwearsiliconepillows",
     category: "masks",
     name: "DreamWear Silicone Pillows FitPack",
     description:
@@ -525,7 +525,7 @@ const allProducts = [
     accent: "purple",
   },
   {
-    id: "airfit-n30-airmini",
+    id: "airfitn30airmini",
     category: "masks",
     name: "AirFit N30 for AirMini Mask Pack",
     description:
@@ -536,7 +536,7 @@ const allProducts = [
     accent: "blue",
   },
   {
-    id: "evora-nasal-mask",
+    id: "evoranasalmask",
     category: "masks",
     name: "Evora Nasal CPAP Mask",
     description:
@@ -547,7 +547,7 @@ const allProducts = [
     accent: "teal",
   },
   {
-    id: "nova-micro-nasal-pillow-mask",
+    id: "novaMicromask",
     category: "masks",
     name: "Nova Micro Nasal Pillow CPAP Mask",
     description:
