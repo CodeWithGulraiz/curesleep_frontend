@@ -5,7 +5,7 @@ import Logo from "../../assets/images/logo-w.png";
 import Product from "../../assets/images/product.png";
 import Product2 from "../../assets/images/product2.png";
 import axios from "axios";
-import ThankYouPage from "../components/ThankYouPage";
+import ThankYouPage from "../../components/ThankYouPage";
 const Assessment = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({

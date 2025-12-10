@@ -1,5 +1,5 @@
 import { CheckCircle, Clock, Shield, PackageCheck } from "lucide-react";
-import SuppImg from "../../assets/images/support.jpg";
+import SuppImg from "../assets/images/support.jpg";
 
 const Support = () => {
   return (

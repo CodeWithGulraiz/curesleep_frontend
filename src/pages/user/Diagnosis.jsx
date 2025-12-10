@@ -3,7 +3,7 @@ import { Moon, ShoppingCart } from "lucide-react";
 import DiagnosisImg from "../../assets/images/diagnosis.webp";
 import UserSidebar from "./UserSidebar";
 import UserNav from "./UserNav";
-import DRecom from "../components/DRecom";
+import DRecom from "../../components/DRecom";
 
 const Diagnosis = () => {
   const [isVisible, setIsVisible] = useState(false);

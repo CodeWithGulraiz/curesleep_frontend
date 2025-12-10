@@ -1,10 +1,10 @@
-import marqee1 from "../../assets/images/maquee1.svg";
-import marqee2 from "../../assets/images/marqee2.svg";
-import marqee3 from "../../assets/images/marqee3.png";
-import marqee4 from "../../assets/images/marqee4.svg";
-import marqee5 from "../../assets/images/marqee5.svg";
-import marqee6 from "../../assets/images/marqee6.webp";
-import marqee8 from "../../assets/images/marqee8.svg";
+import marqee1 from "../assets/images/maquee1.svg";
+import marqee2 from "../assets/images/marqee2.svg";
+import marqee3 from "../assets/images/marqee3.png";
+import marqee4 from "../assets/images/marqee4.svg";
+import marqee5 from "../assets/images/marqee5.svg";
+import marqee6 from "../assets/images/marqee6.webp";
+import marqee8 from "../assets/images/marqee8.svg";
 
 const Partners = () => {
   const partners = [

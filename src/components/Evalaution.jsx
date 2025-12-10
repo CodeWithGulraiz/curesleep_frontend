@@ -1,6 +1,5 @@
-import React from "react";
-import { CheckCircle, Clock, Home, Shield } from "lucide-react";
-import EvaImage from "../../assets/images/evelaution.jpeg";
+import { CheckCircle, Clock } from "lucide-react";
+import EvaImage from "../assets/images/evelaution.jpeg";
 const Evaluation = () => {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-green-50 py-16 px-4 sm:px-6 lg:px-8">

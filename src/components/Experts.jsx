@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckCircle, Clock } from "lucide-react";
-import ExpertImage from "../../assets/images/expert.jpg";
+import ExpertImage from "../assets/images/expert.jpg";
 
 const Experts = () => {
   return (

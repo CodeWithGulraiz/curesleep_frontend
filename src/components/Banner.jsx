@@ -1,5 +1,4 @@
-import React from "react";
-import BannerImage from "../../assets/images/banner.jpg"; // Ensure you have an image at this path or update the path accordingly
+import BannerImage from "../assets/images/banner.jpg"; // Ensure you have an image at this path or update the path accordingly
 import { Link } from "react-router-dom";
 import { ArrowRightCircle } from "lucide-react";
 

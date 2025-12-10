@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import { RxCross2 } from "react-icons/rx";
 import { useCart } from "../../context/CartContext";
 import { FaMinus, FaPlus, FaTruck, FaCreditCard } from "react-icons/fa6";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import EmptyCart from "../components/EmptyCart";
+import EmptyCart from "../../components/EmptyCart";
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart } = useCart();

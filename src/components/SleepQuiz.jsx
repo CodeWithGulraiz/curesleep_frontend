@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/logo-w.png";
+import Logo from "../assets/images/logo-w.png";
 import ProgressBar from "./ProgressBar";
 import { ArrowRightCircle } from "lucide-react";
 const SleepQuiz = () => {

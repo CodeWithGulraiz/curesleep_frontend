@@ -1,5 +1,4 @@
-import { CheckCircle, Clock, Shield, PackageCheck } from "lucide-react";
-import Product2 from "../../assets/images/product2.png";
+import Product2 from "../assets/images/product2.png";
 import { Link } from "react-router-dom";
 
 const DeviceT = () => {

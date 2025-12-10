@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import UserSidebar from "./UserSidebar";
 import UserNav from "./UserNav";
-import DRecom from "../components/DRecom";
+import DRecom from "../../components/DRecom";
 
 const CareTeam = () => {
   const [isVisible, setIsVisible] = useState(false);

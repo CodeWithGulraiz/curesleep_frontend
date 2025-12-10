@@ -83,15 +83,14 @@ const Categories = () => {
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   {category.description}
                 </p>
-                <Link
-                  to={category.link}
+                <div
                   className={`inline-block text-white px-6 py-3 rounded-xl font-medium transition ${
                     accentColors[category.accent] ||
                     "bg-gray-600 hover:bg-gray-700"
                   }`}
                 >
                   View Collections
-                </Link>
+                </div>
               </div>
 
               <div className="relative">

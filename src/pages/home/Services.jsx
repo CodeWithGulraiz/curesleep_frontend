@@ -1,7 +1,7 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Testimonials from "../components/Testimonials";
-import Service from "../components/Service";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Testimonials from "../../components/Testimonials";
+import Service from "../../components/Service";
 const Services = () => {
   return (
     <>

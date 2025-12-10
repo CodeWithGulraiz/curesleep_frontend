@@ -10,21 +10,21 @@ import "./App.css";
 import { PrivateRoute, PublicRoute } from "./routes/AuthRoute";
 import Dashboard from "./pages/user/Dashboard";
 import Home from "./pages/home/Home";
-import SleepQuiz from "./pages/components/SleepQuiz";
+import SleepQuiz from "./components/SleepQuiz";
 import AboutUs from "./pages/home/About";
 import ContactUs from "./pages/home/ContactUs";
 import Services from "./pages/home/Services";
 import Cart from "./pages/user/Cart";
 import Assessment from "./pages/user/Assessment";
 import VerifyEmail from "./pages/auth/VerifyEmail";
-import ThankYouPage from "./pages/components/ThankYouPage";
+import ThankYouPage from "./components/ThankYouPage";
 import Diagnoses from "./pages/user/Diagnosis";
 import Treatment from "./pages/user/Treatment";
 import CareTeam from "./pages/user/CareTeam";
 import Products from "./pages/home/Products";
-import ProductDetails from "./pages/components/ProductDetails";
+import ProductDetails from "./components/ProductDetails";
 import SuccessPage from "./pages/auth/SuccessPage";
-import Categories from "./pages/components/Categories";
+import Categories from "./components/Categories";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },

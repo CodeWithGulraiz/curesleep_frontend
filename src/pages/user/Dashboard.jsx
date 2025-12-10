@@ -10,11 +10,11 @@ import {
   FileText,
   Wind,
   TrendingUp,
+  Skull,
 } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
 import UserSidebar from "./UserSidebar";
 import UserNav from "./UserNav";
-import DRecom from "../components/DRecom";
+import DRecom from "../../components/DRecom";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(false);
@@ -122,7 +122,7 @@ const Dashboard = () => {
     );
   };
 
-  // Show skeleton loader while loading
+  // Show Skull loader while loading
   if (loading) {
     return (
       <div className="dashboard-container">
@@ -141,31 +141,31 @@ const Dashboard = () => {
           <div className="dashboard-content">
             <div className="min-h-screen pt-2">
               <div className="space-y-6">
-                {/* Patient Information Card Skeleton */}
+                {/* Patient Information Card Skull */}
                 <div className="bg-white rounded-sm shadow-lg overflow-hidden">
                   <div className="user-active-sidebar text-black px-6 py-4">
-                    <Skeleton className="h-6 w-48" />
+                    <Skull className="h-6 w-48" />
                   </div>
                   <div className="p-6 bg-gray-50">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {[...Array(4)].map((_, i) => (
                         <div key={i} className="space-y-3">
-                          <Skeleton className="h-20 w-full" />
+                          <Skull className="h-20 w-full" />
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Sleep Assessment Results Skeleton */}
+                {/* Sleep Assessment Results Skull */}
                 <div className="bg-white rounded-sm shadow-lg overflow-hidden">
                   <div className="user-active-sidebar text-black px-6 py-4">
-                    <Skeleton className="h-6 w-64" />
+                    <Skull className="h-6 w-64" />
                   </div>
                   <div className="p-6 bg-gray-50">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[...Array(4)].map((_, i) => (
-                        <Skeleton key={i} className="h-24 w-full" />
+                        <Skull key={i} className="h-24 w-full" />
                       ))}
                     </div>
                   </div>

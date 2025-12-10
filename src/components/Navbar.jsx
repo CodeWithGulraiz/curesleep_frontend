@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../assets/images/logo.png";
 import { toast } from "react-toastify";
 import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../context/CartContext";
 import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {

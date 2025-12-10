@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "react-toastify";
-import { Skeleton } from "@/components/ui/skeleton";
+// import { Skeleton } from "../../components/ui/skeleton";
 import axios from "axios";
 import "./auth.css"; // Importing the CSS for styling
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
+import { Button, Input, Skeleton } from "antd";
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -87,9 +85,9 @@ const Login = () => {
             <form onSubmit={handleSubmitLogin} className="mt-8 space-y-6">
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="email" className="text-black">
+                  <label htmlFor="email" className="text-black">
                     Email
-                  </Label>
+                  </label>
                   <Input
                     id="email"
                     name="email"
@@ -103,9 +101,9 @@ const Login = () => {
                 </div>
 
                 <div className="relative">
-                  <Label htmlFor="password" className="text-black">
+                  <label htmlFor="password" className="text-black">
                     Password
-                  </Label>
+                  </label>
                   <Input
                     id="password"
                     name="password"

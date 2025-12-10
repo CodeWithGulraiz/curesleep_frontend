@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaEye, FaEyeSlash, FaCheck, FaTimes } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "react-toastify";
+import { Button } from "antd";
 
 const ResetPassword = () => {
   const [formData, setFormData] = useState({

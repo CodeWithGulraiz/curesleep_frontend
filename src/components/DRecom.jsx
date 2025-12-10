@@ -1,7 +1,7 @@
 import { Figma, ShoppingCart, Info } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useCart } from "../../context/CartContext"; // adjust path if needed
+import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 

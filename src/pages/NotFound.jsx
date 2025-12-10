@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import Not from "../assets/images/404.png";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
+import { Button } from "antd";
 
 const NotFound = () => {
   // Check authentication status
