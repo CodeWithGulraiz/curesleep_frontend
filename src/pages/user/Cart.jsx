@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Navbar from "../../components/Navbar";
 import { RxCross2 } from "react-icons/rx";
 import { useCart } from "../../context/CartContext";
 import { FaMinus, FaPlus, FaTruck, FaCreditCard } from "react-icons/fa6";
@@ -50,7 +49,6 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar />
       <div className="mt-top"></div>
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-8">

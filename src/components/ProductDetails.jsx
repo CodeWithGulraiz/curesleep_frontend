@@ -48,7 +48,6 @@ useEffect(() => {
 
   return (
     <>
-      <Navbar />
       <div className="bg-gray-50 min-h-screen">
         <div className="bg-white border-b">
           <div className="max-w-7xl mx-auto px-4 py-3">
@@ -337,7 +336,6 @@ useEffect(() => {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

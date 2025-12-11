@@ -1,125 +1,123 @@
-import { useState, useEffect } from 'react';
-import ProductService from '../services/productService';
+import { useState, useEffect } from "react";
+import ProductService from "../services/productService";
+import { useLoader } from "../context/LoaderContext";
 
-// Custom hook for fetching all products
 export const useProducts = (filters = {}) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { showLoader, hideLoader } = useLoader();
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setLoading(true);
+        showLoader();
         setError(null);
         const data = await ProductService.getAllProducts(filters);
         setProducts(data);
       } catch (err) {
         setError(err.message);
-        console.error('Error in useProducts:', err);
+        console.error("Error in useProducts:", err);
       } finally {
-        setLoading(false);
+        hideLoader();
       }
     };
 
     fetchProducts();
-  }, [JSON.stringify(filters)]); // Re-fetch when filters change
+  }, [JSON.stringify(filters)]);
 
-  return { products, loading, error };
+  return { products, error };
 };
 
-// Custom hook for fetching a single product
 export const useProduct = (productId) => {
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { showLoader, hideLoader } = useLoader();
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!productId) {
-      setLoading(false);
+      hideLoader();
       return;
     }
 
     const fetchProduct = async () => {
       try {
-        setLoading(true);
+        showLoader();
         setError(null);
         const data = await ProductService.getProductById(productId);
         setProduct(data);
       } catch (err) {
         setError(err.message);
-        console.error('Error in useProduct:', err);
+        console.error("Error in useProduct:", err);
       } finally {
-        setLoading(false);
+        hideLoader();
       }
     };
 
     fetchProduct();
   }, [productId]);
 
-  return { product, loading, error };
+  return { product, error };
 };
 
 // Custom hook for fetching products by category
 export const useProductsByCategory = (category) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { showLoader, hideLoader } = useLoader();
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!category) {
-      setLoading(false);
+      hideLoader();
       return;
     }
 
     const fetchProducts = async () => {
       try {
-        setLoading(true);
+        showLoader();
         setError(null);
         const data = await ProductService.getProductsByCategory(category);
         setProducts(data);
       } catch (err) {
         setError(err.message);
-        console.error('Error in useProductsByCategory:', err);
+        console.error("Error in useProductsByCategory:", err);
       } finally {
-        setLoading(false);
+        hideLoader();
       }
     };
 
     fetchProducts();
   }, [category]);
 
-  return { products, loading, error };
+  return { products, error };
 };
 
-// Custom hook for fetching related products
 export const useRelatedProducts = (productId) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { showLoader, hideLoader } = useLoader();
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!productId) {
-      setLoading(false);
+      hideLoader();
       return;
     }
 
     const fetchRelatedProducts = async () => {
       try {
-        setLoading(true);
+        showLoader();
         setError(null);
         const data = await ProductService.getRelatedProducts(productId);
         setRelatedProducts(data);
       } catch (err) {
         setError(err.message);
-        console.error('Error in useRelatedProducts:', err);
+        console.error("Error in useRelatedProducts:", err);
       } finally {
-        setLoading(false);
+        hideLoader();
       }
     };
 
     fetchRelatedProducts();
   }, [productId]);
 
-  return { relatedProducts, loading, error };
+  return { relatedProducts, error };
 };

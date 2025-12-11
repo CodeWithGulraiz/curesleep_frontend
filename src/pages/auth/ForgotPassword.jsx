@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Navbar from "../../components/Navbar";
+import { useLoader } from "../../context/LoaderContext";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+ const { showLoader, hideLoader } = useLoader()
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     if (!email.trim()) {
-      toast.error("Username is required"); // ✅ Error toast
+      toast.error("Username is required");
       return;
     }
 
-    setLoading(true);
+    showLoader()
 
     try {
       const res = await axios.post(
@@ -25,23 +25,22 @@ const ForgotPassword = () => {
       );
 
       if (res.data.success) {
-        toast.success("Reset link sent to your email."); // ✅ Success toast
+        toast.success("Reset link sent to your email.");
         setEmailSent(true);
       } else {
-        toast.error(res.data.message); // ✅ Error toast
+        toast.error(res.data.message);
       }
     } catch (error) {
       toast.error(
         error.response?.data?.message || "An error occurred. Please try again."
       );
     } finally {
-      setLoading(false);
+      hideLoader()
     }
   };
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen flex flex-col bg-white">
         <div className="flex-1 flex items-center justify-center py-12 px-4">
           <div className="w-full max-w-md space-y-8 auth-box">

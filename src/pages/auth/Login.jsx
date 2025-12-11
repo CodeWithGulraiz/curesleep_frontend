@@ -73,7 +73,6 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen flex flex-col bg-white">
         <div className="flex-1 flex items-center justify-center py-12 px-4">
           <div className="w-full max-w-md space-y-8 auth-box">

@@ -25,6 +25,8 @@ import Products from "./pages/home/Products";
 import ProductDetails from "./components/ProductDetails";
 import SuccessPage from "./pages/auth/SuccessPage";
 import Categories from "./components/Categories";
+import HNavbar from "./components/HNavbar";
+import Footer from "./components/homePage/footer";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -39,8 +41,11 @@ const AnimatedPage = ({ children }) => (
     exit="exit"
     transition={{ duration: 0.4 }}
   >
+    <HNavbar />
     {children}
-    </motion>
+
+    <Footer />
+  </motion>
 );
 const App = () => {
   const location = useLocation();
@@ -52,7 +57,6 @@ const App = () => {
           path="/"
           element={
             <AnimatedPage>
-
               <Home />
             </AnimatedPage>
           }
@@ -61,7 +65,6 @@ const App = () => {
           path="/about"
           element={
             <AnimatedPage>
-
               <AboutUs />
             </AnimatedPage>
           }
@@ -70,7 +73,6 @@ const App = () => {
           path="/contact"
           element={
             <AnimatedPage>
-              
               <ContactUs />
             </AnimatedPage>
           }
@@ -79,7 +81,6 @@ const App = () => {
           path="/services"
           element={
             <AnimatedPage>
-              
               <Services />
             </AnimatedPage>
           }
@@ -88,7 +89,6 @@ const App = () => {
           path="/categories/"
           element={
             <AnimatedPage>
-              
               <Categories />
             </AnimatedPage>
           }
@@ -97,7 +97,6 @@ const App = () => {
           path="/category/:categoryName/"
           element={
             <AnimatedPage>
-              
               <Products />
             </AnimatedPage>
           }
@@ -106,7 +105,6 @@ const App = () => {
           path="/category/:categoryName/:productId/details/"
           element={
             <AnimatedPage>
-              
               <ProductDetails />
             </AnimatedPage>
           }
@@ -115,7 +113,6 @@ const App = () => {
           path="/cart"
           element={
             <AnimatedPage>
-              
               <Cart />
             </AnimatedPage>
           }
@@ -124,7 +121,6 @@ const App = () => {
           path="/take-quiz"
           element={
             <AnimatedPage>
-              
               <SleepQuiz />
             </AnimatedPage>
           }
@@ -133,7 +129,6 @@ const App = () => {
           path="/assessment"
           element={
             <AnimatedPage>
-              
               <Assessment />
             </AnimatedPage>
           }
@@ -142,7 +137,6 @@ const App = () => {
           path="/success"
           element={
             <AnimatedPage>
-              
               <SuccessPage />
             </AnimatedPage>
           }
@@ -151,7 +145,6 @@ const App = () => {
           path="/login"
           element={
             <AnimatedPage>
-              
               <PublicRoute>
                 <Login />
               </PublicRoute>
@@ -162,7 +155,6 @@ const App = () => {
           path="/verify/:token"
           element={
             <AnimatedPage>
-              
               <PublicRoute>
                 <VerifyEmail />
               </PublicRoute>
@@ -185,7 +177,6 @@ const App = () => {
           path="/forgot-password"
           element={
             <AnimatedPage>
-              
               <PublicRoute>
                 <ForgotPassword />
               </PublicRoute>
@@ -196,7 +187,6 @@ const App = () => {
           path="/reset-password-user/:token"
           element={
             <AnimatedPage>
-              
               <PublicRoute>
                 <ResetPassword />
               </PublicRoute>
@@ -207,7 +197,6 @@ const App = () => {
           path="/dashboard/user"
           element={
             <AnimatedPage>
-              
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
@@ -218,7 +207,6 @@ const App = () => {
           path="/dashboard/user/diagnosis"
           element={
             <AnimatedPage>
-              
               <PrivateRoute>
                 <Diagnoses />
               </PrivateRoute>
@@ -229,7 +217,6 @@ const App = () => {
           path="/dashboard/user/treatment"
           element={
             <AnimatedPage>
-              
               <PrivateRoute>
                 <Treatment />
               </PrivateRoute>
@@ -240,7 +227,6 @@ const App = () => {
           path="/dashboard/user/care-team"
           element={
             <AnimatedPage>
-              
               <PrivateRoute>
                 <CareTeam />
               </PrivateRoute>
@@ -251,7 +237,6 @@ const App = () => {
           path="*"
           element={
             <AnimatedPage>
-              
               <NotFound />
             </AnimatedPage>
           }

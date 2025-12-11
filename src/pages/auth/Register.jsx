@@ -9,7 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import axios from "axios";
 import "./auth.css";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import OtpVerification from "./OtpVerification";
 const Register = () => {
   const navigate = useNavigate();
@@ -210,7 +209,6 @@ const Register = () => {
   if (verificationStep) {
     return (
       <>
-        <Navbar />
         <div className="mt-top"></div>
         <div className="h-[90vh] flex flex-col items-center justify-center bg-white">
           <OtpVerification
@@ -256,7 +254,6 @@ const Register = () => {
 
   return (
     <>
-      <Navbar />
       <div className="mt-top"></div>
       <div className="h-[90vh] flex flex-col bg-white">
         <div className="flex-1 flex items-center justify-center py-12 px-4">

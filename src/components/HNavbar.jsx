@@ -1,26 +1,24 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/images/logo-w.png";
-import Logo2 from "../assets/images/logo.png";
-import { toast } from "react-toastify";
-import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
-import { IoClose } from "react-icons/io5";
-import axios from "axios";
-import { useCart } from "../context/CartContext";
 import { ChevronDown } from "lucide-react";
-
+import { FaBarsStaggered } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import { useCart } from "../context/CartContext";
+import axios from "axios";
+import { toast } from "sonner";
 const HNavbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
+  const authDataString = localStorage.getItem("auth");
+  const auth = authDataString ? JSON.parse(authDataString) : null;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
-  const authDataString = localStorage.getItem("auth");
-  const auth = authDataString ? JSON.parse(authDataString) : null;
 
   const handleLogout = async () => {
     try {
@@ -57,112 +55,166 @@ const HNavbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 m-2 w-[calc(100%-1rem)] rounded-3xl z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md text-black"
-          : "bg-transparent text-white"
+          ? "bg-white/80 backdrop-blur-xl shadow-xl border border-primary/10"
+          : "bg-black/30  backdrop-blur-md"
       }`}
     >
-      <div className="flex justify-between items-center px-6 py-4">
-        {/* Logo */}
-        <Link to="/">
-          <img
-            className="h-10 transition-all duration-300"
-            src={isScrolled ? Logo2 : Logo}
-            alt="logo"
-          />
+      <div className="flex justify-between items-center px-6 py-4 max-w-8xl mx-auto">
+        <Link
+          to="/"
+          className="flex items-center gap-3 hover:opacity-90 transition flex-shrink-0"
+        >
+          <img src={logo} alt="Restora Sleep" className="h-10 w-auto" />
         </Link>
-
-        {/* Side Menu */}
         <div
           id="sidemenu"
-          className={`navbar-left ${isMenuOpen ? "active-menu" : ""}`}
+          className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-2xl transition-transform duration-300 z-40 ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } md:static md:translate-x-0 md:h-auto md:bg-transparent md:shadow-none md:w-auto md:flex md:items-center md:gap-8`}
         >
-          <button className="close-btn" onClick={closeMenu}>
-            <IoClose />
+          <button
+            className="absolute top-4 right-4 md:hidden text-black hover:text-primary transition"
+            onClick={closeMenu}
+          >
+            <IoClose className="w-6 h-6" />
           </button>
+          <nav className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-0 pt-12 md:pt-0">
+            <Link
+              to="/"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              Home
+            </Link>
 
-          <Link className={`${isScrolled ? "nav-link" : "nav-link-h"}`} to="/">
-            Home
-          </Link>
+            <Link
+              to="/about"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              About us
+            </Link>
 
-          <Link
-            className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
-            to="/about"
-          >
-            About us
-          </Link>
-          <Link
-            className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
-            to="/contact"
-          >
-            Contact Us
-          </Link>
-          <Link
-            className={`${isScrolled ? "nav-link" : "nav-link-h"}`}
-            to="/services"
-          >
-            Services
-          </Link>
-          <div
-          className="relative"
-          onMouseEnter={() => setIsProductsOpen((prev) => !prev)}
-          onMouseLeave={() => setIsProductsOpen((prev) => !prev)}
-        >
-          <Link
-            className={`flex items-center gap-2 ${isScrolled ? "nav-link" : "nav-link-h"}`}
-            to="/categories"
-          >
-            Products   <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition" />
-          </Link>
+            <Link
+              to="/contact"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              Contact Us
+            </Link>
 
-          {/* Dropdown menu */}
-          {isProductsOpen && (
-            <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-60 py-2 border border-gray-100 z-50">
-              <Link
-                to="/category/testing"
-                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+            <Link
+              to="/services"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              Services
+            </Link>
+            <div
+              className="relative group"
+              onMouseEnter={() => setIsProductsOpen(true)}
+              onMouseLeave={() => setIsProductsOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-2 font-medium transition-colors duration-200 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-primary"
+                    : "text-white hover:text-primary"
+                }`}
+                onClick={() => navigate("/categories")}
               >
-                Testing Machines
-              </Link>
-              <Link
-                to="/category/cpap"
-                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-              >
-                CPAP Machines
-              </Link>
-              <Link
-                to="/category/masks"
-                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-              >
-                Masks
-              </Link>
-              <Link
-                to="/category/accessories"
-                className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-              >
-                Accessories
-              </Link>
+                Products
+                <ChevronDown
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    isProductsOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isProductsOpen && (
+                <div className="absolute left-0 mt-2 bg-white shadow-xl rounded-xl w-64 py-2 border border-gray-200 z-50">
+                  <Link
+                    to="/category/testing"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    Testing Machines
+                  </Link>
+                  <Link
+                    to="/category/cpap"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    CPAP Machines
+                  </Link>
+                  <Link
+                    to="/category/masks"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    Masks
+                  </Link>
+                  <Link
+                    to="/category/accessories"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    Accessories
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-          <Link
-            className={`${isScrolled ? "sleep-quiz-button" : "nav-link-h"}`}
+            <Link
             to="/take-quiz"
-          >
-            <span className="sleep-icon">😴</span>
-            Take the Sleep Quiz
-          </Link>
+              className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 md:ml-2 ${
+                isScrolled
+                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
+                  : "border-2 border-white text-white hover:bg-primary hover:border-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              Take Sleep Quiz
+            </Link>
+          </nav>
         </div>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-4">
-          <button className="open-nav" onClick={openMenu}>
-            <FaBarsStaggered />
+        <div className="flex items-center gap-3">
+          <button
+            className="md:hidden p-2 hover:bg-primary/10 rounded-lg transition"
+            onClick={openMenu}
+          >
+            <FaBarsStaggered
+              className={`w-6 h-6 transition-colors ${
+                isScrolled ? "text-primary" : "text-white"
+              }`}
+            />
           </button>
-
           {!auth?.user ? (
-            <Link className="login-btn" to="/login">
+            <Link
+              to="#login"
+              className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
+                isScrolled
+                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
+                  : "border-2 border-white text-white hover:bg-primary hover:border-primary"
+              }`}
+            >
               Login
             </Link>
           ) : (

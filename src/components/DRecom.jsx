@@ -4,14 +4,15 @@ import axios from "axios";
 import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useLoader } from "../context/LoaderContext";
 
 const DRecom = () => {
-  const [loading, setLoading] = useState(false);
+  const { showLoader, hideLoader } = useLoader()
   const [chips, setChips] = useState([]);
   const { cart, setCart } = useCart();
 
   const fetchChipsData = async () => {
-    setLoading(true);
+    showLoader()
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API}/api/v1/chips/get-all-chips`
@@ -22,7 +23,7 @@ const DRecom = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      hideLoader()
     }
   };
 

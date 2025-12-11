@@ -1,21 +1,17 @@
 import { Link } from "react-router-dom";
 import Not from "../assets/images/404.png";
-import Navbar from "../components/Navbar";
 import { Button } from "antd";
 
 const NotFound = () => {
-  // Check authentication status
   const isAuthenticated =
     localStorage.getItem("admintoken") && localStorage.getItem("adminauthor");
 
-  // Determine redirect path based on auth status
   const getHomePath = () => {
     return isAuthenticated ? "/dashboard/user" : "/";
   };
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen flex flex-col">
         <div className="flex-1 from-gray-900 to-gray-800 px-4 py-8">
           <div className="container mx-auto">
