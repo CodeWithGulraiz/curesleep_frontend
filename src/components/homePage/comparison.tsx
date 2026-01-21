@@ -41,7 +41,7 @@ export default function Comparison() {
     <section className="py-20 md:py-32 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Why Choose CureSleep?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Why Choose RestoraSleep?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Experience sleep apnea testing reimagined. Skip the clinic. Get answers faster. Take control at home.
           </p>
@@ -53,7 +53,7 @@ export default function Comparison() {
               <tr className="border-b-2 border-border">
                 <th className="text-left py-6 px-6 font-bold text-lg text-foreground">Features</th>
                 <th className="text-left py-6 px-6 font-semibold text-lg text-muted-foreground">Typical Clinic</th>
-                <th className="text-left py-6 px-6 font-bold text-lg text-primary">CureSleep</th>
+                <th className="text-left py-6 px-6 font-bold text-lg text-primary">RestoraSleep</th>
               </tr>
             </thead>
             <tbody>

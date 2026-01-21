@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { FaBarsStaggered } from "react-icons/fa6";
+import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { useCart } from "../context/CartContext";
 import axios from "axios";
@@ -55,13 +55,13 @@ const HNavbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 m-2 w-[calc(100%-1rem)] rounded-3xl z-50 transition-all duration-300 ${
+      className={`${
         isScrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-xl border border-primary/10"
-          : "bg-black/30  backdrop-blur-md"
-      }`}
+          ? "sticky top-0 left-0 m-2 w-[calc(100%-1rem)] rounded-3xl z-50 bg-white/80 backdrop-blur-xl shadow-xl border border-primary/10"
+          : "relative w-full bg-background"
+      } transition-all duration-300`}
     >
-      <div className="flex justify-between items-center px-6 py-4 max-w-8xl mx-auto">
+      <div className={`flex justify-between items-center px-6 py-4 ${isScrolled ? "max-w-8xl mx-auto" : "max-w-7xl mx-auto"}`}>
         <Link
           to="/"
           className="flex items-center gap-3 hover:opacity-90 transition flex-shrink-0"
@@ -86,7 +86,7 @@ const HNavbar = () => {
               className={`font-medium transition-colors duration-200 ${
                 isScrolled
                   ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
               onClick={closeMenu}
             >
@@ -98,38 +98,38 @@ const HNavbar = () => {
               className={`font-medium transition-colors duration-200 ${
                 isScrolled
                   ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
               onClick={closeMenu}
             >
-              About us
+              Why Restora Sleep
             </Link>
 
             <Link
-              to="/contact"
+              to="/sleep-apnea-explained"
               className={`font-medium transition-colors duration-200 ${
                 isScrolled
                   ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
               onClick={closeMenu}
             >
-              Contact Us
+              Sleep Apnea Explained
             </Link>
 
-            <Link
+            {/* <Link
               to="/services"
               className={`font-medium transition-colors duration-200 ${
                 isScrolled
                   ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
               onClick={closeMenu}
             >
               Services
-            </Link>
+            </Link> */}
             <div
-              className="relative group"
+              className="relative py-3 px-2 group"
               onMouseEnter={() => setIsProductsOpen(true)}
               onMouseLeave={() => setIsProductsOpen(false)}
             >
@@ -137,7 +137,7 @@ const HNavbar = () => {
                 className={`flex items-center gap-2 font-medium transition-colors duration-200 ${
                   isScrolled
                     ? "text-gray-700 hover:text-primary"
-                    : "text-white hover:text-primary"
+                    : "text-foreground hover:text-primary"
                 }`}
                 onClick={() => navigate("/categories")}
               >
@@ -149,7 +149,7 @@ const HNavbar = () => {
                 />
               </button>
               {isProductsOpen && (
-                <div className="absolute left-0 mt-2 bg-white shadow-xl rounded-xl w-64 py-2 border border-gray-200 z-50">
+                <div className="absolute left-0 mt-1 bg-white shadow-xl rounded-xl w-64 py-2 border border-gray-200 z-50">
                   <Link
                     to="/category/testing"
                     className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
@@ -163,6 +163,34 @@ const HNavbar = () => {
                     onClick={closeMenu}
                   >
                     CPAP Machines
+                  </Link>
+                  <Link
+                    to="/category/CPAP-MASK-PARTS"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    CPAP Mask Parts
+                  </Link>
+                  <Link
+                    to="/category/CPAP-CLEANING"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    CPAP Cleaning
+                  </Link>
+                  <Link
+                    to="/category/CPAP-MACHINE-FILTERS"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    CPAP Machines Filters
+                  </Link>
+                  <Link
+                    to="/category/CPAP-HUMIDIFIERS"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    CPAP Humidifiers
                   </Link>
                   <Link
                     to="/category/masks"
@@ -186,11 +214,11 @@ const HNavbar = () => {
               className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 md:ml-2 ${
                 isScrolled
                   ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
-                  : "border-2 border-white text-white hover:bg-primary hover:border-primary"
+                  : "bg-primary text-white hover:bg-primary/90"
               }`}
               onClick={closeMenu}
             >
-              Take Sleep Quiz
+              Check Your Sleep Apnea Risk
             </Link>
           </nav>
         </div>
@@ -202,17 +230,17 @@ const HNavbar = () => {
           >
             <FaBarsStaggered
               className={`w-6 h-6 transition-colors ${
-                isScrolled ? "text-primary" : "text-white"
+                isScrolled ? "text-primary" : "text-foreground"
               }`}
             />
           </button>
           {!auth?.user ? (
             <Link
-              to="#login"
+              to="/login"
               className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
                 isScrolled
                   ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
-                  : "border-2 border-white text-white hover:bg-primary hover:border-primary"
+                  : "bg-primary text-white hover:bg-primary/90"
               }`}
             >
               Login

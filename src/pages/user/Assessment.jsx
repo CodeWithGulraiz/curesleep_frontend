@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoArrowBack, IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo-w.png";
-import Product from "../../assets/images/product.png";
-import Product2 from "../../assets/images/product2.png";
+import Product from "../../assets/images/ensoData.jpg";
+import Product2 from "../../assets/images/sleepImage4.png";
 import axios from "axios";
 import ThankYouPage from "../../components/ThankYouPage";
 const Assessment = () => {
+  const isManualNavigation = useRef(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
     snoreLoudly: "",
@@ -17,7 +18,7 @@ const Assessment = () => {
     heightFeet: "",
     heightInches: "",
     heightCm: "",
-    heightUnit: "feet", // NEW ➝ default unit
+    heightUnit: "feet",
     weight: "",
     weightUnit: "kg",
     sleepStudyExclusions: [],
@@ -132,27 +133,20 @@ const Assessment = () => {
       ...prev,
       [field]: value,
     }));
-  };
 
-  // Auto-advance effect for yesno and gender questions
-  useEffect(() => {
     const currentQuestion = questions[currentStep];
+
     if (
-      (currentQuestion.type === "yesno" || currentQuestion.type === "gender") &&
-      answers[currentQuestion.field]
+      currentQuestion.field === field &&
+      (currentQuestion.type === "yesno" || currentQuestion.type === "gender")
     ) {
-      const timer = setTimeout(() => {
-        if (currentStep < questions.length - 1) {
-          setCurrentStep(currentStep + 1);
-        } else {
-          handleSubmit();
-        }
-      }, 800);
-
-      return () => clearTimeout(timer);
+      setTimeout(() => {
+        setCurrentStep((prev) =>
+          prev < questions.length - 1 ? prev + 1 : prev,
+        );
+      }, 300);
     }
-  }, [answers, currentStep]);
-
+  };
   const handlePersonalDetailsChange = (field, value) => {
     setPersonalDetails((prev) => ({
       ...prev,
@@ -183,7 +177,7 @@ const Assessment = () => {
         currentValues.includes("None of the below")
       ) {
         const filtered = currentValues.filter(
-          (item) => item !== "None of the below"
+          (item) => item !== "None of the below",
         );
         return { ...prev, [field]: filtered };
       }
@@ -223,6 +217,7 @@ const Assessment = () => {
   };
 
   const handlePrev = () => {
+    isManualNavigation.current = true;
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
@@ -249,9 +244,9 @@ const Assessment = () => {
       !personalDetails.lastName ||
       !personalDetails.email ||
       !personalDetails.password ||
-      !personalDetails.birthMonth ||
-      !personalDetails.birthDay ||
-      !personalDetails.birthYear ||
+      // !personalDetails.birthMonth ||
+      // !personalDetails.birthDay ||
+      // !personalDetails.birthYear ||
       !personalDetails.mobile ||
       !personalDetails.privacyPolicy
     ) {
@@ -266,7 +261,7 @@ const Assessment = () => {
         {
           personalDetails,
           answers,
-        }
+        },
       );
 
       if (data.success) {
@@ -676,7 +671,7 @@ const Assessment = () => {
                           onChange={(e) =>
                             handlePersonalDetailsChange(
                               "firstName",
-                              e.target.value
+                              e.target.value,
                             )
                           }
                           required
@@ -693,7 +688,7 @@ const Assessment = () => {
                           onChange={(e) =>
                             handlePersonalDetailsChange(
                               "lastName",
-                              e.target.value
+                              e.target.value,
                             )
                           }
                           required
@@ -727,7 +722,7 @@ const Assessment = () => {
                         onChange={(e) =>
                           handlePersonalDetailsChange(
                             "password",
-                            e.target.value
+                            e.target.value,
                           )
                         }
                         required
@@ -736,7 +731,7 @@ const Assessment = () => {
 
                     <div>
                       <label className="block text-white text-sm font-medium mb-1">
-                        Date of Birth *
+                        Date of Birth
                       </label>
                       <div className="grid grid-cols-3 gap-2">
                         <input
@@ -746,11 +741,10 @@ const Assessment = () => {
                           onChange={(e) =>
                             handlePersonalDetailsChange(
                               "birthMonth",
-                              e.target.value
+                              e.target.value,
                             )
                           }
                           placeholder="MM"
-                          required
                         />
                         <input
                           type="number"
@@ -759,7 +753,7 @@ const Assessment = () => {
                           onChange={(e) =>
                             handlePersonalDetailsChange(
                               "birthDay",
-                              e.target.value
+                              e.target.value,
                             )
                           }
                           placeholder="DD"
@@ -772,7 +766,7 @@ const Assessment = () => {
                           onChange={(e) =>
                             handlePersonalDetailsChange(
                               "birthYear",
-                              e.target.value
+                              e.target.value,
                             )
                           }
                           placeholder="YYYY"
@@ -805,7 +799,7 @@ const Assessment = () => {
                         onChange={(e) =>
                           handlePersonalDetailsChange(
                             "privacyPolicy",
-                            e.target.checked
+                            e.target.checked,
                           )
                         }
                         required
@@ -838,8 +832,37 @@ const Assessment = () => {
       );
     }
 
+    const getRiskFactors = (answers) => {
+      const factors = [];
+
+      if (answers.snoreLoudly === "Yes") factors.push("Snoring");
+      if (answers.tiredDuringDay === "Yes") factors.push("Daytime fatigue");
+      if (answers.breathingStopped === "Yes")
+        factors.push("Breathing interruptions");
+      if (answers.highBloodPressure === "Yes")
+        factors.push("High blood pressure");
+
+      if (
+        answers.additionalDescriptions?.includes(
+          "Heartburn or acid reflux at night",
+        )
+      ) {
+        factors.push("Nighttime heartburn");
+      }
+
+      if (
+        answers.additionalDescriptions?.includes(
+          "Family has a history of sleep apnea (parents or siblings)",
+        )
+      ) {
+        factors.push("Family history");
+      }
+
+      return factors;
+    };
     // Results Screen (unchanged)
     if (completed && showResults) {
+      const riskFactors = getRiskFactors(answers);
       return (
         <div className="bg-slate-800 min-h-screen relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
@@ -864,17 +887,35 @@ const Assessment = () => {
                 </div>
 
                 <div className="text-center space-y-4">
-                  <h2 className="text-white text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text leading-tight">
-                    Quiz Results Ready
+                  <h2 className="text-white text-5xl font-bold mb-4 leading-tight">
+                    You may be at risk for
+                    <span className="block text-[#00aa63]">Sleep Apnea</span>
                   </h2>
-                  <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-                    Based on your answers, you may be suffering from Sleep
-                    Apnea.
-                    <span className="text-[#00aa63] font-semibold ml-1">
-                      We can help.
-                    </span>
+
+                  <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                    Based on your responses, we identified the following risk
+                    factors:
                   </p>
+                  <div className="flex flex-wrap justify-center gap-3 mt-6">
+                    {riskFactors.map((factor, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 rounded-full bg-orange-100 text-orange-800 text-sm font-medium border border-orange-300"
+                      >
+                        {factor}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              </div>
+              <div className="mt-10 text-center">
+                <p className="text-white text-3xl font-semibold">
+                  We recommend a sleep study
+                </p>
+                <p className="text-gray-300 mt-2 max-w-4xl mx-auto">
+                  To receive an accurate diagnosis and get treated using your
+                  insurance, a clinically approved sleep study is the next step.
+                </p>
               </div>
 
               <div
@@ -882,35 +923,25 @@ const Assessment = () => {
               >
                 <div className="bg-slate-900/40 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-10 shadow-2xl">
                   <div className="space-y-8">
-                    <p className="text-white text-2xl font-bold text-center">
-                      Recommended for you:
-                    </p>
-
-                    <div className="relative text-center">
-                      <h1 className="text-6xl font-bold text-transparent bg-gradient-to-r from-[#00aa63] via-green-400 to-[#00aa63] bg-clip-text uppercase tracking-tight leading-tight">
-                        Get a Sleep Study
-                      </h1>
-                    </div>
-
                     <div className="flex justify-center">
                       <div className="relative flex gap-5">
                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
-                          <h3 className="text-white text-xl">Option 1</h3>
-                          <Link to={`/products/watchpad/details`}>
+                          <h3 className="text-white text-xl">Option 1 (Enso Data)</h3>
+                          <Link to={`/category/testing/ensoData/details/`}>
                             <img
                               src={Product}
                               alt="Product"
-                              className="rounded-xl cursor-pointer"
+                              className="rounded-xl h-[350px] cursor-pointer"
                             />
                           </Link>
                         </div>
                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
-                          <h4 className="text-white text-xl">Option 2</h4>
-                          <Link to={`/products/sleepImageRing/details`}>
+                          <h4 className="text-white text-xl">Option 2 (Sleep Ring)</h4>
+                          <Link to={`/category/testing/sleepRing/details/`} >
                             <img
                               src={Product2}
                               alt="Product 2"
-                              className="rounded-xl rotate-180 cursor-pointer"
+                              className="rounded-xl h-[350px] bg-cover cursor-pointer"
                             />
                           </Link>
                         </div>
@@ -977,19 +1008,28 @@ const Assessment = () => {
           <div className="max-w-6xl mx-auto">{renderQuestion()}</div>
         </div>
 
-        {questions[currentStep].type !== "yesno" &&
-          questions[currentStep].type !== "gender" && (
-            <div className="fixed bottom-0 left-0 right-0 bg-slate-800 p-2 border-t border-gray-700">
-              <div className="max-w-6xl mx-auto flex justify-end">
+        <div className=" bg-slate-800 p-2 border-t border-gray-700">
+          <div className="max-w-6xl mx-auto flex justify-between">
+            {!(currentStep === questions.length - 1) && (
+              <button
+                className="bg-green-700 hover:bg-green-800 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-gray-200 text-white text-lg font-semibold py-3 px-8 rounded-lg transition-colors transform hover:scale-105 duration-300"
+                onClick={handlePrev}
+                disabled={currentStep === 0}
+              >
+                Previous
+              </button>
+            )}
+            {questions[currentStep].type !== "yesno" &&
+              questions[currentStep].type !== "gender" && (
                 <button
                   className="bg-green-700 hover:bg-green-800 text-white text-lg font-semibold py-3 px-8 rounded-lg transition-colors transform hover:scale-105 duration-300"
                   onClick={handleNext}
                 >
                   {currentStep === questions.length - 1 ? "Finish" : "Continue"}
                 </button>
-              </div>
-            </div>
-          )}
+              )}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,9 +1,9 @@
-import About from "../../components/About";
+import WhyRestoraSleep from "../../components/whyRestoraSleep/WhyRestoraSleep";
+
 const AboutUs = () => {
   return (
     <>
-      <div className="mt-top"></div>
-      <About />
+      <WhyRestoraSleep />
     </>
   );
 };

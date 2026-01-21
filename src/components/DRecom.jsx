@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useLoader } from "../context/LoaderContext";
 
 const DRecom = () => {
-  const { showLoader, hideLoader } = useLoader()
+  const { showLoader, hideLoader , isLoading } = useLoader();
   const [chips, setChips] = useState([]);
   const { cart, setCart } = useCart();
 
@@ -57,13 +57,13 @@ const DRecom = () => {
 
       <div className="flex justify-center p-6">
         <div className="relative flex gap-6 w-full">
-          {loading ? (
+          {isLoading ? (
             <p className="text-gray-500">Loading...</p>
           ) : chips.length > 0 ? (
             chips.slice(0, 2).map((chip) => (
               <div
                 key={chip._id}
-                className="user-active-sidebar border-0 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2 flex flex-col transition-transform duration-300 hover:scale-105"
+                className="user-active-sidebar rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2 flex flex-col transition-transform duration-300 hover:scale-105"
               >
                 <div className="mb-4">
                   <h3 className="text-black text-2xl font-bold mb-2">

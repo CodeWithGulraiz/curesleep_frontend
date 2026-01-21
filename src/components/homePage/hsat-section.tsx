@@ -1,22 +1,20 @@
-"use client"
+"use client";
 
-import { CheckCircle2, AlertCircle } from "lucide-react"
-import { Button } from "../../components/ui/button"
-import { useNavigate } from "react-router-dom"
+import { CheckCircle2, AlertCircle } from "lucide-react";
+import { Button } from "../../components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const benefits = [
-  "Disposable kit shipped in 1–3 business days (AB/BC/MB) or 2–3 days (ON).",
-  "Physician interpretation & diagnosis with a virtual results visit.",
-  "Clear report, treatment recommendation, and receipt for benefits.",
-  "If screening suggests complex breathing, we guide you to an in-lab study instead.",
-]
-
+  "A single- or multi-use home sleep test is shipped directly to you within a few days.",
+  "Your study is interpreted by a sleep physician, followed by a virtual results visit to review findings and clearly outline next steps.",
+  "You receive a clear diagnostic report, personalized treatment recommendations, a prescription when indicated, and a receipt for insurance or health benefits.",
+];
 const exclusions = [
-  "Under 18 years old",
-  "Significant lung/heart disease or suspected hypoventilation",
-  "Chronic opioid therapy or suspected central sleep apnea",
-  "Pregnancy, or prior inconclusive HSAT",
-]
+  "Under 18 years of age",
+  "Significant lung or heart disease, or suspected sleep-related hypoventilation",
+  "Chronic opioid use or suspected central sleep apnea",
+  "Pregnancy, or a previous inconclusive home sleep test",
+];
 
 export default function HSATSection() {
   const navigate = useNavigate();
@@ -26,9 +24,13 @@ export default function HSATSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <div className="inline-block px-4 py-2 bg-primary/10 rounded-full border border-primary/30 mb-6">
-              <span className="text-sm font-semibold text-primary">Home Sleep Test (HSAT)</span>
+              <span className="text-sm font-semibold text-primary">
+                Home Sleep Test (HSAT): Our Care Model
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-balance">Sleep apnea testing simplified</h2>
+            <h2 className="text-4xl md:text-4xl font-bold mb-8 text-balance">
+              Fast, accurate sleep apnea diagnosis—made simple
+            </h2>
 
             <div className="space-y-4 mb-8">
               {benefits.map((benefit, index) => (
@@ -40,22 +42,38 @@ export default function HSATSection() {
             </div>
 
             <div className="flex gap-3">
-              <Button onClick={()=> navigate("/take-quiz")} size="lg" className="bg-primary hover:bg-primary/90">
-                Order my home test
+              <Button
+                onClick={() => navigate("/take-quiz")}
+                size="lg"
+                className="bg-primary hover:bg-primary/90"
+              >
+                Get started with at-home sleep testing
               </Button>
-              <Button onClick={() => {
-    const el = document.getElementById("faqs");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  }} size="lg" variant="outline">
+              <Button
+                onClick={() => {
+                  const el = document.getElementById("faqs");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                size="lg"
+                variant="outline"
+              >
                 HSAT FAQs
               </Button>
             </div>
           </div>
 
           <div className="bg-destructive/5 border border-destructive/20 rounded-2xl p-8 lg:p-12">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3">
+
               <AlertCircle className="w-8 h-8 text-destructive flex-shrink-0" />
-              <h3 className="text-2xl font-bold text-foreground">Who HSAT is not for</h3>
+              <h3 className="text-2xl block font-bold text-foreground">
+                Who HSAT is not for
+              </h3>
+              </div>
+              <h5 className="text-md mt-4 pb-2 font-semibold text-foreground">
+                Home sleep testing may not be appropriate if you have any of the following:
+              </h5>
             </div>
             <div className="space-y-4">
               {exclusions.map((exclusion, index) => (
@@ -66,11 +84,11 @@ export default function HSATSection() {
               ))}
             </div>
             <p className="mt-8 text-sm text-muted-foreground italic">
-              If any of these apply, we'll guide you to the right care option.
+              If any of these apply, we'll guide you to the most appropriate care option, including in-lab sleep testing when needed.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

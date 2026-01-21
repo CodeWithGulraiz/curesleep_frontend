@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import snoringImg from "../../assets/snoring.webp";
-import womanSleeping from "../../assets/woman-sleeping.jpg";
-import womanMask from "../../assets/woman-withmask.webp";
+import womanSleeping from "../../assets/images/troubleSleeping.jpg";
+import womanMask from "../../assets/images/maskWoman.jpg";
 import { useNavigate } from "react-router-dom";
 const slides = [
   {
@@ -67,6 +67,20 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Contact Us Button - Top Left */}
+      <div className="absolute top-8 left-8 z-30">
+        <Button
+          onClick={() => {
+            window.location.href = "tel:+17806651500";
+          }}
+          size="lg"
+          className="bg-white text-primary hover:bg-white/90 shadow-lg hover:shadow-xl transition-all"
+        >
+          <Phone className="w-5 h-5 mr-2" />
+          Call Now
+        </Button>
+      </div>
+
       <div className="relative w-full h-full">
         {slides.map((s, index) => (
           <div
@@ -80,7 +94,7 @@ export default function HeroSlider() {
               alt={s.heading}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/80" />
           </div>
         ))}
       </div>
@@ -90,7 +104,7 @@ export default function HeroSlider() {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance">
             {slide.heading}
           </h1>
-          <p className="text-xl md:text-2xl font-semibold text-secondary">
+          <p className="text-xl md:text-2xl font-semibold text-white">
             {slide.subheading}
           </p>
           <p className="text-base md:text-lg text-gray-200">
@@ -102,7 +116,7 @@ export default function HeroSlider() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white"
             >
-              Start my sleep quiz
+              Take Sleep Quiz
             </Button>
             <Button
               onClick={() => {
@@ -113,25 +127,20 @@ export default function HeroSlider() {
               variant="outline"
               className="border-white text-white hover:bg-white/10 bg-transparent"
             >
-              See how home testing works
+              See How Home Testing Works
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8 z-10 text-right">
-        <div className="relative">
-          <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg blur-sm" />
-          <div className="relative px-4 py-2 border border-primary/40 rounded-lg bg-black/30 backdrop-blur-sm">
-            <p className="text-xs md:text-sm font-medium text-primary/90 tracking-wide uppercase">
-              Serving
-            </p>
-            <p className="text-xs md:text-sm text-white/80 font-light leading-relaxed">
-              Alberta, British Columbia,
-              <br />
-              Manitoba, and Ontario
-            </p>
-          </div>
+      <div className="absolute bottom-8 right-8 z-30">
+        <div className="bg-white rounded-lg px-6 py-4 shadow-2xl border-2 border-primary/20">
+          <p className="text-sm md:text-base font-bold text-foreground leading-tight">
+            Servings:
+          </p>
+          <p className="text-sm md:text-base font-bold text-foreground leading-tight">
+            Alberta, British Columbia, Manitoba, and Ontario
+          </p>
         </div>
       </div>
 

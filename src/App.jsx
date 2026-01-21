@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Login from "./pages/auth/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword";
@@ -14,6 +14,7 @@ import SleepQuiz from "./components/SleepQuiz";
 import AboutUs from "./pages/home/About";
 import ContactUs from "./pages/home/ContactUs";
 import Services from "./pages/home/Services";
+import SleepApneaExplained from "./pages/home/SleepApneaExplained";
 import Cart from "./pages/user/Cart";
 import Assessment from "./pages/user/Assessment";
 import VerifyEmail from "./pages/auth/VerifyEmail";
@@ -33,20 +34,25 @@ const pageVariants = {
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 },
 };
-const AnimatedPage = ({ children }) => (
-  <motion
-    variants={pageVariants}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    transition={{ duration: 0.4 }}
-  >
-    <HNavbar />
-    {children}
+const AnimatedPage = ({ children }) => {
+  const pathName = useLocation();
+  console.log(pathName);
 
-    <Footer />
-  </motion>
-);
+  return (
+    <motion
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
+      {!pathName.pathname.startsWith("/dashboard") && <HNavbar />}
+      {children}
+
+      <Footer />
+    </motion>
+  );
+};
 const App = () => {
   const location = useLocation();
 
@@ -74,6 +80,14 @@ const App = () => {
           element={
             <AnimatedPage>
               <ContactUs />
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/sleep-apnea-explained"
+          element={
+            <AnimatedPage>
+              <SleepApneaExplained />
             </AnimatedPage>
           }
         />

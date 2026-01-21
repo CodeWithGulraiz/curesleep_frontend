@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div>
                 <Link
-                  to="/home"
+                  to="/"
                   className="text-white hover:text-green-500 transition-colors duration-200 block py-1"
                 >
                   Home
@@ -97,11 +97,11 @@ const Footer = () => {
               </div>
               <div>
                 <Link
-                  to="mailto:info@curesleepsolutions.com"
+                  to="mailto:curesleepclinic@gmail.com"
                   target="_blank"
                   className="text-white hover:text-green-500 transition-colors duration-200 block py-1"
                 >
-                  info@curesleepsolutions.com
+                  curesleepclinic@gmail.com
                 </Link>
               </div>
             </div>

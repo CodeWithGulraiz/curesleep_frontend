@@ -27,9 +27,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <a href="/" className="flex items-center gap-2 font-bold text-xl">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white text-sm font-bold">
-              CS
+              RS
             </div>
-            <span className={isScrolled ? "text-foreground" : "text-white"}>CureSleep</span>
+            <span className={isScrolled ? "text-foreground" : "text-white"}>RestoraSleep</span>
           </a>
 
           <div className="hidden md:flex items-center gap-1">

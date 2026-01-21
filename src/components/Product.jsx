@@ -1,20 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
-
+import TestingInfoSection from "./testing/TestingInfoSection";
 
 const Products = () => {
   const { categoryName } = useParams();
   const accentColors = {
-  green: "bg-green-600 hover:bg-green-700",
-  purple: "bg-purple-600 hover:bg-purple-700",
-  blue: "bg-blue-600 hover:bg-blue-700",
-  pink: "bg-pink-600 hover:bg-pink-700",
-};
-    const { products, loading, error } = useProducts();
+    green: "bg-green-600 hover:bg-green-700",
+    purple: "bg-purple-600 hover:bg-purple-700",
+    blue: "bg-blue-600 hover:bg-blue-700",
+    pink: "bg-pink-600 hover:bg-pink-700",
+  };
+  const { products, loading, error } = useProducts();
   // if (loading) return <LoadingSpinner />;
   // if (error) return <ErrorMessage error={error} />;
   const filteredProducts = products.filter(
-    (product) => product.category === categoryName
+    (product) => product.category === categoryName,
   );
 
   // Handle invalid or missing categories
@@ -28,16 +28,32 @@ const Products = () => {
     );
   }
 
+  const isTestingCategory = categoryName === "testing";
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-24 px-6">
-      <div className="max-w-7xl mx-auto text-center mb-16">
+      <div className="max-w-7xl mx-auto text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 capitalize">
-          {categoryName} Products
+          {isTestingCategory
+            ? "Home Sleep Apnea Tests"
+            : `${categoryName} Products`}
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Explore our collection of {categoryName.replace("-", " ")} — designed
-          to improve sleep health and comfort.
+        <p
+          className={`${isTestingCategory ? "text-xl text-muted-foreground max-w-3xl mx-auto mb-6" : "text-gray-600 max-w-2xl mx-auto"}`}
+        >
+          {isTestingCategory
+            ? "Accurate, physician-reviewed testing—done comfortably at home"
+            : `Explore our collection of ${categoryName.replace("-", " ")} — designed to improve sleep health and comfort.`}
         </p>
+        {isTestingCategory && (
+          <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Click below to view our selection of clinically validated home sleep
+            apnea tests. We offer the SleepImage® Ring and EnsoData-supported
+            sleep testing, both designed to deliver high-quality diagnostic data
+            comparable to in-lab polysomnography (PSG) when used in appropriate
+            patients.
+          </p>
+        )}
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 max-w-[90rem] mx-auto">
@@ -81,6 +97,13 @@ const Products = () => {
           );
         })}
       </div>
+
+      {/* Testing Category Information Section */}
+      {isTestingCategory && (
+        <div className="mt-10">
+          <TestingInfoSection />
+        </div>
+      )}
     </section>
   );
 };

@@ -101,7 +101,7 @@ const About = () => {
               <div className="flex items-center mb-6">
                 <Moon className="w-10 h-10 text-green-600 mr-4" />
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-800">
-                  About Curesleep
+                  About RestoraSleep
                 </h1>
               </div>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">

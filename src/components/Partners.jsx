@@ -38,7 +38,7 @@ const Partners = () => {
           {/* Title */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              CureSleep Solutions is now{" "}
+              RestoraSleep Solutions is now{" "}
               <span className="text-green-500 bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent font-extrabold">
                 in-network
               </span>

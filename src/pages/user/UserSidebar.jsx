@@ -41,7 +41,7 @@ const UserSidebar = ({ sidebarOpen, toggleSidebar, isSpaceActive }) => {
         <div className="pb-2">
           {/* Logo + Collapse Button */}
           <div className="my-2 inc-dec-main">
-            <Link to="/home">
+            <Link to="/">
               {!isSpaceActive && (
                 <img className="user-sidebar-logo" src={SignLogo} alt="logo" />
               )}

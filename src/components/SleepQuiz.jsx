@@ -34,7 +34,7 @@ const SleepQuiz = () => {
         </h2>
         {/* Description */}
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto">
-          Curesleep solutions is a virtual sleep clinic. Take our one-minute
+          RestoraSleep solutions is a virtual sleep clinic. Take our one-minute
           sleep quiz, which will help us determine your risk of Obstructive
           Sleep Apnea (OSA) and recommend the best next step. If home sleep
           testing is recommended, you can get started right away.
@@ -45,7 +45,7 @@ const SleepQuiz = () => {
             to="/assessment"
             className="inline-flex items-center px-8 py-4 bg-white text-[#00aa63] font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
-            Take the Sleep Quiz
+            Start The Quiz
             <ArrowRightCircle className="ml-3 w-6 h-6" />
           </Link>
         </div>

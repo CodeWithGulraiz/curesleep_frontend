@@ -1,35 +1,40 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CheckCircle, XCircle, Mail, Loader2 } from "lucide-react";
 import axios from "axios";
 
 const VerifyEmail = () => {
+  const isFetchingToken = useRef();
   const { token } = useParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState("loading");
   const [countdown, setCountdown] = useState(5);
 
-  // 🔑 Call API when component mounts
   useEffect(() => {
     const verifyEmail = async () => {
+      if (isFetchingToken.current) return;
+      isFetchingToken.current = true;
       try {
         const { data } = await axios.get(
           `${import.meta.env.VITE_API}/api/v1/auth/verify/${token}`
         );
 
-        if (data.success) {
+        console.log("API Response:", data);
+
+        if (data.success === true) {
           setStatus("success");
         } else {
           setStatus("error");
         }
       } catch (err) {
+        console.error("Verify error:", err.response?.data || err.message);
         setStatus("error");
-        console.log(err);
+      } finally {
+        isFetchingToken.current = false;
       }
     };
-
     verifyEmail();
-  }, [token]);
+  }, []);
 
   // 🔄 Countdown + redirect
   useEffect(() => {
