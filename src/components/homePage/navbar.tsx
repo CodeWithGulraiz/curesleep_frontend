@@ -29,7 +29,7 @@ export default function Navbar() {
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white text-sm font-bold">
               RS
             </div>
-            <span className={isScrolled ? "text-foreground" : "text-white"}>RestoraSleep</span>
+            <span className={isScrolled ? "text-foreground" : "text-white"}>CureSleep</span>
           </a>
 
           <div className="hidden md:flex items-center gap-1">

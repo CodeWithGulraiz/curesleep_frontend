@@ -14,7 +14,12 @@ const Products = () => {
   // if (loading) return <LoadingSpinner />;
   // if (error) return <ErrorMessage error={error} />;
   const filteredProducts = products.filter(
-    (product) => product.category === categoryName,
+    (product) =>
+      product.category?.toLowerCase() === categoryName?.toLowerCase() &&
+      !(
+        categoryName?.toLowerCase() === "testing" &&
+        product.id === "ensoData"
+      ),
   );
 
   // Handle invalid or missing categories
@@ -56,14 +61,25 @@ const Products = () => {
         )}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 max-w-[90rem] mx-auto">
+      <div
+        className={`grid gap-12 max-w-[90rem] mx-auto ${
+          filteredProducts.length === 1 ? "md:grid-cols-1 justify-items-center" : "md:grid-cols-2"
+        }`}
+      >
         {filteredProducts.map((product) => {
           return (
             <Link
               key={product.id}
               to={`/category/${categoryName}/${product.id}/details/`}
-              className={`relative bg-gradient-to-br ${product.gradient} rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)] transition-all overflow-hidden border border-gray-100 group`}
+              className={`relative bg-gradient-to-br ${product.gradient} rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)] transition-all overflow-hidden border border-gray-100 group ${
+                filteredProducts.length === 1 ? "w-full max-w-5xl" : ""
+              }`}
             >
+              {product.recommended ? (
+                <span className="absolute top-4 right-4 z-10 rounded-full bg-primary text-white text-xs font-bold tracking-wide px-3 py-1 shadow-md">
+                  Recommended
+                </span>
+              ) : null}
               <div className="grid md:grid-cols-2 gap-8 items-center p-10">
                 <div>
                   <div className="flex items-center mb-4">

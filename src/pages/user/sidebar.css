@@ -16,6 +16,8 @@
   position: fixed;
   left: 0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   z-index: 10;
   top: 0;
 }
@@ -90,6 +92,41 @@
   font-size: 31px;
   display: none;
   /* Initially hidden */
+}
+
+.sidebar-support {
+  margin-top: auto;
+  padding: 0 18px 20px 30px;
+}
+
+.sidebar-support-links-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-support-simple-link {
+  text-decoration: none;
+  color: #5b6482;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.sidebar-support-simple-link:hover {
+  color: #1e3351;
+}
+
+.sidebar-support-compact {
+  padding: 0 10px 16px 10px;
+}
+
+.sidebar-support-compact .sidebar-support-links-simple {
+  align-items: center;
+}
+
+.sidebar-support-compact .sidebar-support-simple-link {
+  font-size: 12px;
 }
 
 /* Dashboard Container */
@@ -196,5 +233,9 @@
   /* Show toggle button (bars icon) */
   .toggle-button {
     display: block;
+  }
+
+  .sidebar-support {
+    padding: 0 14px 16px 20px;
   }
 }

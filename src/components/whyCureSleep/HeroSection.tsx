@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-32">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-            Why RestoraSleep
+            Why CureSleep
           </h1>
           <p className="text-2xl md:text-3xl font-semibold text-white max-w-3xl mx-auto drop-shadow-md">
             Because Better Sleep Changes Everything

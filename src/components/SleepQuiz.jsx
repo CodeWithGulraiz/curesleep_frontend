@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/images/logo-w.png";
 import ProgressBar from "./ProgressBar";
 import { ArrowRightCircle } from "lucide-react";
 const SleepQuiz = () => {
@@ -23,7 +22,7 @@ const SleepQuiz = () => {
               to={"/"}
               className="inline-flex items-center justify-center mb-4"
             >
-              <img className="page-logo" src={Logo} alt="" />
+              <img className="page-logo" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
             </Link>
             <ProgressBar currentStep={0} />
           </div>
@@ -34,7 +33,7 @@ const SleepQuiz = () => {
         </h2>
         {/* Description */}
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto">
-          RestoraSleep solutions is a virtual sleep clinic. Take our one-minute
+          CureSleep Solutions is a virtual sleep clinic. Take our one-minute
           sleep quiz, which will help us determine your risk of Obstructive
           Sleep Apnea (OSA) and recommend the best next step. If home sleep
           testing is recommended, you can get started right away.

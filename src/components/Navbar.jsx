@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/images/logo.png";
 import { toast } from "react-toastify";
 import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
+import { apiUrl } from "../utils/apiBase";
 import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {
@@ -13,6 +13,7 @@ const Navbar = () => {
   const { cart } = useCart();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isWhyOpen, setIsWhyOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
@@ -23,7 +24,9 @@ const Navbar = () => {
     try {
       // Send POST request to the server to log out
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/logout`
+        apiUrl("/api/v1/auth/logout"),
+        {},
+        { withCredentials: true }
       );
 
       if (res.data.success) {
@@ -53,7 +56,7 @@ const Navbar = () => {
       <div className={`navbarr `}>
         <div className="navbar-logo">
           <Link to={`/`}>
-            <img className="logo" src={Logo} alt="logo" />
+            <img className="logo" src="/curesleep-logo.png" alt="CureSleep Solutions" />
           </Link>
         </div>
 
@@ -68,9 +71,57 @@ const Navbar = () => {
           <Link className="nav-link " to="/">
             Home
           </Link>
-          <Link className="nav-link " to="/about">
-            About us
-          </Link>
+          <div
+            className="relative"
+            onMouseEnter={() => setIsWhyOpen(true)}
+            onMouseLeave={() => setIsWhyOpen(false)}
+          >
+              <div className="flex items-center justify-between gap-2 nav-link">
+              <span className="flex items-center gap-2">Why CureSleep</span>
+
+              <button
+                type="button"
+                aria-label="Toggle Why CureSleep menu"
+                className="p-0.5"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsWhyOpen((v) => !v);
+                }}
+              >
+                <ChevronDown
+                  className={`w-5 h-5 transition-transform ${
+                    isWhyOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            {isWhyOpen && (
+              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-56 py-2 border border-gray-100 z-50">
+                <Link
+                  className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                  to="/whycuresleep"
+                  onClick={() => {
+                    setIsWhyOpen(false);
+                    closeMenu();
+                  }}
+                >
+                  About us
+                </Link>
+                <Link
+                  className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                  to="/ourteam"
+                  onClick={() => {
+                    setIsWhyOpen(false);
+                    closeMenu();
+                  }}
+                >
+                  Our Team
+                </Link>
+              </div>
+            )}
+          </div>
           <Link className="nav-link " to="/contact">
             Contact Us
           </Link>
@@ -133,9 +184,17 @@ const Navbar = () => {
 
           {!auth?.user ? (
             <>
-              <Link className="login-btn" to="/login">
-                Login
-              </Link>
+              <div className="flex flex-col items-end">
+                <Link className="login-btn" to="/register">
+                  Create an account
+                </Link>
+                <p className="text-[11px] mt-1 text-gray-600">
+                  Already have an account?{" "}
+                  <Link className="text-blue-600 hover:underline" to="/login">
+                    login
+                  </Link>
+                </p>
+              </div>
             </>
           ) : (
             <>

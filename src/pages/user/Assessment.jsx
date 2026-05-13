@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IoArrowBack, IoClose } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/images/logo-w.png";
-import Product from "../../assets/images/ensoData.jpg";
-import Product2 from "../../assets/images/sleepImage4.png";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ThankYouPage from "../../components/ThankYouPage";
-const Assessment = () => {
+import { apiUrl } from "../../utils/apiBase";
+import { FEATURED_TESTING_PRODUCTS } from "../../data/testingProducts";
+const Assessment = ({ registerOnly = false, loggedInQuiz = false }) => {
+  const navigate = useNavigate();
   const isManualNavigation = useRef(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
@@ -30,7 +30,7 @@ const Assessment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [showPersonalDetails, setShowPersonalDetails] = useState(false);
+  const [showPersonalDetails, setShowPersonalDetails] = useState(registerOnly);
   const [personalDetails, setPersonalDetails] = useState({
     firstName: "",
     lastName: "",
@@ -42,6 +42,41 @@ const Assessment = () => {
     mobile: "",
     privacyPolicy: false,
   });
+
+  const dashboardPath = "/dashboard/user";
+
+  useEffect(() => {
+    if (!loggedInQuiz) return;
+    const token = localStorage.getItem("token");
+    const userStr = localStorage.getItem("auth");
+    if (!token || !userStr) {
+      navigate("/login", { replace: true });
+      return;
+    }
+    let userId;
+    try {
+      userId = JSON.parse(userStr)?.user?._id;
+    } catch {
+      navigate("/login", { replace: true });
+      return;
+    }
+    if (!userId) return;
+
+    const checkExisting = async () => {
+      try {
+        const { data } = await axios.get(
+          apiUrl(`/api/v1/user/get-quiz/${userId}`),
+          { headers: { Authorization: `Bearer ${token}` } },
+        );
+        if (data?.success) {
+          navigate(dashboardPath, { replace: true });
+        }
+      } catch {
+        // No quiz yet — stay on assessment
+      }
+    };
+    checkExisting();
+  }, [loggedInQuiz, navigate]);
 
   const questions = [
     {
@@ -223,8 +258,33 @@ const Assessment = () => {
     }
   };
 
+  const submitLoggedInQuiz = async () => {
+    setCompleted(true);
+    setIsLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      await axios.post(
+        apiUrl("/api/v1/user/submit-quiz"),
+        answers,
+        { headers: { Authorization: `Bearer ${token}` } },
+      );
+      navigate(dashboardPath, { replace: true });
+    } catch (error) {
+      const msg =
+        error.response?.data?.message ||
+        "Could not save your assessment. Please try again.";
+      alert(msg);
+      setCompleted(false);
+      setIsLoading(false);
+    }
+  };
+
   const handleSubmit = () => {
     console.log("Quiz answers:", answers);
+    if (loggedInQuiz) {
+      submitLoggedInQuiz();
+      return;
+    }
     setCompleted(true);
     setIsLoading(true);
 
@@ -257,7 +317,7 @@ const Assessment = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/register`,
+        apiUrl("/api/v1/auth/register"),
         {
           personalDetails,
           answers,
@@ -597,11 +657,11 @@ const Assessment = () => {
             </button>
             <div className="flex items-center justify-center">
               <Link to={"/"}>
-                <img className="page-logo" src={Logo} alt="" />
+                <img className="page-logo" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
               </Link>
             </div>
             <Link
-              to={"/take-quiz"}
+              to={loggedInQuiz ? dashboardPath : "/take-quiz"}
               className="text-white hover:text-gray-300 transition-colors flex items-center space-x-2"
             >
               <span className="text-sm font-medium">EXIT</span>
@@ -614,10 +674,12 @@ const Assessment = () => {
               <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-green-500 border-solid mx-auto"></div>
               <div>
                 <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
-                  Computing Risk
+                  {loggedInQuiz ? "Saving your assessment" : "Computing Risk"}
                 </h2>
                 <p className="text-gray-300 text-lg">
-                  Taking a look at risk factors...
+                  {loggedInQuiz
+                    ? "Storing your responses securely..."
+                    : "Taking a look at risk factors..."}
                 </p>
               </div>
             </div>
@@ -633,7 +695,7 @@ const Assessment = () => {
           <div className={`space-y-6 transform transition-all duration-1000`}>
             <div className="flex items-center justify-center py-5">
               <Link to={"/"}>
-                <img className="page-logo filter" src={Logo} alt="" />
+                <img className="page-logo filter" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
               </Link>
             </div>
           </div>
@@ -863,6 +925,7 @@ const Assessment = () => {
     // Results Screen (unchanged)
     if (completed && showResults) {
       const riskFactors = getRiskFactors(answers);
+      const recommendedProducts = FEATURED_TESTING_PRODUCTS;
       return (
         <div className="bg-slate-800 min-h-screen relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
@@ -882,7 +945,7 @@ const Assessment = () => {
               >
                 <div className="flex items-center justify-center">
                   <Link to={"/"}>
-                    <img className="page-logo filter" src={Logo} alt="" />
+                    <img className="page-logo filter" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
                   </Link>
                 </div>
 
@@ -924,27 +987,27 @@ const Assessment = () => {
                 <div className="bg-slate-900/40 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-10 shadow-2xl">
                   <div className="space-y-8">
                     <div className="flex justify-center">
-                      <div className="relative flex gap-5">
-                        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
-                          <h3 className="text-white text-xl">Option 1 (Enso Data)</h3>
-                          <Link to={`/category/testing/ensoData/details/`}>
-                            <img
-                              src={Product}
-                              alt="Product"
-                              className="rounded-xl h-[350px] cursor-pointer"
-                            />
-                          </Link>
-                        </div>
-                        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl w-1/2">
-                          <h4 className="text-white text-xl">Option 2 (Sleep Ring)</h4>
-                          <Link to={`/category/testing/sleepRing/details/`} >
-                            <img
-                              src={Product2}
-                              alt="Product 2"
-                              className="rounded-xl h-[350px] bg-cover cursor-pointer"
-                            />
-                          </Link>
-                        </div>
+                      <div className="relative grid md:grid-cols-2 gap-5 w-full">
+                        {recommendedProducts.map((product, index) => (
+                          <div
+                            key={product.id}
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-600/30 shadow-xl"
+                          >
+                            <h3 className="text-white text-xl mb-4">
+                              Option {index + 1} ({product.name})
+                            </h3>
+                            <Link to={`/category/testing/${product.id}/details/`}>
+                              <img
+                                src={product.image}
+                                alt={product.name}
+                                className="rounded-xl h-[350px] w-full object-cover cursor-pointer"
+                              />
+                            </Link>
+                            <p className="text-slate-300 mt-4 text-sm leading-relaxed">
+                              {product.description}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
@@ -981,11 +1044,11 @@ const Assessment = () => {
           </button>
 
           <div className="flex items-center justify-center">
-            <img className="page-logo" src={Logo} alt="" />
+            <img className="page-logo" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
           </div>
 
           <Link
-            to={"/take-quiz"}
+            to={loggedInQuiz ? dashboardPath : "/take-quiz"}
             className="text-white hover:text-green-300 transition-colors flex items-center space-x-2 transform hover:scale-110 duration-300"
           >
             <span className="text-sm font-medium">EXIT</span>

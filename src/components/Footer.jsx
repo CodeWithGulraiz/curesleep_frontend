@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/images/logo-w.png";
 
 const Footer = () => {
   return (
@@ -8,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Section */}
           <div className="col-span-1">
-            <img className="h-12 w-auto" src={Logo} alt="logo" />
+            <img className="h-12 w-auto" src="/curesleep-logo-white.png" alt="CureSleep Solutions" />
           </div>
 
           {/* Quick Links */}

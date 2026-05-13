@@ -1,5 +1,9 @@
-// Frontend API Service for Products
-const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:8080/api';
+import { getApiOrigin } from "../utils/apiBase";
+
+// Frontend API Service for Products (`/api/products` on the backend)
+const API_BASE_URL =
+  import.meta.env.VITE_APP_API_URL ||
+  (getApiOrigin() ? `${getApiOrigin()}/api` : "/api");
 
 class ProductService {
   // Get all products with optional filters
@@ -8,7 +12,7 @@ class ProductService {
       const queryParams = new URLSearchParams();
       
       if (filters.category) queryParams.append('category', filters.category);
-      if (filters.featured) queryParams.append('featured', 'true');
+      if (filters.recommended) queryParams.append('recommended', 'true');
 
       const url = `${API_BASE_URL}/products${queryParams.toString() ? `?${queryParams}` : ''}`;
       

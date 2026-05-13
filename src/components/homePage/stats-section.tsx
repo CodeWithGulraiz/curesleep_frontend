@@ -2,7 +2,7 @@
 
 import { ExternalLink } from "lucide-react"
 
-const stats = [
+export const homePageSleepStats = [
   {
     id: 1,
     percentage: "30%",
@@ -28,14 +28,14 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-20 md:py-32 px-4 md:px-8 bg-muted/30">
+    <section className="px-4 py-20 md:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Sleep Apnea Is Widespread—and Often Undiagnosed</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {stats.map((stat) => (
+          {homePageSleepStats.map((stat) => (
             <div
               key={stat.id}
               className="bg-card border-2 border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl"

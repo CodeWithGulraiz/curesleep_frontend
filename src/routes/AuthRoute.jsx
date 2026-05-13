@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { clearSession, isSessionValid } from "../utils/authSession";
 
 // Simple black loader component
 const Loader = () => (
@@ -35,10 +36,8 @@ const AuthRedirect = ({ to }) => {
 };
 
 const PrivateRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
-  const authData = localStorage.getItem("auth");
-
-  if (!token || !authData) {
+  if (!isSessionValid()) {
+    clearSession();
     return <AuthRedirect to="/" />;
   }
 
@@ -47,10 +46,7 @@ const PrivateRoute = ({ children }) => {
 
 // Blocks auth pages if already logged in
 const PublicRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
-  const authData = localStorage.getItem("auth");
-
-  if (token && authData) {
+  if (isSessionValid()) {
     return <AuthRedirect to="/dashboard/user" />;
   }
 

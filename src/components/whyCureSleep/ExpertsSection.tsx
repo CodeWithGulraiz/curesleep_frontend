@@ -86,7 +86,7 @@ export default function ExpertsSection() {
 
         {/* Desktop: Grid Layout */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experts.map((expert, index) => {
+          {experts.map((expert) => {
             const ExpertIcon = expert.icon
             return (
               <div

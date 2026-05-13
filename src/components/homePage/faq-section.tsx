@@ -1,7 +1,7 @@
 "use client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
-const faqs = [
+export const homePageFaqs = [
   {
     id: "1",
     question: "What is a Home Sleep Apnea Test (HSAT)?",
@@ -66,35 +66,59 @@ const faqs = [
     id: "11",
     question: "What happens to my information?",
     answer:
-      "RestoraSleep is PIPEDA-compliant, and we treat all patient information with the highest standards of privacy and security. We do not sell or share your personal or health information. Your quiz responses and test data are kept confidential and are used solely to determine the most appropriate care for you.",
+      "CureSleep is PIPEDA-compliant, and we treat all patient information with the highest standards of privacy and security. We do not sell or share your personal or health information. Your quiz responses and test data are kept confidential and are used solely to determine the most appropriate care for you.",
   },
 ]
 
 export default function FAQSection() {
+  const midpoint = Math.ceil(homePageFaqs.length / 2)
+  const faqsLeft = homePageFaqs.slice(0, midpoint)
+  const faqsRight = homePageFaqs.slice(midpoint)
+
   return (
-    <section id="faqs" className="py-20 md:py-32 px-4 md:px-8 bg-muted/50">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions (HSAT)</h2>
-          <p className="text-lg text-muted-foreground">
-            Find answers to common questions about our testing and treatment process
+    <section id="faqs" className="px-4 py-20 md:px-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Frequently asked questions</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Home sleep testing and treatment—quick answers
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
-          {faqs.map((faq) => (
-            <AccordionItem
-              key={faq.id}
-              value={faq.id}
-              className="bg-card border border-border rounded-lg px-6 data-[state=open]:border-primary/50 transition-colors"
-            >
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary transition-colors py-4">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-4">{faq.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-start">
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqsLeft.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="bg-card border border-border rounded-lg px-4 md:px-6 data-[state=open]:border-primary/50 transition-colors"
+              >
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-foreground hover:text-primary transition-colors py-4">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqsRight.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="bg-card border border-border rounded-lg px-4 md:px-6 data-[state=open]:border-primary/50 transition-colors"
+              >
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-foreground hover:text-primary transition-colors py-4">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   )

@@ -6,12 +6,13 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/auth/ResetPassword";
 import "./App.css";
-// import Register from "./pages/auth/Register";
 import { PrivateRoute, PublicRoute } from "./routes/AuthRoute";
 import Dashboard from "./pages/user/Dashboard";
 import Home from "./pages/home/Home";
+import LegacyHomePage from "./pages/home/LegacyHomePage";
 import SleepQuiz from "./components/SleepQuiz";
-import AboutUs from "./pages/home/About";
+import WhyCureSleep from "./pages/home/WhyCureSleep";
+import OurTeam from "./pages/home/OurTeam";
 import ContactUs from "./pages/home/ContactUs";
 import Services from "./pages/home/Services";
 import SleepApneaExplained from "./pages/home/SleepApneaExplained";
@@ -22,12 +23,16 @@ import ThankYouPage from "./components/ThankYouPage";
 import Diagnoses from "./pages/user/Diagnosis";
 import Treatment from "./pages/user/Treatment";
 import CareTeam from "./pages/user/CareTeam";
+import Results from "./pages/user/Results";
+import DashboardProductDetails from "./pages/user/DashboardProductDetails";
 import Products from "./pages/home/Products";
 import ProductDetails from "./components/ProductDetails";
 import SuccessPage from "./pages/auth/SuccessPage";
 import Categories from "./components/Categories";
 import HNavbar from "./components/HNavbar";
 import Footer from "./components/homePage/footer";
+import { useEffect } from "react";
+import { setupAuthSession } from "./utils/authSession";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -36,7 +41,7 @@ const pageVariants = {
 };
 const AnimatedPage = ({ children }) => {
   const pathName = useLocation();
-  console.log(pathName);
+  const hideGlobalChrome = pathName.pathname === "/";
 
   return (
     <motion
@@ -46,15 +51,19 @@ const AnimatedPage = ({ children }) => {
       exit="exit"
       transition={{ duration: 0.4 }}
     >
-      {!pathName.pathname.startsWith("/dashboard") && <HNavbar />}
+      {!pathName.pathname.startsWith("/dashboard") && !hideGlobalChrome && <HNavbar />}
       {children}
 
-      <Footer />
+      {!pathName.pathname.startsWith("/dashboard") && !hideGlobalChrome && <Footer />}
     </motion>
   );
 };
 const App = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    setupAuthSession();
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
@@ -68,10 +77,34 @@ const App = () => {
           }
         />
         <Route
+          path="/legacy-home"
+          element={
+            <AnimatedPage>
+              <LegacyHomePage />
+            </AnimatedPage>
+          }
+        />
+        <Route
           path="/about"
           element={
             <AnimatedPage>
-              <AboutUs />
+              <WhyCureSleep />
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/whycuresleep"
+          element={
+            <AnimatedPage>
+              <WhyCureSleep />
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/ourteam"
+          element={
+            <AnimatedPage>
+              <OurTeam />
             </AnimatedPage>
           }
         />
@@ -176,17 +209,16 @@ const App = () => {
           }
         />
 
-        {/* <Route
+        <Route
           path="/register"
           element={
             <AnimatedPage>
-              
-            </AnimatedPage>
               <PublicRoute>
-                <Register />
+                <Assessment registerOnly />
               </PublicRoute>
+            </AnimatedPage>
           }
-        /> */}
+        />
         <Route
           path="/forgot-password"
           element={
@@ -198,7 +230,7 @@ const App = () => {
           }
         />
         <Route
-          path="/reset-password-user/:token"
+          path="/reset-password/:token"
           element={
             <AnimatedPage>
               <PublicRoute>
@@ -218,11 +250,41 @@ const App = () => {
           }
         />
         <Route
+          path="/dashboard/user/assessment"
+          element={
+            <AnimatedPage>
+              <PrivateRoute>
+                <Assessment loggedInQuiz />
+              </PrivateRoute>
+            </AnimatedPage>
+          }
+        />
+        <Route
           path="/dashboard/user/diagnosis"
           element={
             <AnimatedPage>
               <PrivateRoute>
                 <Diagnoses />
+              </PrivateRoute>
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/dashboard/user/results"
+          element={
+            <AnimatedPage>
+              <PrivateRoute>
+                <Results />
+              </PrivateRoute>
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/dashboard/user/product/:categoryName/:productId"
+          element={
+            <AnimatedPage>
+              <PrivateRoute>
+                <DashboardProductDetails />
               </PrivateRoute>
             </AnimatedPage>
           }

@@ -1,7 +1,6 @@
 "use client"
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react"
 import { Link } from "react-router-dom"
-import logo from "../../assets/images/logo.png"
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-background to-muted border-t border-border">
@@ -10,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2 font-bold text-lg mb-4">
-             <img src={logo} />
+             <img src="/curesleep-logo.png" alt="CureSleep Solutions" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Professional home sleep testing and virtual treatment across Canada.
@@ -129,7 +128,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-border py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Restora Sleep. All rights reserved.</p>
+            <p>&copy; 2025 CureSleep Solutions. All rights reserved.</p>
             <p className="text-xs mt-3 sm:mt-0">
               Telemedicine across AB, BC, MB, ON by licensed clinicians. PIPEDA/PHIPA compliant.
             </p>

@@ -7,7 +7,7 @@ import snoringImg from "../../assets/snoring.webp";
 import womanSleeping from "../../assets/images/troubleSleeping.jpg";
 import womanMask from "../../assets/images/maskWoman.jpg";
 import { useNavigate } from "react-router-dom";
-const slides = [
+export const heroMarketingSlides = [
   {
     id: "A",
     heading: "At-Home Sleep Apnea Testing & Treatment",
@@ -36,6 +36,7 @@ const slides = [
 
 export default function HeroSlider() {
   const navigate = useNavigate();
+  const slides = heroMarketingSlides;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
 
@@ -45,7 +46,7 @@ export default function HeroSlider() {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [autoPlay]);
+  }, [autoPlay, slides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -116,7 +117,7 @@ export default function HeroSlider() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white"
             >
-              Take Sleep Quiz
+              Take the sleep quiz
             </Button>
             <Button
               onClick={() => {

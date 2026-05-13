@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "react-toastify";
 import { Skeleton } from "@/components/ui/skeleton";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 import "./auth.css";
 import { Link } from "react-router-dom";
 import OtpVerification from "./OtpVerification";
@@ -151,7 +152,7 @@ const Register = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/register`,
+        apiUrl("/api/v1/auth/register"),
         {
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -181,7 +182,7 @@ const Register = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/send-otp-again`,
+        apiUrl("/api/v1/auth/send-otp-again"),
         { email: formData.email }
       );
 
@@ -221,7 +222,7 @@ const Register = () => {
               setLoading(true);
               try {
                 const res = await axios.post(
-                  `${import.meta.env.VITE_API}/api/v1/auth/verify-email`,
+                  apiUrl("/api/v1/auth/verify-email"),
                   { code: otp, email: formData.email }
                 );
                 if (res.data.success) {

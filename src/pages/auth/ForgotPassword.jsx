@@ -1,41 +1,48 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useLoader } from "../../context/LoaderContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
- const { showLoader, hideLoader } = useLoader()
+  const [loading, setLoading] = useState(false);
+  const { showLoader, hideLoader } = useLoader();
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     if (!email.trim()) {
-      toast.error("Username is required");
+      toast.error("Email is required");
       return;
     }
 
-    showLoader()
+    setLoading(true);
+    showLoader();
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/admin/forgot-password-admin`,
-        { email }
+        apiUrl("/api/v1/auth/forgot-password"),
+        { email: email.trim().toLowerCase() }
       );
 
       if (res.data.success) {
-        toast.success("Reset link sent to your email.");
+        toast.success("If an account exists with this email, you will receive a reset link shortly.");
         setEmailSent(true);
       } else {
-        toast.error(res.data.message);
+        toast.error(res.data.message || "An error occurred. Please try again.");
       }
     } catch (error) {
       toast.error(
         error.response?.data?.message || "An error occurred. Please try again."
       );
     } finally {
-      hideLoader()
+      setLoading(false);
+      hideLoader();
     }
   };
 
@@ -58,7 +65,8 @@ const ForgotPassword = () => {
                   </Label>
                   <Input
                     id="email"
-                    type="text"
+                    type="email"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -85,14 +93,14 @@ const ForgotPassword = () => {
             ) : (
               <div className="text-center space-y-6">
                 <p className="text-sm text-black">
-                  A verification link has been sent to your email. Please check
-                  your inbox to reset your password.
+                  If an account exists with that email, we sent a reset link. Check
+                  your inbox and spam folder, then use the link to set a new password.
                 </p>
                 <Button
                   asChild
                   className="w-full bg-black text-white hover:bg-gray-800"
                 >
-                  <Link to="/">Back to Login</Link>
+                  <Link to="/login">Back to Login</Link>
                 </Button>
               </div>
             )}

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 import { FaEye, FaEyeSlash, FaCheck, FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { Button } from "antd";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const ResetPassword = () => {
   const [formData, setFormData] = useState({
@@ -19,8 +22,8 @@ const ResetPassword = () => {
   const passwordValidations = [
     {
       id: "length",
-      message: "Must be at least 15 characters long",
-      isValid: formData.password.length >= 15,
+      message: "Must be at least 8 characters long",
+      isValid: formData.password.length >= 8,
     },
     {
       id: "uppercase",
@@ -66,15 +69,13 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${
-          import.meta.env.VITE_API
-        }/api/v1/admin/reset-password-admin/${token}`,
+        apiUrl(`/api/v1/auth/reset-password/${token}`),
         { password: formData.password }
       );
 
       if (res.data.success) {
         toast.success("Password reset successfully!");
-        navigate("/");
+        navigate("/login");
       } else {
         toast.error(res.data.message || "Something went wrong.");
       }

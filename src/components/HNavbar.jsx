@@ -4,10 +4,10 @@ import { ChevronDown } from "lucide-react";
 import { FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/images/logo.png";
 import { useCart } from "../context/CartContext";
 import axios from "axios";
 import { toast } from "sonner";
+import { apiUrl } from "../utils/apiBase";
 const HNavbar = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
@@ -16,6 +16,7 @@ const HNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isWhyOpen, setIsWhyOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
@@ -23,7 +24,9 @@ const HNavbar = () => {
   const handleLogout = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/logout`
+        apiUrl("/api/v1/auth/logout"),
+        {},
+        { withCredentials: true }
       );
 
       if (res.data.success) {
@@ -61,18 +64,24 @@ const HNavbar = () => {
           : "relative w-full bg-background"
       } transition-all duration-300`}
     >
-      <div className={`flex justify-between items-center px-6 py-4 ${isScrolled ? "max-w-8xl mx-auto" : "max-w-7xl mx-auto"}`}>
-        <Link
-          to="/"
-          className="flex items-center gap-3 hover:opacity-90 transition flex-shrink-0"
-        >
-          <img src={logo} alt="Restora Sleep" className="h-10 w-auto" />
-        </Link>
+      <div className="w-full grid grid-cols-[auto_1fr_auto] items-center px-5 py-4 gap-4">
+        <div className="flex items-center min-w-0">
+          <Link
+            to="/"
+            className="flex items-center gap-3 hover:opacity-90 transition flex-shrink-0"
+          >
+            <img
+              src="/curesleep-logo.png"
+              alt="CureSleep Solutions"
+              className="h-[69.12px] w-auto"
+            />
+          </Link>
+        </div>
         <div
           id="sidemenu"
           className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-2xl transition-transform duration-300 z-40 ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          } md:static md:translate-x-0 md:h-auto md:bg-transparent md:shadow-none md:w-auto md:flex md:items-center md:gap-8`}
+          } md:static md:translate-x-0 md:h-auto md:bg-transparent md:shadow-none md:w-full md:flex md:items-center md:justify-center`}
         >
           <button
             className="absolute top-4 right-4 md:hidden text-black hover:text-primary transition"
@@ -80,7 +89,7 @@ const HNavbar = () => {
           >
             <IoClose className="w-6 h-6" />
           </button>
-          <nav className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-0 pt-12 md:pt-0">
+          <nav className="flex flex-col md:flex-row md:items-center md:justify-center gap-6 p-6 md:p-0 pt-12 md:pt-0">
             <Link
               to="/"
               className={`font-medium transition-colors duration-200 ${
@@ -93,17 +102,63 @@ const HNavbar = () => {
               Home
             </Link>
 
-            <Link
-              to="/about"
-              className={`font-medium transition-colors duration-200 ${
-                isScrolled
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-foreground hover:text-primary"
-              }`}
-              onClick={closeMenu}
+            <div
+              className="relative py-3"
+              onMouseEnter={() => setIsWhyOpen(true)}
+              onMouseLeave={() => setIsWhyOpen(false)}
             >
-              Why Restora Sleep
-            </Link>
+              <div
+                className={`flex items-center gap-2 font-medium transition-colors duration-200 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-primary"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+              <span className="flex items-center gap-2">Why CureSleep</span>
+
+                <button
+                  type="button"
+                aria-label="Toggle Why CureSleep menu"
+                  className="p-0.5"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsWhyOpen((v) => !v);
+                  }}
+                >
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform duration-300 ${
+                      isWhyOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {isWhyOpen && (
+                <div className="absolute left-0 mt-2 bg-white shadow-xl rounded-xl w-56 py-2 border border-gray-200 z-50">
+                  <Link
+                    to="/whycuresleep"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={() => {
+                      setIsWhyOpen(false);
+                      closeMenu();
+                    }}
+                  >
+                  About us
+                  </Link>
+                  <Link
+                    to="/ourteam"
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                    onClick={() => {
+                      setIsWhyOpen(false);
+                      closeMenu();
+                    }}
+                  >
+                    Our Team
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <Link
               to="/sleep-apnea-explained"
@@ -115,6 +170,17 @@ const HNavbar = () => {
               onClick={closeMenu}
             >
               Sleep Apnea Explained
+            </Link>
+            <Link
+              to="#"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-foreground hover:text-primary"
+              }`}
+              onClick={closeMenu}
+            >
+              Articles
             </Link>
 
             {/* <Link
@@ -158,7 +224,7 @@ const HNavbar = () => {
                     Testing Machines
                   </Link>
                   <Link
-                    to="/category/cpap"
+                    to="/category/CPAP"
                     className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
                     onClick={closeMenu}
                   >
@@ -209,21 +275,48 @@ const HNavbar = () => {
                 </div>
               )}
             </div>
-            <Link
-            to="/take-quiz"
-              className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 md:ml-2 ${
-                isScrolled
-                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
-                  : "bg-primary text-white hover:bg-primary/90"
-              }`}
-              onClick={closeMenu}
-            >
-              Check Your Sleep Apnea Risk
-            </Link>
+
+            <div className="md:hidden flex flex-col gap-3 pt-2">
+              <Link
+                to="/take-quiz"
+                className="inline-flex justify-center px-5 py-2 rounded-lg font-semibold bg-primary text-white hover:bg-primary/90 transition-all"
+                onClick={closeMenu}
+              >
+                Take the sleep quiz
+              </Link>
+              {!auth?.user && (
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/register"
+                    className="inline-flex justify-center px-4 py-2 rounded-lg font-semibold bg-primary text-white hover:bg-primary/90 transition-all"
+                    onClick={closeMenu}
+                  >
+                    Create account
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="inline-flex justify-center px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-all"
+                    onClick={closeMenu}
+                  >
+                    Login
+                  </Link>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3 md:gap-4">
+          <Link
+            to="/take-quiz"
+            className={`hidden md:inline-flex px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
+              isScrolled
+                ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
+                : "bg-primary text-white hover:bg-primary/90"
+            }`}
+          >
+            Take the sleep quiz
+          </Link>
           <button
             className="md:hidden p-2 hover:bg-primary/10 rounded-lg transition"
             onClick={openMenu}
@@ -235,16 +328,24 @@ const HNavbar = () => {
             />
           </button>
           {!auth?.user ? (
-            <Link
-              to="/login"
-              className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
-                isScrolled
-                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
-                  : "bg-primary text-white hover:bg-primary/90"
-              }`}
-            >
-              Login
-            </Link>
+            <div className="hidden md:flex md:items-center md:gap-3">
+              <Link
+                to="/register"
+                className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
+                  isScrolled
+                    ? "bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl"
+                    : "bg-primary text-white hover:bg-primary/90"
+                }`}
+              >
+                Create an account
+              </Link>
+              <p className="text-sm text-black whitespace-nowrap">
+                Already have an account?{" "}
+                <Link to="/login" className="text-primary hover:underline">
+                  login
+                </Link>
+              </p>
+            </div>
           ) : (
             <div className="custom-nav-item relative">
               <Link className="cart-btn relative" to="/cart">

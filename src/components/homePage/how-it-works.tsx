@@ -1,42 +1,32 @@
 "use client";
 
+import React from "react";
 import { ArrowRight } from "lucide-react";
 
-const steps = [
+export const howItWorksSteps = [
   {
     number: "1",
-    title: "Fast Online Screen",
+    title: "Take sleep quiz",
     description:
       "Answer a few questions using a clinically validated sleep apnea screener to determine if you qualify for fast, physician-reviewed home testing.",
   },
   {
     number: "2",
-    title: "Single or Multi-Use Sleep Apnea Testing Kit",
+    title: "Test at home",
     description:
-      "After creating an account, we ship a complete home sleep apnea test to your door with easy video/QR-guided setup. Your test includes the device, physician review and interpretation, clear results, and personalized treatment recommendations including a prescription if indicated.",
+      "After creating an account, we ship a complete home sleep apnea testing kit to your door. Follow the easy video/QR-guided setup, sleep in your own bed overnight, and securely upload your data via the app.",
   },
   {
     number: "3",
-    title: "Sleep in your own bed, no lab required",
+    title: "Get results fast",
     description:
-      "Wear the device overnight, sleep normally, and your data is securely uploaded via the app.",
+      "Your study is reviewed and interpreted by a sleep physician, delivering a clear diagnosis, actionable results, and defined next steps.",
   },
   {
     number: "4",
-    title: "Physician diagnosis - Results",
+    title: "Start treatment",
     description:
-      "Your study is reviewed and interpreted by a sleep physician delivering a clean diagnosis, actionable results, and defined next steps.",
-  },
-  {
-    number: "5",
-    title: "Start therapy",
-    description:
-      "Start the right treatment for you - APAP/CPAP or oral applicance - with guided setup virtual mask fitting, and ingoing coaching for better outcomes.",
-  },
-  {
-    number: "6",
-    title: "Personal Coaching Program",
-    description: "You will be assigned a dedicated sleep coach who supports you from teh start of therapy through long-term care. You'll receive real-time insights into your progress, along with personalized tips and recommendations to maximize comfort, adherence, and long-term health benefits.",
+      "Start the right treatment for you (APAP/CPAP or oral appliance) with guided setup and virtual mask fitting, plus ongoing coaching. You’ll be supported from the start through long-term care with personalized tips to maximize comfort, adherence, and outcomes.",
   },
 ];
 
@@ -44,35 +34,38 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="py-20 md:py-32 px-4 md:px-8 bg-background"
+      className="px-4 py-20 md:px-8 bg-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            How Our At-Home Sleep Testing Works
+            How it works
           </h2>
-          <h4 className="text-xl md:text-2xl font-semibold mb-6 text-balance">
-            How Our At-Home Sleep Testing Works
-          </h4>
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-lg font-semibold text-muted-foreground mb-8">
-            <span>Screen</span>
+            <span>Take sleep quiz</span>
             <ArrowRight className="w-5 h-5" />
-            <span>Kit</span>
+            <span>Test at home</span>
             <ArrowRight className="w-5 h-5" />
-            <span>Sleep</span>
+            <span>Get results fast</span>
             <ArrowRight className="w-5 h-5" />
-            <span>Results</span>
+            <span>Start treatment</span>
             <ArrowRight className="w-5 h-5" />
-            <span>Treatment</span>
-            <ArrowRight className="w-5 h-5" />
-            <span>Follow-up</span>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-8">
+          {howItWorksSteps.map((step, index) => (
             <div
               key={index}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+              className={[
+                "group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-lg transition-all duration-300 h-full",
+                // Layout: 3 cols x 2 rows
+                // Row 1: box1 (1 col) + box2 (2 cols)
+                // Row 2: box3 (1 col) + box4 (2 cols)
+                index === 0 ? "md:col-span-1" : "",
+                index === 1 ? "md:col-span-2" : "",
+                index === 2 ? "md:col-span-1" : "",
+                index === 3 ? "md:col-span-2" : "",
+              ].join(" ")}
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
                 {step.number}

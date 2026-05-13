@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CheckCircle, XCircle, Mail, Loader2 } from "lucide-react";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 
 const VerifyEmail = () => {
   const isFetchingToken = useRef();
@@ -16,7 +17,7 @@ const VerifyEmail = () => {
       isFetchingToken.current = true;
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API}/api/v1/auth/verify/${token}`
+          apiUrl(`/api/v1/auth/verify/${token}`)
         );
 
         console.log("API Response:", data);

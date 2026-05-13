@@ -47,7 +47,7 @@ const features = [
   },
 ]
 
-export default function WhyRestoraSleep() {
+export default function WhyCureSleep() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />

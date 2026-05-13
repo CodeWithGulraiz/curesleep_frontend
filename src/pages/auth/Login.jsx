@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 // import { Skeleton } from "../../components/ui/skeleton";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 import "./auth.css"; // Importing the CSS for styling
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
@@ -37,7 +38,7 @@ const Login = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/auth/login`,
+        apiUrl("/api/v1/auth/login"),
         {
           email: formData.email.trim(),
           password: formData.password,
@@ -143,7 +144,7 @@ const Login = () => {
                 )}
               </Button>
               <div className="flex flex-col items-center">
-                <Link to="/take-quiz">Don't have an account ? Register</Link>
+                <Link to="/register">Don't have an account ? Register</Link>
                 <Link to="/forgot-password">Forgot Password ?</Link>
               </div>
             </form>

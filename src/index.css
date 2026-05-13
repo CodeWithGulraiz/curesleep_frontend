@@ -125,41 +125,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette - Purple healthcare theme for Restora Sleep */
-  /* Primary: Professional medical purple */
+  /* RestoraSleep / home revamp: teal primary, blue secondary */
   --background: oklch(0.99 0.005 280);
   --foreground: oklch(0.18 0.03 280);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.03 280);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.03 280);
-  --primary: oklch(0.55 0.22 280);
+  --primary: #4db6b1;
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.62 0.2 285);
+  --secondary: #4a6fa5;
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.96 0.01 280);
   --muted-foreground: oklch(0.55 0.05 280);
-  --accent: oklch(0.62 0.25 280);
-  --accent-foreground: oklch(1 0 0);
+  --accent: color-mix(in srgb, var(--primary) 88%, white);
+  --accent-foreground: oklch(0.18 0.03 280);
   --destructive: oklch(0.62 0.22 29);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.94 0.01 280);
   --input: oklch(0.97 0.005 280);
-  --ring: oklch(0.55 0.22 280);
-  --chart-1: oklch(0.55 0.22 280);
-  --chart-2: oklch(0.62 0.2 285);
+  --ring: #4db6b1;
+  --chart-1: #4db6b1;
+  --chart-2: #4a6fa5;
   --chart-3: oklch(0.58 0.21 275);
   --chart-4: oklch(0.65 0.19 290);
   --chart-5: oklch(0.52 0.23 270);
   --radius: 0.875rem;
   --sidebar: oklch(0.99 0.005 280);
   --sidebar-foreground: oklch(0.18 0.03 280);
-  --sidebar-primary: oklch(0.55 0.22 280);
+  --sidebar-primary: #4db6b1;
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.62 0.2 285);
+  --sidebar-accent: #4a6fa5;
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.94 0.01 280);
-  --sidebar-ring: oklch(0.55 0.22 280);
+  --sidebar-ring: #4db6b1;
 }
 
 .dark {
@@ -169,32 +168,32 @@
   --card-foreground: oklch(0.96 0.01 280);
   --popover: oklch(0.22 0.02 280);
   --popover-foreground: oklch(0.96 0.01 280);
-  --primary: oklch(0.68 0.22 280);
-  --primary-foreground: oklch(0.14 0.02 280);
-  --secondary: oklch(0.72 0.2 285);
-  --secondary-foreground: oklch(0.14 0.02 280);
+  --primary: #6bc9c4;
+  --primary-foreground: oklch(0.14 0.02 200);
+  --secondary: #5a82b8;
+  --secondary-foreground: oklch(0.98 0.01 260);
   --muted: oklch(0.35 0.01 280);
   --muted-foreground: oklch(0.7 0.03 280);
-  --accent: oklch(0.75 0.23 280);
+  --accent: color-mix(in srgb, var(--primary) 75%, white);
   --accent-foreground: oklch(0.14 0.02 280);
   --destructive: oklch(0.62 0.22 29);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.35 0.01 280);
   --input: oklch(0.28 0.01 280);
-  --ring: oklch(0.68 0.22 280);
-  --chart-1: oklch(0.68 0.22 280);
-  --chart-2: oklch(0.72 0.2 285);
+  --ring: #6bc9c4;
+  --chart-1: #6bc9c4;
+  --chart-2: #5a82b8;
   --chart-3: oklch(0.65 0.21 275);
   --chart-4: oklch(0.78 0.19 290);
   --chart-5: oklch(0.62 0.23 270);
   --sidebar: oklch(0.18 0.02 280);
   --sidebar-foreground: oklch(0.96 0.01 280);
-  --sidebar-primary: oklch(0.68 0.22 280);
-  --sidebar-primary-foreground: oklch(0.96 0.01 280);
-  --sidebar-accent: oklch(0.72 0.2 285);
-  --sidebar-accent-foreground: oklch(0.14 0.02 280);
+  --sidebar-primary: #6bc9c4;
+  --sidebar-primary-foreground: oklch(0.14 0.02 200);
+  --sidebar-accent: #5a82b8;
+  --sidebar-accent-foreground: oklch(0.98 0.01 260);
   --sidebar-border: oklch(0.35 0.01 280);
-  --sidebar-ring: oklch(0.68 0.22 280);
+  --sidebar-ring: #6bc9c4;
 }
 
 @theme inline {

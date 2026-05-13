@@ -16,5 +16,12 @@ export default defineConfig({
   },
   server: {
     historyApiFallback: true,
+    // Forward /api to Express so dev can use VITE_API="" and avoid port clashes (Vite vs API both on 8080).
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:8080",
+        changeOrigin: true,
+      },
+    },
   },
 });

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { apiUrl } from "../../utils/apiBase";
 
 export default function SuccessPage() {
   const [session, setSession] = useState(null);
@@ -7,7 +8,7 @@ export default function SuccessPage() {
 
   useEffect(() => {
     if (!sessionId) return;
-    fetch(`http://localhost:8080/api/v1/stripe/checkout-session?sessionId=${sessionId}`)
+    fetch(apiUrl(`/api/v1/stripe/checkout-session?sessionId=${sessionId}`))
       .then(res => res.json())
       .then(setSession)
       .catch(console.error);

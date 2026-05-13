@@ -2,21 +2,55 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import "./sidebar.css";
-import SignLogo from "../../assets/images/logo.png";
-import { FaAngleLeft, FaBars, FaBarsStaggered } from "react-icons/fa6";
+import { FaBars } from "react-icons/fa6";
 import { CiReceipt } from "react-icons/ci";
-import { TbStethoscope } from "react-icons/tb";
 import { RiMedicineBottleLine } from "react-icons/ri";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { BiBookBookmark } from "react-icons/bi";
+import { BiBookBookmark, BiClipboard, BiLineChart } from "react-icons/bi";
+import axios from "axios";
+import { apiUrl } from "../../utils/apiBase";
 
 const UserSidebar = ({ sidebarOpen, toggleSidebar, isSpaceActive }) => {
   const location = useLocation();
   const [activePath, setActivePath] = useState("");
+  const [hasCompletedQuiz, setHasCompletedQuiz] = useState(false);
 
   useEffect(() => {
     setActivePath(location.pathname);
   }, [location]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const userStr = localStorage.getItem("auth");
+    if (!token || !userStr) {
+      setHasCompletedQuiz(false);
+      return;
+    }
+    let userId;
+    try {
+      userId = JSON.parse(userStr)?.user?._id;
+    } catch {
+      setHasCompletedQuiz(false);
+      return;
+    }
+    if (!userId) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        const { data } = await axios.get(
+          apiUrl(`/api/v1/user/get-quiz/${userId}`),
+          { headers: { Authorization: `Bearer ${token}` } },
+        );
+        if (!cancelled) setHasCompletedQuiz(!!data?.success);
+      } catch {
+        if (!cancelled) setHasCompletedQuiz(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [location.pathname]);
 
   return (
     <>
@@ -43,7 +77,7 @@ const UserSidebar = ({ sidebarOpen, toggleSidebar, isSpaceActive }) => {
           <div className="my-2 inc-dec-main">
             <Link to="/">
               {!isSpaceActive && (
-                <img className="user-sidebar-logo" src={SignLogo} alt="logo" />
+                <img className="user-sidebar-logo" src="/curesleep-logo.png" alt="CureSleep Solutions" />
               )}
             </Link>
             {/* <button
@@ -74,29 +108,31 @@ const UserSidebar = ({ sidebarOpen, toggleSidebar, isSpaceActive }) => {
               </Link>
             </li>
 
-            <li
-              className={
-                activePath === "/dashboard/user/diagnosis"
-                  ? "user-active-sidebar"
-                  : ""
-              }
-            >
-              <Link to="/dashboard/user/diagnosis">
-                <TbStethoscope className="me-3" />
-                {!isSpaceActive && "Diagnosis"}
-              </Link>
-            </li>
+            {!hasCompletedQuiz && (
+              <li
+                className={
+                  activePath === "/dashboard/user/assessment"
+                    ? "user-active-sidebar"
+                    : ""
+                }
+              >
+                <Link to="/dashboard/user/assessment">
+                  <BiClipboard className="me-3" />
+                  {!isSpaceActive && "Sleep assessment"}
+                </Link>
+              </li>
+            )}
 
             <li
               className={
-                activePath === "/dashboard/user/treatment"
+                activePath === "/dashboard/user/results"
                   ? "user-active-sidebar"
                   : ""
               }
             >
-              <Link to="/dashboard/user/treatment">
-                <RiMedicineBottleLine className="me-3" />
-                {!isSpaceActive && "Treatment"}
+              <Link to="/dashboard/user/results">
+                <BiLineChart className="me-3" />
+                {!isSpaceActive && "Results"}
               </Link>
             </li>
 
@@ -115,17 +151,52 @@ const UserSidebar = ({ sidebarOpen, toggleSidebar, isSpaceActive }) => {
 
             <li
               className={
+                activePath === "/dashboard/user/treatment"
+                  ? "user-active-sidebar"
+                  : ""
+              }
+            >
+              <Link to="/dashboard/user/treatment">
+                <RiMedicineBottleLine className="me-3" />
+                {!isSpaceActive && "Treatment"}
+              </Link>
+            </li>
+
+            <li
+              className={
                 activePath === "/dashboard/resources"
                   ? "user-active-sidebar"
                   : ""
               }
             >
-              <Link to="/dashboard/resources">
+              <Link to="/sleep-apnea-explained">
                 <BiBookBookmark className="me-3" />
                 {!isSpaceActive && "Resources"}
               </Link>
             </li>
           </ul>
+        </div>
+
+        <div className={`sidebar-support ${isSpaceActive ? "sidebar-support-compact" : ""}`}>
+          <div className="sidebar-support-links-simple">
+            <Link to="/contact" className="sidebar-support-simple-link">
+              {!isSpaceActive ? "Contact Us" : "Contact"}
+            </Link>
+            <Link to="#" className="sidebar-support-simple-link">
+              {!isSpaceActive ? "Privacy" : "Privacy"}
+            </Link>
+            <Link to="#" className="sidebar-support-simple-link">
+              {!isSpaceActive ? "Terms" : "Terms"}
+            </Link>
+            <a
+              href="https://www.hhs.gov/hipaa/index.html"
+              target="_blank"
+              rel="noreferrer"
+              className="sidebar-support-simple-link"
+            >
+              {!isSpaceActive ? "HIPAA Privacy Link" : "HIPAA"}
+            </a>
+          </div>
         </div>
       </nav>
     </>

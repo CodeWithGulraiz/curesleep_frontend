@@ -1,11 +1,5 @@
-import WhyRestoraSleep from "../../components/whyRestoraSleep/WhyRestoraSleep";
+import WhyCureSleep from "./WhyCureSleep";
 
-const AboutUs = () => {
-  return (
-    <>
-      <WhyRestoraSleep />
-    </>
-  );
-};
-
-export default AboutUs;
+export default function AboutUs() {
+  return <WhyCureSleep />;
+}

@@ -10,11 +10,13 @@ import {
   FileText,
   Wind,
   TrendingUp,
-  Skull,
 } from "lucide-react";
 import UserSidebar from "./UserSidebar";
 import UserNav from "./UserNav";
-import DRecom from "../../components/DRecom";
+import DashboardDiagnosisSections from "../../components/DashboardDiagnosisSections";
+import SleepAssessmentPrompt from "../../components/dashboard/SleepAssessmentPrompt";
+import DashboardProductSection from "../../components/dashboard/DashboardProductSection";
+import { apiUrl } from "../../utils/apiBase";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(false);
@@ -72,7 +74,7 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API}/api/v1/user/get-quiz/${userId}`,
+        apiUrl(`/api/v1/user/get-quiz/${userId}`),
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -122,7 +124,6 @@ const Dashboard = () => {
     );
   };
 
-  // Show Skull loader while loading
   if (loading) {
     return (
       <div className="dashboard-container">
@@ -139,40 +140,12 @@ const Dashboard = () => {
         >
           <UserNav />
           <div className="dashboard-content">
-            <div className="min-h-screen pt-2">
-              <div className="space-y-6">
-                {/* Patient Information Card Skull */}
-                <div className="bg-white rounded-sm shadow-lg overflow-hidden">
-                  <div className="user-active-sidebar text-black px-6 py-4">
-                    <Skull className="h-6 w-48" />
-                  </div>
-                  <div className="p-6 bg-gray-50">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="space-y-3">
-                          <Skull className="h-20 w-full" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sleep Assessment Results Skull */}
-                <div className="bg-white rounded-sm shadow-lg overflow-hidden">
-                  <div className="user-active-sidebar text-black px-6 py-4">
-                    <Skull className="h-6 w-64" />
-                  </div>
-                  <div className="p-6 bg-gray-50">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {[...Array(4)].map((_, i) => (
-                        <Skull key={i} className="h-24 w-full" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="min-h-[40vh] pt-2 flex flex-col items-center justify-center gap-4">
+              <div className="animate-spin rounded-full h-12 w-12 border-2 border-gray-200 border-t-green-700" />
+              <p className="text-gray-600 text-sm">
+                Loading your sleep profile…
+              </p>
             </div>
-            <DRecom />
           </div>
         </div>
       </div>
@@ -196,17 +169,11 @@ const Dashboard = () => {
         >
           <UserNav />
           <div className="dashboard-content">
-            {/* Content Wrapper with animations */}
-            <div className="min-h-screen pt-2">
+            <div className={`pt-2 ${quizData ? "min-h-screen" : ""}`}>
               {!quizData ? (
-                <div className="bg-white rounded-sm shadow-lg p-12 text-center opacity-0 animate-fadeIn">
-                  <Moon className="w-16 h-16 text-green-700 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                    No Quiz Data Available
-                  </h4>
-                  <p className="text-gray-600">
-                    Complete the sleep assessment to view your results here.
-                  </p>
+                <div className="flex flex-col gap-10 md:gap-14 w-full opacity-0 animate-fadeIn">
+                  <SleepAssessmentPrompt />
+                  <DashboardProductSection />
                 </div>
               ) : (
                 <div className="space-y-6">
@@ -484,10 +451,10 @@ const Dashboard = () => {
                       </div>
                     </div>
                   )}
+                  <DashboardDiagnosisSections />
                 </div>
               )}
             </div>
-            <DRecom />
           </div>
         </div>
       </div>

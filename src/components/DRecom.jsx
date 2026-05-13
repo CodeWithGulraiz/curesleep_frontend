@@ -1,12 +1,13 @@
 import { Figma, ShoppingCart, Info } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { apiUrl } from "../utils/apiBase";
 import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useLoader } from "../context/LoaderContext";
 
-const DRecom = () => {
+const DRecom = ({ className }) => {
   const { showLoader, hideLoader , isLoading } = useLoader();
   const [chips, setChips] = useState([]);
   const { cart, setCart } = useCart();
@@ -15,7 +16,7 @@ const DRecom = () => {
     showLoader()
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API}/api/v1/chips/get-all-chips`
+        apiUrl("/api/v1/chips/get-all-chips")
       );
       if (data?.success) {
         setChips(data?.chips || []);
@@ -47,7 +48,7 @@ const DRecom = () => {
 
   return (
     <div
-      className="bg-white rounded-sm shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl opacity-0 animate-fadeIn mt-5"
+      className={`bg-white rounded-sm shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl opacity-0 animate-fadeIn ${className ?? "mt-5"}`}
       style={{ animationDelay: "0.5s" }}
     >
       <div className="user-active-sidebar text-black px-6 py-4 flex items-center gap-3">
@@ -93,10 +94,10 @@ const DRecom = () => {
                     Add to Cart
                   </button>
                   <Link
-                    to={`/products/${
+                    to={`/category/testing/${
                       chip.title.toLowerCase().includes("gem")
-                        ? "sleepImageRing"
-                        : "watchpad"
+                        ? "sleepRing"
+                        : "ensoData"
                     }/details`}
                     className="w-full bg-slate-700 hover:bg-slate-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
                   >
